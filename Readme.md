@@ -9,7 +9,7 @@ CartoDB is a geospatial database on the cloud that allows for the storage and vi
 * For more advance integrations of CartoDB maps on your website or application, use [Cartodb.js][cartodb_js]
 
 
-Main reasons to use CartoDB
+Reasons to use CartoDB
 --------------
 
 #### Secure data storage
