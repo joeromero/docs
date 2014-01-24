@@ -172,6 +172,7 @@ a:hover {
 .content ul > li {
   list-style-type: none;
   position: relative;
+  width: 96%;
 }
 .content ul > li:before {
   content: '';
