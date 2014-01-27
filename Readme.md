@@ -8,7 +8,6 @@ CartoDB is a geospatial database on the cloud that allows for the storage and vi
 * For more advance integrations of CartoDB maps on your website or application, use [Cartodb.js][cartodb_js]
 
 
-<<<<<<< HEAD
 * Main reasons to use CartoDB
   * **Secure data storage**
 We provide secure and safe storage of your data. In all accounts, your data is yours to write and modify (take a look at authentication for further info). In all subscription level accounts, we also provide the ability to host private tables, where you will be the only person able to read the data. On top of read and write security, CartoDB offers data backup services at every level of hosting. That means your data will be there every time you log-in, no question.
@@ -23,14 +22,14 @@ The team behind CartoDB have a strong commitment to Open Source. Even before the
 
 So why use our service? With CartoDB comes a cadre of information technology specialists and developers that help keep your data running, secure, and available in the cloud. We also offer seamless account upgrades and always keep your data hosted on the latest CartoDB release.
 
-> [test button >][cartodb_login]
+<!-- > [test button >][cartodb_login]
 
 
 [cartodb_login]: http://cartodb.com/login
 [sql_api]: #sql_api
 [cartodb_js]: #cartodb_js
 
-
+ -->
 
 
 

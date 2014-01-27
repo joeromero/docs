@@ -172,7 +172,6 @@ a:hover {
 .content ul > li {
   list-style-type: none;
   position: relative;
-  width: 96%;
 }
 .content ul > li:before {
   content: '';
@@ -204,7 +203,7 @@ a:hover {
 }
 .content code {
   font-family: Menlo, monospace;
-  background: #333;
+  background: #f3f6fb;
   padding: 1px 3px;
   font-size: 0.95em;
 }
@@ -287,14 +286,14 @@ body.big-h3 .content h3 {
 body.big-h3 .content h3:before {
   display: block;
   content: '';
-  background: -webkit-gradient(linear, left top, right top, color-stop(0.5, rgba(223,226,231,0)), color-stop(1, rgba(223,226,231,0)));
-  background: -webkit-linear-gradient(left, rgba(223,226,231,0.8) 50%, rgba(223,226,231,0) 100%);
-  background: -moz-linear-gradient(left, rgba(223,226,231,0.8) 50%, rgba(223,226,231,0) 100%);
-  background: -o-linear-gradient(left, rgba(223,226,231,0.8) 50%, rgba(223,226,231,0) 100%);
-  background: -ms-linear-gradient(left, rgba(223,226,231,0.8) 50%, rgba(223,226,231,0) 100%);
-  background: linear-gradient(left, rgba(223,226,231,0.8) 50%, rgba(223,226,231,0) 100%);
-  /*-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4);*/
-  /*box-shadow: 0 1px 0 rgba(255,255,255,0.4);*/
+  background: -webkit-gradient(linear, left top, right top, color-stop(0.8, #dfe2e7), color-stop(1, rgba(223,226,231,0)));
+  background: -webkit-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
+  background: -moz-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
+  background: -o-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
+  background: -ms-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
+  background: linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4);
   height: 1px;
   position: relative;
   top: -40px;
@@ -362,7 +361,7 @@ body:not(.big-h3) .content h3 {
   }
 }
 body.no-literate .content pre > code {
-  background: #333;
+  background: #f3f6fb;
   border: solid 1px #e7eaee;
   border-top: solid 1px #dbdde2;
   border-left: solid 1px #e2e5e9;
@@ -383,7 +382,7 @@ body.no-literate .content pre > code::-webkit-scrollbar-thumb {
   background: #ddd;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  border: solid 4px #333;
+  border: solid 4px #f3f6fb;
 }
 body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   background: #999;
@@ -392,7 +391,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 }
 @media (max-width: 1180px) /* Small desktop */ {
   .content pre > code {
-    background: #333;
+    background: #f3f6fb;
     border: solid 1px #e7eaee;
     border-top: solid 1px #dbdde2;
     border-left: solid 1px #e2e5e9;
@@ -413,7 +412,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     background: #ddd;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-    border: solid 4px #333;
+    border: solid 4px #f3f6fb;
   }
   .content pre > code:hover::-webkit-scrollbar-thumb {
     background: #999;
@@ -441,8 +440,8 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   text-shadow: none;
 }
 .button:hover {
-  border-color: #0F8ADB;
-  background: #0F8ADB;
+  border-color: #1C4262;
+  background: #1C4262;
   color: #fff;
 }
 .button.light,
@@ -462,9 +461,9 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 }
 @media (min-width: 1180px) /* Big desktop */ {
   body:not(.no-literate) .content-root {
-    background-color: #333;
-    -webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #111, inset 790px 0 5px -10px rgba(0,0,0,0.1);
-    box-shadow: inset 780px 0 #fff, inset 781px 0 #111, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    background-color: #f3f6fb;
+    -webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
   }
 }
 @media (min-width: 1180px) /* Big desktop */ {
@@ -830,4 +829,3 @@ code .comment {
   position: relative;
   z-index: 1;
 }
-
