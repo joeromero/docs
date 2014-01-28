@@ -534,7 +534,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   body:not(.no-literate) .content > h5,
   body:not(.no-literate) .content > .small-heading,
   body:not(.big-h3) body:not(.no-literate) .content > h3 {
-    margin-left: 40px;
+    margin-left: 30px;
     width: 470px;
     margin-bottom: 3px;
     padding-left: 0;
@@ -563,9 +563,17 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 
 .header .logo{
   background: transparent url('../assets/img/cartodb_logo.png') 0 1px no-repeat;
-  display: block;
+  display: inline-block;
   width: 120px;
   height: 22px;
+  padding: 0 0 0 121px;
+
+}
+
+.header .subtitle{
+  margin: 0;
+  padding: 0;
+  line-height: 35px;
 }
 
 .header:before,
@@ -596,6 +604,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   font-family: montserrat, sans-serif;
   font-size: 13px;
 }
+
 .header h1,
 .header h1 a,
 .header h1 a:visited {
@@ -604,10 +613,11 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 .header h1 a:hover {
   color: rgba(0,0,0,0.4);
 }
+.header span.logo,
 .header li a {
   font-size: 15px;
   color: #FFF;
-  display: block;
+  display: inline-block;
 }
 .header li a:hover {
   color: #3a3a44;
