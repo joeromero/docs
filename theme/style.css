@@ -168,6 +168,7 @@ a:hover {
 .content ul,
 .content ol {
   margin-left: 20px;
+  width: 525px;
 }
 .content ul > li {
   list-style-type: none;
@@ -223,6 +224,7 @@ a:hover {
  * Content
  */
 .content-root {
+  padding: 64px 0 0 0;
   min-height: 90%;
   position: relative;
 }
@@ -278,7 +280,7 @@ a:hover {
 .content h2,
 .content .big-heading,
 body.big-h3 .content h3 {
-  padding-top: 80px;
+  padding-top: 60px;
 }
 .content h1:before,
 .content h2:before,
@@ -296,8 +298,8 @@ body.big-h3 .content h3:before {
   box-shadow: 0 1px 0 rgba(255,255,255,0.4);
   height: 1px;
   position: relative;
-  top: -40px;
-  left: -40px;
+  top: -30px;
+  left: -30px;
   width: 100%;
 }
 @media (max-width: 768px) /* Mobile and tablet */ {
@@ -312,7 +314,7 @@ body.big-h3 .content h3 {
   .content .big-heading:before,
 body.big-h3 .content h3:before {
     background: #dfe2e7;
-    left: -40px;
+    left: -30px;
     top: -20px;
     width: 120%;
   }
@@ -462,8 +464,8 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 @media (min-width: 1180px) /* Big desktop */ {
   body:not(.no-literate) .content-root {
     background-color: #f3f6fb;
-    -webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
-    box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 810px 0 #fff, inset 811px 0 #dfe2e7, inset 8200px 0 5px -10px rgba(0,0,0,0.1);
+    box-shadow: inset 810px 0 #fff, inset 811px 0 #dfe2e7, inset 820px 0 5px -10px rgba(0,0,0,0.1);
   }
 }
 @media (min-width: 1180px) /* Big desktop */ {
@@ -488,8 +490,8 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 30px;
+    padding-left: 30px;
   }
   body:not(.no-literate) .content > h1,
   body:not(.no-literate) .content > h2,
@@ -545,16 +547,27 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     padding-left: 0;
     padding-right: 0;
   }
-}
+
+  body:not(.no-literate) .content > ul,
+  body:not(.no-literate) .content > ol{
+    width: 525px;
+  }
 .header {
-  background: #f3f6fb;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-  border-bottom: solid 1px #dfe2e7;
-  padding: 15px 15px 15px 30px;
+  background: #1CA1D8;
+  border-bottom: solid 1px #188CBC;
+  padding: 22px 15px 22px 30px;
   zoom: 1;
   line-height: 20px;
   position: relative;
 }
+
+.header .logo{
+  background: transparent url('../assets/img/cartodb_logo.png') 0 1px no-repeat;
+  display: block;
+  width: 120px;
+  height: 22px;
+}
+
 .header:before,
 .header:after {
   content: "";
@@ -569,8 +582,8 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 .header .right {
   text-align: right;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 60px;
+  top: 23px;
 }
 .header .right iframe {
   display: inline-block;
@@ -586,19 +599,23 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 .header h1,
 .header h1 a,
 .header h1 a:visited {
-  color: #9090aa;
+  color: #FFF;
 }
 .header h1 a:hover {
-  color: #505050;
+  color: rgba(0,0,0,0.4);
 }
 .header li a {
-  font-size: 0.88em;
-  color: #9090aa;
+  font-size: 15px;
+  color: #FFF;
   display: block;
 }
 .header li a:hover {
   color: #3a3a44;
 }
+.header li a.active {
+  color: rgba(0,0,0,0.4);
+}
+
 @media (min-width: 480px) /* Tablet & Desktop */ {
   .header h1 {
     float: left;
@@ -608,22 +625,11 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     display: block;
     float: left;
   }
-  .header ul {
-    margin-left: -15px;
-  }
-  .header h1 + ul {
-    border-left: solid 1px #dfe2e7;
-    margin-left: 15px;
-  }
-  .header li {
-    border-left: solid 1px rgba(255,255,255,0.5);
-    border-right: solid 1px #dfe2e7;
-  }
   .header li:last-child {
     border-right: 0;
   }
   .header li a {
-    padding: 0 15px;
+    padding: 0 15px 0 15px;
   }
 }
 @media (max-width: 480px) /* Mobile */ {
@@ -689,14 +695,14 @@ a.big.button:hover:visited {
 }
 @media (min-width: 768px) /* Desktop */ {
   .content-root {
-    padding-left: 230px;
+    padding-left: 260px;
   }
   .menubar {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 67px;
     bottom: 0;
-    width: 230px;
+    width: 260px;
     border-right: solid 1px #dfe2e7;
   }
   .menubar.fixed {
