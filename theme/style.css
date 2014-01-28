@@ -753,10 +753,11 @@ a.big.button:hover:visited {
   color: #1C4262;
 }
 .menu a.level-1 {
-  font-family: montserrat, sans-serif;
+  font-family: Arial, sans-serif;
   text-transform: uppercase;
-  font-size: 0.9em;
+  font-size: 11px;
   font-weight: bold;
+  margin-bottom: 7px;
 }
 .menu a.level-1,
 .menu a.level-1:visited {
@@ -770,7 +771,7 @@ a.big.button:hover:visited {
 }
 .menu a.level-3 {
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 13px;
   padding-left: 10px;
 }
 .menu a.active {
@@ -796,6 +797,11 @@ a.big.button:hover:visited {
   border-radius: 2px;
   background: #0099ff;
 }
+
+.menu li.level-2{
+  margin-bottom: 7px;
+}
+
 code .string,
 code .number {
   color: #3ac;
