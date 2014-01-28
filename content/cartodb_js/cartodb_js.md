@@ -1066,5 +1066,7 @@ You can do the same for the CSS documents we provide:
 http://libs.cartocdn.com/cartodb.js/v3/3.0.01/themes/css/cartodb.css
 ```
 
+# Code examples
 
+Hola hola
 
