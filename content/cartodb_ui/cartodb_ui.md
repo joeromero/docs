@@ -133,6 +133,8 @@ In this guide we'll show you all features and posibilities from the CartoDB web 
 # Your account
 
 ## Quotas and billing
+## Free trial and upgrading
+## Deleting your account
 
 
 # FAQs
