@@ -15,7 +15,7 @@ In order to modify data or access data in private tables, you will need to authe
 
 For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
 
-### API Key
+## API Key
 
 The API key offers the simplest way to access private data or perform writes and updates to your account. Like OAuth data, be sure not to share your API key with anyone you don't want to give write access to! You can always reset your key in your admin dashboard.
 
@@ -34,7 +34,7 @@ http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&api_key={Your API key}
 
 ```
 
-### OAuth
+## OAuth
 
 OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the excellent [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
@@ -58,7 +58,7 @@ CartoDB is based on the rock solid PostgreSQL database. All your tables are insi
 
 CartoDB is also based on PostGIS, so take a look at the [official PostGIS reference](http://postgis.refractions.net/docs/) to know what functionality we support in terms on geospatial operations. All our tables include a column called the_geom with the geometry field and indexes on them in the EPSG:4326 projection. All tables also have an automatically generated and updated the_geom_webmercator column that we use internally to create tiles for maps as fast as possible.
 
-### URL endpoints
+## URL endpoints
 
 All SQL API request to your CaroDB account use this pattern
 
@@ -97,7 +97,7 @@ RESULT
 Finally, remember that unless you are authenticated your table needs to be public for the SQL API to work.
 
 
-### POST and GET
+## POST and GET
 
 The CartoDB SQL API is setup to handle both GET and POST requests. You can test the GET method directly in your browser. Below is an example of a JQuery SQL API request to a CartoDB.
 
@@ -115,7 +115,7 @@ $.getJSON('http://'+your_account_name+'.cartodb.com/api/v2/sql/?q='+sql_statemen
 
 By default GET requests work from anywhere. In CartoDB, POST requests work from any website as well. We achieve this by hosting a cross domain policy file at the root of all of our servers. This allows you the greatest level of flexibility when developing your application.
 
-### Response formats
+## Response formats
 
 The standard response from the CartoDB SQL API is JSON. If you are building a web-application, the lightweight JSON format allows you to quickly integrate data from the SQL API.
 
@@ -190,7 +190,7 @@ RESULT
 
 The SQL API accepts other output formats that can be useful to export data. Right now you can use the following formats: CSV, SHP, SVG, KML, GeoJSON.
 
-### Getting table information
+## Getting table information
 
 Currently, there is no public method for accessing your table schemas. The simplest way to get table structure is to access the first row of the data,
 
@@ -201,7 +201,7 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT * FROM {table_name} LIMIT 1
 
 ```
 
-### Response errors
+## Response errors
 
 To help you debug your SQL queries, the CartoDB SQL API returns errors as part of the JSON response. Errors come back as follows,
 
@@ -218,7 +218,7 @@ ERRORS
 
 You can use these errors to help understand your SQL, for more complete documentation see the Error codes and Solutions section of this Users Guide.
 
-### Write data to your CartoDB account
+## Write data to your CartoDB account
 
 Perform inserts or updates on your data is simple now using your [API key](#authentication). All you need to do, is supply a correct SQL [INSERT](http://www.postgresql.org/docs/9.1/static/sql-insert.html) or [UPDATE](http://www.postgresql.org/docs/9.1/static/sql-update.html) statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).
 
