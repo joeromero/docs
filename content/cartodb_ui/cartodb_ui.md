@@ -141,6 +141,7 @@ In this guide we'll show you all features and posibilities from the CartoDB web 
 
 ## Supported browsers
 ## What is a map view
+## Academic plans
 
 
 
