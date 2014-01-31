@@ -1,0 +1,144 @@
+# SQL API
+
+The SQL API allows you to interact with your tables and data inside CartoDB like if you were running SQL statements against a normal database. The database behind CartoDB is PostgreSQL so if you need help with specific SQL statements or you want to learn more about it, visit the [official documentation](http://www.postgresql.org/docs/9.1/static/sql.html).
+
+There are two main scenarios where you want to use the SQL API:
+* INSERT/UPDATE/DELETE data. For example to insert a new record with a latitude/longitude.
+* SELECT data from public tables to use on your website or in your app. For example to find the 10 closest records to a particular location.
+
+In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
+
+---------------------------------------
+
+## Authentication
+
+For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
+
+### API Key
+
+The API key offers the simplest way to access private data or perform writes and updates to your account. Like OAuth data, be sure not to share your API key with anyone you don't want to give write access to! You can always reset your key in your admin dashboard.
+
+* Go to your dashboard.
+* In the top right, click Your api keys.
+* On this page you will find your API Key.
+
+To use your API key, pass it as a parameter in an URL call to the CartoDB API. For example, to perform an insert into your table, you would use the following URL structure.
+
+
+### OAuth
+
+OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the excellent [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
+
+But if you want to have things really easy, check out the CartoDB clients below, it will make this process much easier.
+
+Getting keys - For secure access to your application you will need to generate a consumer key in your CartoDB dashboard.
+
+* Go to your dashboard.
+* In the top right, click Your api keys.
+* On this page you will find your Consumer key and Secret.
+
+For various reasons you may feel the need to reset your Consumer key and Secret. Doing so on CartoDB is simple, just go to your API keys page from your dashboard, and click Get new key and secret. This will affect all applications using OAuth for your CartDB application, as your old keys will immediately become invalid.
+
+There are a lot of libraries that helps you to get authenticated via OAuth, take a look at [this list](http://oauth.net/code/) or take a look at the libraries availables for integrating cartodb with several programming languages.
+
+---------------------------------------
+
+## Making calls to the SQL API
+
+CartoDB is based on the rock solid PostgreSQL database. All your tables are inside a single database which means you can perform complex queries joining tables or performing complicated geospatial operations. The best place to learn about PostgreSQL SQL language is the [official documentation](http://www.postgresql.org/docs/9.1/static/).
+
+CartoDB is also based on PostGIS, so take a look at the [official PostGIS reference](http://postgis.refractions.net/docs/) to know what functionality we support in terms on geospatial operations. All our tables include a column called the_geom with the geometry field and indexes on them in the EPSG:4326 projection. All tables also have an automatically generated and updated the_geom_webmercator column that we use internally to create tiles for maps as fast as possible.
+
+### URL endpoints
+
+All SQL API request to your CaroDB account use this pattern
+
+Be sure you account name is right and that your SQL statement is valid. A good test is a simple count of all the records in a table,
+
+Finally, remember that unless you are authenticated your table needs to be public for the SQL API to work.
+
+
+### POST and GET
+
+The CartoDB SQL API is setup to handle both GET and POST requests. You can test the GET method directly in your browser. Below is an example of a JQuery SQL API request to a CartoDB.
+
+By default GET requests work from anywhere. In CartoDB, POST requests work from any website as well. We achieve this by hosting a cross domain policy file at the root of all of our servers. This allows you the greatest level of flexibility when developing your application.
+
+### Response formats
+
+The standard response from the CartoDB SQL API is JSON. If you are building a web-application, the lightweight JSON format allows you to quickly integrate data from the SQL API.
+
+Alternatively, you can use the [GeoJSON specification](http://www.geojson.org/geojson-spec.html) for returning data from the API. To do so, simply supply the format parameter as GeoJSON:
+
+The SQL API accepts other output formats that can be useful to export data. Right now you can use the following formats: CSV, SHP, SVG, KML, GeoJSON.
+
+### Getting table information
+
+Currently, there is no public method for accessing your table schemas. The simplest way to get table structure is to access the first row of the data,
+
+### Response errors
+
+To help you debug your SQL queries, the CartoDB SQL API returns errors as part of the JSON response. Errors come back as follows,
+
+You can use these errors to help understand your SQL, for more complete documentation see the Error codes and Solutions section of this Users Guide.
+
+### Write data to your CartoDB account
+
+Perform inserts or updates on your data is simple now using your API key. All you need to do, is supply a correct SQL [INSERT](http://www.postgresql.org/docs/9.1/static/sql-insert.html) or [UPDATE](http://www.postgresql.org/docs/9.1/static/sql-update.html) statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).
+
+Updates are just as simple. Here is an example, updating a row based on the value of the cartodb_id column.
+
+---------------------------------------
+ 
+ ## Handling geospatial data
+
+Handling geospatial data through the SQL API is easy! By default, the_geom is returned straight from the database, in a format called Well-Known Binary. There are a handful of ways you can transform you geometries into more useful formats.
+
+
+The first, is to use the format=GeoJSON method described above. Others can be handled through your SQL statements directly. For example, enclosing your the_geom in a function called [ST_AsGeoJSON](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) will allow you to use JSON for you data but a GeoJSON string for your geometry column only. Alternatively, using a the [ST_AsText](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) function will return your geometry as Well-Known Text.
+
+
+More advanced methods exist in the PostGIS library to extract meaningful data from your geometry. Explore the PostGIS documentation and get familiar with functions such as, [ST_XMin](http://www.postgis.org/docs/ST_XMin.html), [ST_XMax](http://www.postgis.org/docs/ST_XMax.html), [ST_AsText](http://www.postgis.org/docs/ST_AsText.html), etc.
+
+All data returned from the_geom column is in WGS 83 (EPSG:4326). You can change this quickly and easily on the fly using SQL. For example, if you desire geometries in the Hanoi 1972 (EPSG:4147) projection, you could [ST_Transform](http://www.postgis.org/docs/ST_Transform.html),
+
+CartoDB also stores a second geometry column, the_geom_webmercator. We use this internally to build your map tiles as fast as we can. In the user-interface it is hidden, but it is visible and available for use. In this column we store a reprojected version of all your geometries using Web Mercator (EPSG:3857).
+
+---------------------------------------
+
+## Query optimizations
+
+There are some tricks to consider when using the SQL API that might make your application a little faster.
+
+* Only request the fields you need. Selecting all columns will return a full version of your geometry in the_geom as well as a reprojected version in the_geom_webmercator.
+
+* Use PostGIS functions to simplify and filter out unneeded geometries when possible. One very handy function is, [ST_Simplify](http://www.postgis.org/docs/ST_Simplify.html).
+
+* Remember to build indexes that will speed up some of your more common queries.
+
+* Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
+
+---------------------------------------
+
+## Libraries in different languages
+
+To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
+
+* RUBY
+ The Ruby library is our most mature CartoDB client and is being used in CartoSet. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-rb-client)
+* R
+ To help more researchers use CartoDB to drive their geospatial data, we have released the R client library. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-r)
+* NODE.js
+ This demo app authenticates with your CartoDB over OAuth/XAuth and shows how to perform read and write queries using the SQL API. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-nodejs)
+* PHP
+ The PHP library handles basic OAuth and provides a wrapper around the SQL API to get PHP objects straight from SQL calls to CartoDB. [Fork it on GitHub!](https://github.com/Vizzuality/cartodbclient-php)
+* PYTHON
+ Currently experimental, but serves as a good guide for those looking to get started. [Fork it on GitHub!](https://github.com/vizzuality/cartodb-python)
+* JAVA
+ Very basic example of how to access CartoDB SQL API using OAuth. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-java-client)
+* NET
+ .NET library for authenticating with CartoDB using OAuth based on work started by [The Data Republic](http://www.thedatarepublic.com/). [Fork it on GitHub!](https://github.com/thedatarepublic/CartoDBClientDotNET)
+* Clojure
+ Clojure library for authenticating with CartoDB using OAuth, maintained by [REDD Metrics](http://www.reddmetrics.com/). [Fork it on GitHub!](https://github.com/reddmetrics/cartodb-clj)
+* iOS
+ Objective-C library for interacting with CartoDB in native iOS applications. [Fork it on GitHub!](https://github.com/jmnavarro/cartodb-objectivec-client)
