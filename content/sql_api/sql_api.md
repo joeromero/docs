@@ -8,7 +8,8 @@ There are two main scenarios where you want to use the SQL API:
 
 In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
 
----------------------------------------
+* * *
+
 
 ## Authentication
 
@@ -41,7 +42,8 @@ For various reasons you may feel the need to reset your Consumer key and Secret.
 
 There are a lot of libraries that helps you to get authenticated via OAuth, take a look at [this list](http://oauth.net/code/) or take a look at the libraries availables for integrating cartodb with several programming languages.
 
----------------------------------------
+* * *
+
 
 ## Making calls to the SQL API
 
@@ -88,7 +90,7 @@ Perform inserts or updates on your data is simple now using your API key. All yo
 
 Updates are just as simple. Here is an example, updating a row based on the value of the cartodb_id column.
 
----------------------------------------
+* * *
  
  ## Handling geospatial data
 
@@ -104,7 +106,7 @@ All data returned from the_geom column is in WGS 83 (EPSG:4326). You can change 
 
 CartoDB also stores a second geometry column, the_geom_webmercator. We use this internally to build your map tiles as fast as we can. In the user-interface it is hidden, but it is visible and available for use. In this column we store a reprojected version of all your geometries using Web Mercator (EPSG:3857).
 
----------------------------------------
+* * *
 
 ## Query optimizations
 
@@ -118,27 +120,36 @@ There are some tricks to consider when using the SQL API that might make your ap
 
 * Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
 
----------------------------------------
+* * *
 
 ## Libraries in different languages
 
 To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
 
-* RUBY
+* **RUBY**
+
  The Ruby library is our most mature CartoDB client and is being used in CartoSet. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-rb-client)
-* R
+* **R**
+
  To help more researchers use CartoDB to drive their geospatial data, we have released the R client library. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-r)
-* NODE.js
+* **NODE.js**
+
  This demo app authenticates with your CartoDB over OAuth/XAuth and shows how to perform read and write queries using the SQL API. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-nodejs)
-* PHP
+* **PHP**
+
  The PHP library handles basic OAuth and provides a wrapper around the SQL API to get PHP objects straight from SQL calls to CartoDB. [Fork it on GitHub!](https://github.com/Vizzuality/cartodbclient-php)
-* PYTHON
+* **PYTHON**
+
  Currently experimental, but serves as a good guide for those looking to get started. [Fork it on GitHub!](https://github.com/vizzuality/cartodb-python)
-* JAVA
+* **JAVA**
+
  Very basic example of how to access CartoDB SQL API using OAuth. [Fork it on GitHub!](https://github.com/Vizzuality/cartodb-java-client)
-* NET
+* **NET**
+
  .NET library for authenticating with CartoDB using OAuth based on work started by [The Data Republic](http://www.thedatarepublic.com/). [Fork it on GitHub!](https://github.com/thedatarepublic/CartoDBClientDotNET)
-* Clojure
+* **Clojure**
+
  Clojure library for authenticating with CartoDB using OAuth, maintained by [REDD Metrics](http://www.reddmetrics.com/). [Fork it on GitHub!](https://github.com/reddmetrics/cartodb-clj)
-* iOS
+* **iOS**
+
  Objective-C library for interacting with CartoDB in native iOS applications. [Fork it on GitHub!](https://github.com/jmnavarro/cartodb-objectivec-client)
