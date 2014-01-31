@@ -8,10 +8,9 @@ There are two main scenarios where you want to use the SQL API:
 
 In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
 
-* * *
+<hr>
 
-
-## Authentication
+## <a name="authentication">Authentication</a>
 
 For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
 
@@ -30,7 +29,7 @@ To use your API key, pass it as a parameter in an URL call to the CartoDB API. F
 
 OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the excellent [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
-But if you want to have things really easy, check out the CartoDB clients below, it will make this process much easier.
+But if you want to have things really easy, check out the CartoDB clients [below](#cartodb_clients), it will make this process much easier.
 
 Getting keys - For secure access to your application you will need to generate a consumer key in your CartoDB dashboard.
 
@@ -86,7 +85,7 @@ You can use these errors to help understand your SQL, for more complete document
 
 ### Write data to your CartoDB account
 
-Perform inserts or updates on your data is simple now using your API key. All you need to do, is supply a correct SQL [INSERT](http://www.postgresql.org/docs/9.1/static/sql-insert.html) or [UPDATE](http://www.postgresql.org/docs/9.1/static/sql-update.html) statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).
+Perform inserts or updates on your data is simple now using your [API key](#authentication). All you need to do, is supply a correct SQL [INSERT](http://www.postgresql.org/docs/9.1/static/sql-insert.html) or [UPDATE](http://www.postgresql.org/docs/9.1/static/sql-update.html) statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).
 
 Updates are just as simple. Here is an example, updating a row based on the value of the cartodb_id column.
 
@@ -122,7 +121,7 @@ There are some tricks to consider when using the SQL API that might make your ap
 
 * * *
 
-## Libraries in different languages
+## <a name="cartodb_clients">Libraries in different languages</a>
 
 To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
 
