@@ -11,7 +11,7 @@ There are two main scenarios where you want to use the SQL API:
 In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
 
 
-# <a name="authentication"></a>Authentication
+# Authentication
 
 For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
 
@@ -38,7 +38,7 @@ http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&api_key={Your API key}
 
 OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the excellent [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
-But if you want to have things really easy, check out the CartoDB clients [below](#cartodb_clients), it will make this process much easier.
+But if you want to have things really easy, check out the CartoDB clients [below](#libraries-in-different-languages), it will make this process much easier.
 
 Getting keys - For secure access to your application you will need to generate a consumer key in your CartoDB dashboard.
 
@@ -48,7 +48,7 @@ Getting keys - For secure access to your application you will need to generate a
 
 For various reasons you may feel the need to reset your Consumer key and Secret. Doing so on CartoDB is simple, just go to your API keys page from your dashboard, and click Get new key and secret. This will affect all applications using OAuth for your CartDB application, as your old keys will immediately become invalid.
 
-There are a lot of libraries that helps you to get authenticated via OAuth, take a look at [this list](http://oauth.net/code/) or take a look at the libraries availables for integrating cartodb with several programming languages.
+There are a lot of libraries that helps you to get authenticated via OAuth, take a look at [this list](http://oauth.net/code/) or take a look at the libraries availables for [integrating CartoDB](#libraries-in-different-languages) with several programming languages.
 
 
 
@@ -317,7 +317,7 @@ There are some tricks to consider when using the SQL API that might make your ap
 * Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
 
 	
-# <a name="cartodb_clients"></a>Libraries in different languages
+# Libraries in different languages
 
 To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
 
