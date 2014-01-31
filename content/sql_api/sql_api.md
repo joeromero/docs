@@ -11,7 +11,7 @@ There are two main scenarios where you want to use the SQL API:
 In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
 
 
-## <a name="authentication"></a>Authentication
+# <a name="authentication"></a>Authentication
 
 For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
 
@@ -52,7 +52,7 @@ There are a lot of libraries that helps you to get authenticated via OAuth, take
 
 
 
-## Making calls to the SQL API
+# Making calls to the SQL API
 
 CartoDB is based on the rock solid PostgreSQL database. All your tables are inside a single database which means you can perform complex queries joining tables or performing complicated geospatial operations. The best place to learn about PostgreSQL SQL language is the [official documentation](http://www.postgresql.org/docs/9.1/static/).
 
@@ -238,7 +238,7 @@ http://{account}.cartodb.com/api/v2/sql?q=UPDATE test_table SET column_name = 'm
 
 ```
 
-## Handling geospatial data
+# Handling geospatial data
 
 Handling geospatial data through the SQL API is easy! By default, the_geom is returned straight from the database, in a format called Well-Known Binary. There are a handful of ways you can transform you geometries into more useful formats.
 
@@ -304,7 +304,7 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT ST_Transform(the_geom,4147) FRO
 CartoDB also stores a second geometry column, the_geom_webmercator. We use this internally to build your map tiles as fast as we can. In the user-interface it is hidden, but it is visible and available for use. In this column we store a reprojected version of all your geometries using Web Mercator (EPSG:3857).
 
 
-## Query optimizations
+# Query optimizations
 
 There are some tricks to consider when using the SQL API that might make your application a little faster.
 
@@ -317,7 +317,7 @@ There are some tricks to consider when using the SQL API that might make your ap
 * Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
 
 	
-## <a name="cartodb_clients"></a>Libraries in different languages
+# <a name="cartodb_clients"></a>Libraries in different languages
 
 To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
 
