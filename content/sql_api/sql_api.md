@@ -11,7 +11,7 @@ There are two main scenarios where you want to use the SQL API:
 In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
 
 
-## <a name="authentication">Authentication</a>
+## <a name="authentication"></a>Authentication
 
 For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
 
@@ -292,7 +292,7 @@ There are some tricks to consider when using the SQL API that might make your ap
 * Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
 
 	
-## <a name="cartodb_clients">Libraries in different languages</a>
+## <a name="cartodb_clients"></a>Libraries in different languages
 
 To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
 
