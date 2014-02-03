@@ -34,12 +34,77 @@ In this guide we'll show you all features and posibilities from the CartoDB web 
 
 ## Import your data
 
+CartoDB features a geospatial database. That is a database which is capable of storing geospatial information. So when you are importing data into CartoDB, you are just importing data into a standard database. The underneath technology for the database is PostgreSQL with the geospatial extension PostGIS. Don't worry, you don't need to know about SQL, PostgreSQL or PostGIS. Just remember (or tell your technical people, in case you need) that CartoDB if fully compatible with these technologies. 
+
+(Oh, and learning some SQL is easy, fun, and lets you create some amazing things. But while you learn, you can use our visual tools, which don't make it necessary for you to have any prior technical knowledge)
+
+[SCREENSHOT TODO: New Table modal window]
+
+Importing your data is dead easy, and you have several ways of doing it. Pick your favourite! 
+
+1. Local file or URL
+2. Google Drive
+3. Dropbox
+
+
 ### Suported data formats
+
+CartoDB supports a growing number of data-types and file formats. 
+
+
+We encourage you to compress all your files before importing them, supported compression and archiving formats are currently .ZIP and .GZ (also .TAR.GZ and .TGZ). Files will be decompressed and then import based on the following table. If none of these type of files are found the importer will fail.
+
+<table>
+  <tbody>
+    <tr>
+      <td>.CSV .TAB *</td>
+      <td>Comma-separated values and Tab delimited file</td>
+    </tr>
+    <tr>
+      <td>.SHP **</td>
+      <td>ESRI shapefiles</td>
+    </tr>
+    <tr>
+      <td>.KML, .KMZ</td>
+      <td>Google Earth format</td>
+    </tr>
+    <tr>
+      <td>.XLS, .XLSX ***</td>
+      <td>Excel Spreadsheet</td>
+    </tr>
+    <tr>
+      <td>.GEOJSON</td>
+      <td>GeoJSON</td>
+    </tr>
+    <tr>
+      <td>.GPX</td>
+      <td>GPS eXchange Format</td>
+    </tr>
+    <tr>
+      <td>.OSM, .BZ2</td>
+      <td>Open Street Map dump</td>
+    </tr>
+    <tr>
+      <td>.ODS</td>
+      <td>OpenDocument Spreadsheet</td>
+    </tr>
+    <tr>
+      <td>.SQL</td>
+      <td>Experimental SQL format dumped from CartoDB</td>
+    </tr>
+  </tbody>
+</table>
+
+* Prefered format is using "," as separator, column headers.
+** We require the ZIP to come with .SHP, .DBF, .SHX and .PRJ all with same name.
+*** We will only import first Sheet and the structure must be tabular, with first row being the column headers.
+
 
 
 ## Manage your tables
 
 ### Tables privacy settings
+
 ### Importer error codes
 
 
@@ -56,15 +121,43 @@ In this guide we'll show you all features and posibilities from the CartoDB web 
 
 ## What is a visualization
 
+A visualization is the combination of a basemap (more later) and your data. So once you have your data imported (the data you want to visualize) it will just show up on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customising how your visualization will look: the basemap, the type of map, assigning colors, creating infowindows, animating your data over a timeline with Torque... 
+
+All customizations you make on your visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about loosing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it. 
+
+
 ## Visualization metadata
+
+[SCREENSHOT TODO: Visualization header]
+
+For each visualization you can edit its name, add a description, and add some tags that will help you keep them organized and discoverable. 
+
+[TODO: Update with new privacy options]
+
 
 ## Basemaps
 
 ### What is a basemap
 
+The basemap is the first layer of content that is part of your visualization. Its a basic graphical representation of the world showing earth and sea, and can contain several other data: physical nature elements, geopolitical borders, roads, streets and even buildings. With CartoDB you can select between several basemaps so you can focus on the best possible way of visualizing your data.
+
+
 ### Selecting your basemap
 
+[SCREENSHOT TODO: Basemap selection]
+
+CartoDB offers you by default a selection of basemaps you can use in your visualization. You can select any one of them, and you can see how your visualization changes in real time. You can come in  any moment and change your basemap: the rest of your data will keep appearing in the same place, only with a new basemap in the background. Take a time to explore our different available basemaps. You'll be able to see that some of them have more detail (borders, roads, mountains) and other are more minimalistic. Choose the best one for the purpose of your visualization.
+
+
 ### Including an external basemap
+
+[SCREENSHOT TODO: Add your Basemap modal window]
+
+Apart from the default basemaps offered in CartoDB, you can integrate third-party basemaps. 
+
+
+### About map projections
+
 
 
 ## CartoDB Sidebar 
