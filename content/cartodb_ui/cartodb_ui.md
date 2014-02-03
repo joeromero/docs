@@ -234,6 +234,7 @@ Apart from the default basemaps offered in CartoDB, you can integrate third-part
 
 ## Supported browsers
 ## What is a map view
+## Academic plans
 
 
 
