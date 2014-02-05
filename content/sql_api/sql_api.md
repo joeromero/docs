@@ -317,6 +317,12 @@ There are some tricks to consider when using the SQL API that might make your ap
 * Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
 
 	
+# API version number
+
+All CartoDB applications use **Version 2** of our APIs. All other APIs are deprecated and will not be maintained or supported. You can check that you are using **Version 2** of our APIs by looking at your request URLS. They should all begin contain **/v2/** in the URLs as follows,
+
+```http://{account}.cartodb.com/api/v2/```
+
 # Libraries in different languages
 
 To make things easier for developers we provide client libraries for different programming languages. These clients take care of handling OAuth to CartoDB and some of them provide some caching functionalities.
