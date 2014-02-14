@@ -42,9 +42,14 @@ CartoDB features a geospatial database. That is a database which is capable of s
 
 Importing your data is dead easy, and you have several ways of doing it. Pick your favourite! 
 
-1. Local file or URL
-2. Google Drive
-3. Dropbox
+1. **Local file or URL** 
+2. **Google Drive**
+3. **Dropbox**
+
+
+### Sync tables ###
+
+
 
 
 ### Suported data formats
@@ -121,9 +126,17 @@ We encourage you to compress all your files before importing them, supported com
 
 ## What is a visualization
 
-A visualization is the combination of a basemap (more later) and your data. So once you have your data imported (the data you want to visualize) it will just show up on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customising how your visualization will look: the basemap, the type of map, assigning colors, creating infowindows, animating your data over a timeline with Torque... 
+A visualization is the combination of a basemap (more later) and your data. Once you have your data imported (the data you want to visualize) it will just show up on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customising how your visualization will look: the basemap, the type of map, assigning colors, creating infowindows, animating your data over a timeline with Torque... 
 
 All customizations you make on your visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about loosing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it. 
+
+[SCREENSHOT TODO: Sidebar: Layers]
+
+CartoDB uses layers to represent data over your selected basemap. Each visualization is composed of a basemap plus a layer or several layers of data. You can customize what and how data is shown in each layer - that is, you can customize each layer independently. You can decide which layers are visible in a certain visualization. 
+
+When you import data into CartoDB you are creating a table (or updating an existing one). Then, in each layer you have data linked from a table. When you create a new layer you select the table that will be linked. By default, all data from that table will be shown in the visualization. With our visual tools you can filter what data will be shown (either using the SQL window or the filters - more on that later TODO link sections). You can use two or more tables to create the representation of the data that you want to show. 
+
+
 
 
 ## Visualization metadata
@@ -153,22 +166,71 @@ CartoDB offers you by default a selection of basemaps you can use in your visual
 
 [SCREENSHOT TODO: Add your Basemap modal window]
 
-Apart from the default basemaps offered in CartoDB, you can integrate third-party basemaps. 
+Apart from the default basemaps offered in CartoDB, you can integrate third-party basemaps to customize your visualizations even further. You have three ways: 
+
+- **Including a [Mapbox](http://www.mapbox.com) map**: Mapbox is a service which lets you customize your basemap. Create your own designed basemap with your colors and elements, and integrate easily in CartoDB. Just select the URL from your map and paste it in our configuration window.
+- XYZ template: TODO 
+- WMS url TODO 
 
 
 ### About map projections
 
+Earth is spheric (well, almost), but maps are laid out in a flat surface. Because of this, some distortion must be applied in order to visualize in a flat surface the spheric earth. Several distortions might be applied, and this impacts how elements are represented. This distortion is what a projection is. There exists several projections, several distortions used to represent the earth. 
+
+The majority of maps used in the web are using the [Mercator Projection](https://en.wikipedia.org/wiki/Mercator_projection), and that is the projection you will be using when you create your visualizations in CartoDB. Changing the map projection is not feasible, as it would imply changing all the basemaps and all the information of how your data is stored in CartoDB. 
+
+You can learn more about map projections in Wikipedia, and know all the details about how internally CartoDB [handles projections](http://developers.cartodb.com/tutorials/projections.html).
 
 
 ## CartoDB Sidebar 
 
+[SCREENSHOT TODO: Sidebar]
+
+The CartoDB sidebar is where are all the action is. From here you can access all the tools that will let you customize your visualization and the way your data is shown in your maps. The CartoDB sidebar minimizes to the left, so you have the maximum space to view your map and data. If you want to use any tool sitting in the sidebar, you just need to click in the sidebar.
+
+In the sidebar you will see all the layers that you have created for a visualization. By default you will have one layer, and you create more layers to acomodate more data. For each layer, you will have all the tools to customize how your data will be displayed. 
+
+
+Now, what you will find in the sidebar for each layer: 
+
+
 ### Custom SQL
+
+[SQL](https://en.wikipedia.org/wiki/SQL) (structured query language) is the way that applications ask for data to a database. They can ask simple queries (give me all records from this table), queries that matches certain conditions (give me all records in which this field equals a certain value), or more complex queries which mixes data from two or more tables. As talked before, when you create a layer and link a table to it, by default all data will be shown. You can write a custom SQL query or use our filters to only show certain data. 
+
+In this window you will be shown which query is being applied, and modify it. If you use our filters, you will be able to see here what query has produced the applied filter (a fun way to learn SQL!).
+
 
 ### Wizards
 
+TODO Merge info @ http://developers.cartodb.com/documentation/using-cartodb.html#sec-4
+
+The wizards window lets you choose the style of the visualization of your data. Beware, different types of data enables or disables certain wizards. For starters, lets asume that you are working with data that is represented as points (the simplest one). Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization changes. Good? Then, lets dig a little deeper in each of the available visualization wizards: 
+
 #### Simple
+
+* **Marker fill**
+* **Marker stroke**
+* **Composite operation**
+* **Label text**
+  * **Label font**
+  * **Label halo**
+  * **Label offset**
+  * **Label overlap**
+  * **Label placement**
+
+#### Cluster
+
+* **Buckets**
+* **Marker fill**
+* **Marker stroke**
+* **Marker size**
+* **Label font**
+* **Label halo**
+
+
+
 #### Choropleth 
-#### Clustered
 #### Category
 #### Bubble 
 #### Intensity
