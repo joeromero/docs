@@ -205,7 +205,25 @@ In this window you will be shown which query is being applied, and modify it. If
 
 TODO Merge info @ http://developers.cartodb.com/documentation/using-cartodb.html#sec-4
 
-The wizards window lets you choose the style of the visualization of your data. Beware, different types of data enables or disables certain wizards. For starters, lets asume that you are working with data that is represented as points (the simplest one). Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization changes. Good? Then, lets dig a little deeper in each of the available visualization wizards: 
+The wizards window lets you choose the style of the visualization of your data. Before we go further, we'd like to give a little introduction to each type of visualization, and when, what for and how you should use each type.
+
+* **Simple**: 
+  * What
+  * When to use it
+  * Type of data
+* **Cluster**: 
+* **Choropleth **: 
+* **Category**: 
+* **Bubble **: 
+* **Intensity**: 
+* **Density**: 
+* **Torque**: 
+
+<!-- TODO when we have the corresponding lessons link to:  
+  In the Map Academy we have a lesson devoted to the theory of data visualizations
+-->
+
+When using the UI beware that different types of data enables or disables certain wizards. For starters, lets asume that you are working with data that is represented as points (the simplest one). Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization change. Then, lets dig a little deeper in each of the available visualization wizards: 
 
 #### Simple
 
@@ -227,7 +245,6 @@ The wizards window lets you choose the style of the visualization of your data. 
 * **Marker size**
 * **Label font**
 * **Label halo**
-
 
 
 #### Choropleth 
