@@ -1,6 +1,6 @@
 # Getting started
 
-CartoDB is a geospatial database on the cloud that allows for the storage and visualization of data on the web. Using CartoDB will allow you to quickly create map based visualizations. Here are a few ways you can use CartoDB.
+CartoDB is a geospatial database on the cloud that allows for the storage and visualization of data on the web. Using CartoDB allows you to quickly create map based visualizations. Here are a few ways you can use CartoDB.
 
 * Upload, visualize, and manage your data using the [authoring tool][cartodb_login].
 * Quickly create and customize maps that you can embed or share via public URL using the map embedding tool.
@@ -99,7 +99,7 @@ There are two ways to include a visualization you have done using the CartoDB UI
 
 #### Create a visualization from scratch
 
-The easiest way to quickly get a CartoDB map onto your webpage. Use this when there is no map in you applicacion and you want to add the visualization to hack over it. With this method, CartoDB.js handles all the details of loading a map interface, basemap, and your CartoDB visualization.
+The easiest way to quickly get a CartoDB map onto your webpage. Use this when there is no map in you application and you want to add the visualization to hack over it. With this method, CartoDB.js handles all the details of loading a map interface, basemap, and your CartoDB visualization.
 
 You can start by giving cartodb.js the DIV ID from your HTML where you want to place your map, and the viz.json URL of your visualization, which you can get from the publish window.
 
@@ -134,12 +134,12 @@ cartodb.createVis('map', 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e
 ```
 
 
-If you are using Google Maps for you basemap in your CartoDB account, using createViz requires that you load the Google Maps V3 JavaScript libarary in the HEAD of your HTML. If you use other basemaps, cartodb.js will load the Leaflet library for you automatically.
+If you are using Google Maps for you basemap in your CartoDB account, using createViz requires that you load the Google Maps V3 JavaScript library in the HEAD of your HTML. If you use other basemaps, cartodb.js will load the Leaflet library for you automatically.
 
 
 #### ADDING CARTODB LAYERS TO AN EXISTING MAP
 
-In case you already have a map instantiated on your page, you can simply use the createLayer method to add new CartoDB layers to it. This is particullary useful when you have more things on your map apart from CartoDB layers or you have an application where you want to integrate CartoDB layers. Below, you have an example using a previously instatiated leaflet map.
+In case you already have a map instantiated on your page, you can simply use the createLayer method to add new CartoDB layers to it. This is particularly useful when you have more things on your map apart from CartoDB layers or you have an application where you want to integrate CartoDB layers. Below, you have an example using a previously instantiated leaflet map.
 
 
 #### ADDING CARTODB LAYERS TO AN EXISTING MAP
@@ -245,8 +245,8 @@ cartodb.createVis('map', url)
   * **searchControl**: adds a search control (default: false).
   * **zoomControl**: adds zoom control (default: true).
   * **loaderControl**: adds loading control (default: true).
-  * **center_lat**: latitude where the map is initializated.
-  * **center_lon**: longitude where the map is initializated.
+  * **center_lat**: latitude where the map is initialized.
+  * **center_lon**: longitude where the map is initialized.
   * **zoom**: initial zoom.
   * **cartodb_logo**: default to true, set to false if you want to remove the cartodb logo.
   * **infowindow**: set to false if you want to disable the infowindow (enabled by default).
@@ -449,7 +449,7 @@ interactivity: 'cartodb_id, area, column' // optional
 sql and cartocss are mandatory, an exception is raised if any of them are not present. If the interactivity is not set, there is no interactivity enabled for that layer (better performance). SQL and CartoCSS syntax should be correct, see Postgres and CartoCSS reference. There are some restrictions in the SQL queries:
 
 * must not write. INSERT, DELETE, UPDATE, ALTER and so on are not allowed (the query will fail)
-* must not contain trialing semicolon
+* must not contain trailing semicolon
 
 ##### RETURNS
 
@@ -707,7 +707,7 @@ vis.addOverlay({ type: 'zoom' });
 
 ## Getting data with SQL
 
-CartoDB offers a powerful SQL API for you to query and retreive data from your CartoDB tables. The CartoDB.js offers a simple to use wrapper for sending those requests and using the results.
+CartoDB offers a powerful SQL API for you to query and retrieve data from your CartoDB tables. The CartoDB.js offers a simple to use wrapper for sending those requests and using the results.
 
 ### cartodb.SQL
 
@@ -776,7 +776,7 @@ sql.getBounds('select * from table').done(function(bounds) {
 
 * **sql**: a string with the sql query to calculate the bounds from.
 
-## Application of getBounds in Leaflet and GMaps
+## Application of getBounds in Leaflet and Google GETBOUNDSMaps
 
 You can use the getBounds results to center data on your maps using Leaflet and GMaps.
 
@@ -803,19 +803,19 @@ sql.getBounds('select * from table').done(function(bounds) {
 });
 ```
 
-## Core API functionallity
+## Core API functionality
 
 In case you are not using Google Maps or Leaflet or you want to implement your own layer object cartodb provide a way to get the tiles url for a layer definition.
 
-If you want to use this functionallity you only need to load cartodb.core.js from our cdn, no css is needed:
+If you want to use this functionality you only need to load cartodb.core.js from our cdn, no css is needed:
 
-<!-- CORE API FUNCTIONALLITY -->
+<!-- CORE API FUNCTIONALITY -->
 
 ```html
 <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.core.js"></script>
 ```
 
-An example using this funcionallity can be found in modestmaps example: view live / source code.
+An example using this functionality can be found in modest maps example: view live / source code.
 
 Notice that cartodb.SQL is also included in that javascript file
 
@@ -823,7 +823,7 @@ Notice that cartodb.SQL is also included in that javascript file
 
 ### cartodb.Tiles.getTiles(layerOptions, callback)
 
-Fetch the tile template for the layerdefinition.
+Fetch the tile template for the layer definition.
 
 ##### ARGUMENTS
 
@@ -843,7 +843,7 @@ tiler_host: 'cartodb.com', // not required
 tiler_port: 80 // not required
 ```
 
-* **callback(tilesUrl, error)**: a function that recieves the tiles templates. In case of an error the first param is null and second one is an object with errors attribute witch is a list of errors. The tilesUrl object contains url template for tiles and for interactivity grids:
+* **callback(tilesUrl, error)**: a function that receives the tiles templates. In case of an error the first param is null and second one is an object with errors attribute witch is a list of errors. The tilesUrl object contains url template for tiles and for interactivity grids:
 
 <!-- CARTODB.TILES.GETTILES -->
 
@@ -1006,7 +1006,7 @@ We have worked hard to support Internet Explorer with CartoDB.js. It currently w
 
 #### HTTPS support
 
-You can use all the functionality of cartodb.js with HTTPs support. Be sure to add use https when importing both the JS library and the CSS file. Next, you will specify HTTPs for your Viz.JSON URL and as a parameter when you initialize your visualizaiton.
+You can use all the functionality of cartodb.js with HTTPs support. Be sure to add use https when importing both the JS library and the CSS file. Next, you will specify HTTPs for your Viz.JSON URL and as a parameter when you initialize your visualization.
 
 <!-- HTTPS SUPPORT -->
 
