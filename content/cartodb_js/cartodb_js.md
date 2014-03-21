@@ -310,7 +310,7 @@ An overlay is internally a Backbone.View so if you know how backbone works you c
 
 #### cartodb.createLayer(map, layerSource [, options] [, callback])
 
-With visualizations already created through the CartoDB console, you can simply use the createLayer function to add them into your web pages. Unlike createVis, this method requires an already activated map object and it does not load a basemap for you. The method works the same whether your map object is Google Maps or Leaflet.
+With visualizations already created through the CartoDB console, you can simply use the createLayer function to add them into your web pages. Unlike createVis, this method requires an previously activated map object and it does not load a basemap for you. The method works the same whether your map object is Google Maps or Leaflet.
 
 ##### ARGUMENTS
 
@@ -433,7 +433,7 @@ sublayer.setSQL('SELECT * FROM table_name limit 10');
 
 #### layer.createSubLayer(layerDefinition)
 
-Adds a new data to the current layer. With this method data from multiple tables can be easily visualized. New in V3.
+Adds new data to the current layer. With this method data from multiple tables can be easily visualized. New in V3.
 
 ##### ARGUMENTS
 
