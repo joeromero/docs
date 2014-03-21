@@ -34,9 +34,9 @@ In this guide we'll show you all the features and posibilities available to you 
 
 ## Import your data
 
-CartoDB features a geospatial database. That is a database which is capable of storing geospatial information. So when you are importing data into CartoDB, you are just importing data into a standard database. The underneath technology for the database is PostgreSQL with the geospatial extension PostGIS. Don't worry, you don't need to know about SQL, PostgreSQL or PostGIS. Just remember (or tell your technical people, in case you need) that CartoDB if fully compatible with these technologies. 
+CartoDB features a geospatial database which is a database capable of storing geospatial information such as geometry. When you import data into CartoDB, you are importing data into a standard database. Under the hood PostgreSQL is running with the geospatial extension PostGIS. If you've never heard of these open-source tools don't worry. Just remember (or tell your technical people) that CartoDB if fully compatible with these technologies. 
 
-(Oh, and learning some SQL is easy, fun, and lets you create some amazing things. But while you learn, you can use our visual tools, which doesn't make it necessary for you to have any prior technical knowledge)
+(Oh, and by the way learning SQL is easy, fun, and lets you do some amazing things. But while you learn, you may still use our visualization tools, which doesn't make it necessary for you to have any prior technical knowledge.)
 
 [SCREENSHOT TO DO: New Table modal window]
 
@@ -57,7 +57,7 @@ Importing your data is dead easy, and you have several ways of doing it. Pick yo
 CartoDB supports a growing number of data-types and file formats. 
 
 
-We encourage you to compress all your files before importing them, supported compression and archiving formats are currently .ZIP and .GZ (also .TAR.GZ and .TGZ). Files will be decompressed and then import based on the following table. If none of these type of files are found the importer will fail.
+We encourage you to compress all your files before importing them, supported compression and archiving formats are currently .ZIP and .GZ (also .TAR.GZ and .TGZ). Files will be decompressed and then imported based on the following table. If none of these type of files are found the import will fail.
 
 <table>
   <tbody>
@@ -100,7 +100,7 @@ We encourage you to compress all your files before importing them, supported com
   </tbody>
 </table>
 
-* Prefered format is using "," as separator, column headers.
+* Prefered format is using "," as separator and including column headers.
 ** We require the ZIP to come with .SHP, .DBF, .SHX and .PRJ all with same name.
 *** We will only import first Sheet and the structure must be tabular, with first row being the column headers.
 
@@ -177,7 +177,7 @@ Apart from the default basemaps offered in CartoDB, you can integrate third-part
 
 The earth has an ellipsoid shape but maps are representations of the earth on a flat surface. This means that some distortion must be applied in order to visualize the earth on a two dimensional plane. During this process several types of distortions may occur and this impacts how map features are represented. This distortion is what is referred to as a [map projection](http://en.wikipedia.org/wiki/Map_projection). There are many types of projections used to represent the earth at various scales from depicting the whole world, a continent, country, region or state / province. Each type of distortion attempts to preserve certain properties at the expense of others such as area, direction, shape and distance. 
 
-The majority of maps used in the web are using a variant of the [Mercator Projection](https://en.wikipedia.org/wiki/Mercator_projection) commonly referred to as the Web-Mercator, and that is the projection you will be using when you create your visualizations in CartoDB. Changing the map projection is not feasible, as it would imply changing all the basemaps and all the information of how your data is stored in CartoDB. 
+The majority of maps used in the web are using a variant of the [Mercator Projection](https://en.wikipedia.org/wiki/Mercator_projection), commonly referred to as the Web-Mercator. That is the projection you will be using when you create your visualizations in CartoDB. Changing the map projection is currently not feasible, as it would imply changing all the basemaps and all the information of how your data is stored in CartoDB. 
 
 You can learn more about map projections in Wikipedia, and know all the details about how internally CartoDB [handles projections](http://developers.cartodb.com/tutorials/projections.html).
 
@@ -196,9 +196,9 @@ Next each element in the sidebar will be explained:
 
 ### Custom SQL
 
-[SQL](https://en.wikipedia.org/wiki/SQL) (structured query language) is the way that applications ask for data to a database. They can ask simple queries (give me all records from this table), queries that matches certain conditions (give me all records in which this field equals a certain value), or more complex queries which mixes data from two or more tables. As talked before, when you create a layer and link a table to it, by default all data will be shown. You can write a custom SQL query or use our filters to only show certain data. 
+[SQL](https://en.wikipedia.org/wiki/SQL) (structured query language) is the way that applications ask for data from a database. They can ask simple queries (ie: "give me all records from this table"), queries that matches certain conditions (ie: "give me all records in which this field equals a certain value"), or more complex queries that combine data from two or more tables. As mentioned earlier, when you create a visualization and link a table to it by default all data will be displayed. You can write a custom SQL query or use our filters to only show certain parts of the data. 
 
-In this window you will be shown which query is being applied, and modify it. If you use our filters, you will be able to see here what query has produced the applied filter (a fun way to learn SQL!).
+In this window you will be shown which query is currently being applied and you have the ability to modify it. When using our filters you will be able to see the query that has been produced from the applied filter (a fun way to learn SQL!).
 
 
 ### Wizards
@@ -223,7 +223,9 @@ The wizards window lets you choose how your data is styled. Before we go further
   In the Map Academy we have a lesson devoted to the theory of data visualizations
 -->
 
-When using the UI beware that different types of data enables or disables certain wizards. For starters, lets asume that you are working with data that is represented as points (the simplest one). Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization change. Then, lets dig a little deeper in each of the available visualization wizards: 
+When using the UI beware that different types of data enables or disables certain wizards. To start, let's assume that you are working with data that is represented as points (the simplest type). Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization change.
+
+Let's dig a little deeper in each of the available visualization wizards: 
 
 #### Simple
 
