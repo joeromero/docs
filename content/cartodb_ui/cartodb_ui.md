@@ -1,6 +1,6 @@
 # What is CartoDB
 
-CartoDB is a tool to create map visualizations on the web. It features a geospatial database on the cloud that allows for the storage and visualization of data in your browser. Using CartoDB will allow you to quickly create map based visualizations. Here are a few ways you can use CartoDB:
+CartoDB is a tool to create map visualizations on the web. It features a geospatial database on the cloud that allows for the storage and visualization of data that is rendered in your browser. Using CartoDB will allow you to quickly create map based visualizations. Here are a few ways you can use CartoDB:
 
 * Upload, visualize, and manage your data using our web interface. Start at your [CartoDB dashboard][cartodb_login].
 
@@ -21,13 +21,13 @@ Your dashboard has two main sections: **tables** and **visualizations**. The ste
 2. Visualize it
 3. Share it (public or privately)
 
-(you can even stop at #2, sharing is not mandatory, you may create a visualization to better understand your own data)
+(You may even stop at step two as sharing is not mandatory. You may create a visualization to better understand your own data and keep it private.)
 
-CartoDB lets you easily import your data in many different formats (Excel, CSV, XML, SHP...) and from different sources (your hard disk, Google Drive, Dropbox...), and makes it plain easy to show it on a map it using our visual wizards. With our wizards you can select what type of visualization you want to create, and you can define legends and infowindows (contextual modal windows associated with a data point or area) and select which information from your database you want to show. 
+CartoDB lets you easily import your data from many different formats (Excel, CSV, XML, SHP, GeoJSON...) and from different sources (your hard disk, Google Drive, Dropbox...). and makes it easy to show your data on a map using our visual wizards. With our wizards you can select what type of visualization you want to create, define legends and infowindows (contextual modal windows associated with a data point or area) and select which information from your database you want to show. 
 
-After you have created your visualization with our web interface, you can keep it private, share it with our colleagues, or publish it to the web, sharing its own URL or embeding it in your blog or CMS. 
+After you have created your visualization with our web interface, you can keep it private, share it with your colleagues, or publish it to the web either by sharing its URL or embeding it in your blog or CMS. 
 
-In this guide we'll show you all features and posibilities from the CartoDB web interface (if you are ready to mess with our powerful APIs, go check [CartoDB.js][cartodb_js] and [SQL API][sql_api])
+In this guide we'll show you all the features and posibilities available to you from the CartoDB web interface. If you are ready to experiment with our powerful APIs then go to [CartoDB.js][cartodb_js] and [SQL API][sql_api].
 
 
 # Tables
@@ -205,7 +205,7 @@ In this window you will be shown which query is being applied, and modify it. If
 
 TODO Merge info @ http://developers.cartodb.com/documentation/using-cartodb.html#sec-4
 
-The wizards window lets you choose the style of the visualization of your data. Before we go further, we'd like to give a little introduction to each type of visualization, and when, what for and how you should use each type.
+The wizards window lets you choose how your data is styled. Before we go further, we'd like to give a little introduction to each type of visualization, as well as when, why and how you should use each type.
 
 * **Simple**: 
   * What
