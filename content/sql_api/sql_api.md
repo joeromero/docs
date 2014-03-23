@@ -240,10 +240,10 @@ http://{account}.cartodb.com/api/v2/sql?q=UPDATE test_table SET column_name = 'm
 
 # Handling geospatial data
 
-Handling geospatial data through the SQL API is easy! By default, the_geom is returned straight from the database, in a format called Well-Known Binary. There are a handful of ways you can transform you geometries into more useful formats.
+Handling geospatial data through the SQL API is easy! By default, the_geom is returned straight from the database, in a format called Well-Known Binary. There are a handful of ways you can transform your geometries into more useful formats.
 
 
-The first, is to use the format=GeoJSON method described above. Others can be handled through your SQL statements directly. For example, enclosing your the_geom in a function called [ST_AsGeoJSON](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) will allow you to use JSON for you data but a GeoJSON string for your geometry column only. Alternatively, using a the [ST_AsText](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) function will return your geometry as Well-Known Text.
+The first, is to use the format=GeoJSON method described above. Others can be handled through your SQL statements directly. For example, enclosing your the_geom in a function called [ST_AsGeoJSON](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) will allow you to use JSON for your data but a GeoJSON string for your geometry column only. Alternatively, using a the [ST_AsText](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) function will return your geometry as Well-Known Text.
 
 ```sql
 ASGEOJSON
