@@ -126,17 +126,13 @@ We encourage you to compress all your files before importing them, supported com
 
 ## What is a visualization?
 
-Vizualizations are the method for publishing your maps on the web and may be created after you have imported at least one data table. You may create a visualization by navigating to the "visualizations" view in the CartoDB dashboard and then selecting on one or more layers to add to the visualization. Every visualization has at least two layers: a basemap layer and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. 
-
-After creating a visualization you may customize style of each layer. Upon first creating the visualization it will be given a default "Nokia Day" base map and default styles for your data overlay. To change the look of your basemap simply click on "Basemap" and select an available style from the dropdown. You may also add your own custom basemap in the "Add yours" option and then by linking to the url for that basemap from MapBox, XYZ, or WMS. There are also options for adding a solid color or a repeating image pattern instead of a basemap.
-
-To modify the style of your data overlay(s) click on the sidebar to the right of the map. This will expand the side bar to the left, exposing options for modifying each data layer. To change the styling of your data click on the wizards icon (the small paintbrush). 
+Vizualizations are the method CartoDB uses for publishing maps to the web. They may be created after you have imported at least one data table. You create a visualization by navigating to the "visualizations" view in the CartoDB dashboard and then selecting on one or more layers to add to the visualization. Every visualization has at least two layers: a basemap layer and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
 
 
 
 A visualization is the combination of a basemap (more on basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will be rendered on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, animating your data over a timeline with Torque... 
 
-All customizations you make on your visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it. 
+ 
 
 [SCREENSHOT TODO: Sidebar: Layers]
 
@@ -167,7 +163,9 @@ The basemap is the first layer of your visualization. Its is typically a graphic
 
 [SCREENSHOT TODO: Basemap selection]
 
-CartoDB offers you by default a selection of basemaps you can use in your visualization. You may select any one of them, and your change will be applied immediately. You can change your basemap anytime and the rest of your data will remain unchanged. Take time to explore our different available basemaps. You'll be able to see that some of them have more detail (borders, roads, mountains) and other are more minimalistic. Choose the best one for the purpose of your visualization.
+CartoDB offers you by default a selection of basemaps you can use in your visualization. You may select any one of them, and your change will be applied immediately. You can change your basemap anytime and the rest of your layers will remain unchanged. Take time to explore our different available basemaps. You'll be able to see that some of them have more detail (borders, roads, mountains) and other are more minimalistic. Choose the best one for the purpose of your visualization.
+
+Upon first creating a visualization it will be given a default "Nokia Day" base map. To change the look of your basemap simply click on "Basemap" in the upper left of the dashboard and select an available style from the dropdown. You may add your own custom basemap in the "Add yours" option and then by linking to the url for that basemap from MapBox, XYZ, or WMS. Finally, there are options for adding a solid color or a repeating image pattern instead of a basemap. All of these features give you a high level of customization when creating a map visualization.
 
 
 ### Including an external basemap
@@ -198,8 +196,7 @@ The CartoDB sidebar is where are all the action is. From here you can access all
 
 In the sidebar you will see all the layers that you have created for a visualization. By default you will have one layer and you may add layers to accomodate more data. For each layer, you will have the same tools to customize how your data will be displayed. 
 
-
-Next each element in the sidebar will be explained: 
+Next each feature in the sidebar will be explained: 
 
 
 ### Custom SQL
