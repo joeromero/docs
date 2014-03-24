@@ -1,6 +1,6 @@
 # What is CartoDB
 
-CartoDB is a tool to create map visualizations on the web. It features a geospatial database on the cloud that allows for the storage and visualization of data that is rendered in your browser. Using CartoDB will allow you to quickly create map based visualizations. Here are a few ways you can use CartoDB:
+CartoDB is a geospatial database on the cloud that allows for the storage and visualization of data on the web. Using CartoDB will allow you to quickly create map based visualizations. Here are a few ways you can use CartoDB:
 
 * Upload, visualize, and manage your data using our web interface. Start at your [CartoDB dashboard][cartodb_login].
 
@@ -25,9 +25,9 @@ Your dashboard has two main sections: **tables** and **visualizations**. The ste
 
 CartoDB lets you easily import your data from many different formats (Excel, CSV, XML, SHP, GeoJSON...) and from different sources (your hard disk, Google Drive, Dropbox...). and makes it easy to show your data on a map using our visual wizards. With our wizards you can select what type of visualization you want to create, define legends and infowindows (contextual modal windows associated with a data point or area) and select which information from your database you want to show. 
 
-After you have created your visualization with our web interface, you can keep it private, share it with your colleagues, or publish it to the web either by sharing its URL or embeding it in your blog or CMS. 
+After you have created your visualization with our web interface, you can keep it private, share it with your colleagues, or publish it to the web either by sharing its URL or embedding it in your blog or CMS. 
 
-In this guide we'll show you all the features and posibilities available to you from the CartoDB web interface. If you are ready to experiment with our powerful APIs then go to [CartoDB.js][cartodb_js] and [SQL API][sql_api].
+In this guide we'll show you all the features and possibilities available to you from the CartoDB web interface. If you are ready to experiment with our powerful APIs then go to [CartoDB.js][cartodb_js] and [SQL API][sql_api].
 
 
 # Tables
@@ -40,7 +40,7 @@ CartoDB features a geospatial database which is a database capable of storing ge
 
 [SCREENSHOT TO DO: New Table modal window]
 
-Importing your data is dead easy, and you have several ways of doing it. Pick your favourite! 
+Importing your data is dead easy, and you have several ways of doing it. Pick your favorite! 
 
 1. **Local file or URL** 
 2. **Google Drive**
@@ -52,7 +52,7 @@ Importing your data is dead easy, and you have several ways of doing it. Pick yo
 
 
 
-### Suported data formats
+### Supported data formats
 
 CartoDB supports a growing number of data-types and file formats. 
 
@@ -100,7 +100,7 @@ We encourage you to compress all your files before importing them, supported com
   </tbody>
 </table>
 
-* Prefered format is using "," as separator and including column headers.
+* Preferred format is using "," as separator and including column headers.
 ** We require the ZIP to come with .SHP, .DBF, .SHX and .PRJ all with same name.
 *** We will only import first Sheet and the structure must be tabular, with first row being the column headers.
 
@@ -124,9 +124,17 @@ We encourage you to compress all your files before importing them, supported com
 
 # Visualizations
 
-## What is a visualization
+## What is a visualization?
 
-A visualization is the combination of a basemap (more basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will just show up on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, animating your data over a timeline with Torque... 
+Vizualizations are the method for publishing your maps on the web and may be created after you have imported at least one data table. You may create a visualization by navigating to the "visualizations" view in the CartoDB dashboard and then selecting on one or more layers to add to the visualization. Every visualization has at least two layers: a basemap layer and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. 
+
+After creating a visualization you may customize style of each layer. Upon first creating the visualization it will be given a default "Nokia Day" base map and default styles for your data overlay. To change the look of your basemap simply click on "Basemap" and select an available style from the dropdown. You may also add your own custom basemap in the "Add yours" option and then by linking to the url for that basemap from MapBox, XYZ, or WMS. There are also options for adding a solid color or a repeating image pattern instead of a basemap.
+
+To modify the style of your data overlay(s) click on the sidebar to the right of the map. This will expand the side bar to the left, exposing options for modifying each data layer. To change the styling of your data click on the wizards icon (the small paintbrush). 
+
+
+
+A visualization is the combination of a basemap (more on basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will be rendered on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, animating your data over a timeline with Torque... 
 
 All customizations you make on your visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it. 
 
@@ -152,14 +160,14 @@ For each visualization you can edit the name, add a description, and add some ta
 
 ### What is a basemap
 
-The basemap is the first layer of content that is part of your visualization. Its a basic graphical representation of the world showing earth and sea, and can contain several other data: physical nature elements, geopolitical borders, roads, streets and even buildings. With CartoDB you can select between several basemaps so you can focus on the best possible way of visualizing your data.
+The basemap is the first layer of your visualization. Its is typically a graphical representation of the world showing natural and cultural features such as water bodies, topography, park areas, points of interest, geopolitical borders, roads, streets and even buildings. With CartoDB you can choose between various basemap styles so you can focus on the best possible way of visualizing your data. If desired you may import a custom base map through MapBox, XYZ, or WMS. One last option is that you may forgo a basemap and use either a solid background color or repeated image.
 
 
 ### Selecting your basemap
 
 [SCREENSHOT TODO: Basemap selection]
 
-CartoDB offers you by default a selection of basemaps you can use in your visualization. You can select any one of them, and you can see how your visualization changes in real time. You can change your basemap anytime and the rest of your data will remain unchanged. Take time to explore our different available basemaps. You'll be able to see that some of them have more detail (borders, roads, mountains) and other are more minimalistic. Choose the best one for the purpose of your visualization.
+CartoDB offers you by default a selection of basemaps you can use in your visualization. You may select any one of them, and your change will be applied immediately. You can change your basemap anytime and the rest of your data will remain unchanged. Take time to explore our different available basemaps. You'll be able to see that some of them have more detail (borders, roads, mountains) and other are more minimalistic. Choose the best one for the purpose of your visualization.
 
 
 ### Including an external basemap
