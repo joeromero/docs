@@ -658,12 +658,12 @@ var tooltip = vis.addOverlay({
 
 ### cartodb.geo.ui.Tooltip.enable
 
-The tooltip is shown when hover on feature when is called.
+The tooltip is shown when hovering on a feature.
 
 
 ### cartodb.geo.ui.Tooltip.disable
 
-The tooltip is not shown when hover on feature.
+The tooltip is not shown when hovering on a feature.
 
 
 ### cartodb.geo.ui.InfoBox
@@ -683,12 +683,12 @@ var box = vis.addOverlay({
 
 ### cartodb.geo.ui.InfoBox.enable
 
-The tooltip is shown when hover on feature when is called.
+The info box is shown when hovering over a feature.
 
 
 ### cartodb.geo.ui.InfoBox.disable
 
-The tooltip is not shown when hover on feature.
+The info box is not shown when hovering over feature.
 
 
 ### cartodb.geo.ui.Zoom
