@@ -805,7 +805,7 @@ sql.getBounds('select * from table').done(function(bounds) {
 
 ## Core API functionality
 
-In case you are not using Google Maps or Leaflet or you want to implement your own layer object cartodb provide a way to get the tiles url for a layer definition.
+In case you are not using Google Maps or Leaflet or you want to implement your own layer object cartodb provides a way to get the tiles url for a layer definition.
 
 If you want to use this functionality you only need to load cartodb.core.js from our cdn, no css is needed:
 
@@ -815,7 +815,7 @@ If you want to use this functionality you only need to load cartodb.core.js from
 <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.core.js"></script>
 ```
 
-An example using this functionality can be found in modest maps example: view live / source code.
+An example using this functionality can be found in the modest maps example: view live / source code.
 
 Notice that cartodb.SQL is also included in that javascript file
 
@@ -827,7 +827,7 @@ Fetch the tile template for the layer definition.
 
 ##### ARGUMENTS
 
-* **layerOptions**: the data that defines the layer, it should contain at least user_name and sublayer list. There are the available options:
+* **layerOptions**: the data that defines the layer, it should contain at least user_name and sublayer list. These are the available options:
 
 
 <!-- CARTODB.TILES.GETTILES -->
@@ -915,7 +915,7 @@ cartodb.createVis('map', 'http://examples.cartodb.com/api/v2/viz/ne_10m_populate
 
 #### Bounds wrapper
 
-We have added easy method to get the bounding box for any dataset or filtered query using the CartoDB.js library. The getBounds function can be useful for guiding users to the right location on a map or for loading only the right data at the right time based on user actions.
+We have added an easy method to get the bounding box for any dataset or filtered query using the CartoDB.js library. The getBounds function can be useful for guiding users to the right location on a map or for loading only the desired data at the specified time based on user actions.
 
 <!-- BOUNDS WRAPPER -->
 
@@ -949,7 +949,7 @@ cartodb.createLayer(map, 'http://examples.cartodb.com/api/v1/viz/0001/viz.json')
 
 ##### ACTIVE LAYER EVENTS
 
-The next important set of events for you to use happen on those layers that are already loaded (returned by the done event above). Three events are triggered by layers on your webpage, each requires the layer to include an interactivity layer. The first event is featureClick, which lets you set up events after the user clicks anything that you have mapped.
+The next important set of events for you to use happens on the layers that are already loaded (returned by the done event above). Three events are triggered by layers on your webpage and each requires the layer to include an interactivity layer. The first event is featureClick, which lets you set up events after the user clicks anything that you have mapped.
 
 <!-- FEATURECLICK -->
 
@@ -981,7 +981,7 @@ layer.on('featureOut', function(e, latlng, pos, data, layer) {
 
 #### Leaflet integration
 
-If you want to use Leaflet it gets even easier, CartoDB.js handles loading all the necessary libraries for you! just include CartoDB.js and CartoDB.css in the HEAD of your website and you are ready to go! The CartoDB.css document isn’t mandatory, however if you are making a map and are not familiar with writing your own CSS for the various needed elements, it can greatly help to jumpstart the process. Adding it is as simple as adding the main JavaScript library:
+Using Leaflet with CartoDB is easy as CartoDB.js handles loading all the necessary libraries for you! Just include links to CartoDB.js and CartoDB.css in the HEAD of your website and you are ready to go! The CartoDB.css document isn’t mandatory, however if you are making a map and are not familiar with writing your own CSS for the various needed elements, it can greatly help to jumpstart the process. Adding it is as simple as adding the main JavaScript library:
 
 <!-- LEAFLET INTEGRATION -->
 
@@ -992,7 +992,7 @@ If you want to use Leaflet it gets even easier, CartoDB.js handles loading all t
 
 #### IE support
 
-We have worked hard to support Internet Explorer with CartoDB.js. It currently works for IE7 through IE10. The biggest change you should note is that for the CSS you will need to include an additional IE CSS document we have made available. Your tag should now house links to three documents, as follows:
+We have worked hard to support Internet Explorer with CartoDB.js for IE7 through IE10. You will need to include an additional CSS document link. Your HEAD tag should now house links to three documents as follows:
 
 <!-- IE SUPPORT -->
 
@@ -1006,7 +1006,7 @@ We have worked hard to support Internet Explorer with CartoDB.js. It currently w
 
 #### HTTPS support
 
-You can use all the functionality of cartodb.js with HTTPs support. Be sure to add use https when importing both the JS library and the CSS file. Next, you will specify HTTPs for your Viz.JSON URL and as a parameter when you initialize your visualization.
+You can use all the functionality of cartodb.js with HTTPs support. Be sure to use https when importing both the JS library and the CSS file. Next, you will specify HTTPs for your Viz.JSON URL and as a parameter when you initialize your visualization.
 
 <!-- HTTPS SUPPORT -->
 
@@ -1027,7 +1027,7 @@ You can use all the functionality of cartodb.js with HTTPs support. Be sure to a
 
 #### Persistent version hosting
 
-We are committed to making sure your website works as intended no matter what changes in the future. While we may find more efficient or more useful features to add to the library as time progresses. We never want to break things you have already developed, for this reason, we make versioned CartoDB.js libraries available to you, meaning that the way they function will never unexpectedly change on you.
+We are committed to making sure your website works as intended no matter what changes with CartoDB.js in the future. While we may find more efficient or more useful features to add to the library as time progresses, we never want to break things you have already developed. It is this reasoning for creating versioned CartoDB.js libraries that are available to you and their functionality will never unexpectedly change on you.
 We recommend that you always develop against the most recent version of CartoDB.js, always found at:
 
 <!-- PERSISTENT VERSION HOSTING -->
@@ -1052,7 +1052,7 @@ Or, by running the following in your code:
 alert(cartodb.VERSION)
 ```
 
-Now, that you have your CartoDB.js version, you can point your site at that release. If the current version of CartoDB.js is 2.0.11, the URL would be:
+Now, that you have your CartoDB.js version, you can point your site at that release. If the current version of CartoDB.js is 3.0.01, the URL would be:
 
 <!-- PERSISTENT VERSION HOSTING -->
 
@@ -1068,5 +1068,5 @@ http://libs.cartocdn.com/cartodb.js/v3/3.0.01/themes/css/cartodb.css
 
 # Code examples
 
-Hola hola
+Hola hola hola
 
