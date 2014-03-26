@@ -1,27 +1,28 @@
 # SQL API
 
-The SQL API allows you to interact with your tables and data inside CartoDB like if you were running SQL statements against a normal database. The database behind CartoDB is PostgreSQL so if you need help with specific SQL statements or you want to learn more about it, visit the [official documentation](http://www.postgresql.org/docs/9.1/static/sql.html).
+CartoDB's SQL API allows you to interact with your tables and data inside CartoDB as if you were running SQL statements against a normal database. The database behind CartoDB is PostgreSQL so if you need help with specific SQL statements or you want to learn more about it, visit the [official documentation](http://www.postgresql.org/docs/9.1/static/sql.html).
 
-There are two main scenarios where you want to use the SQL API:
+There are two main situations in which you would want to use the SQL API:
 
-* INSERT/UPDATE/DELETE data. For example to insert a new record with a latitude/longitude.
+* You want to **insert, update** or **delete** data. For example, you would like to insert a new column with a latitude and longitude data.
 
-* SELECT data from public tables to use on your website or in your app. For example to find the 10 closest records to a particular location.
+* You want to **select** data from public tables in order to use it on your website or in your app. For example, you need to find the 10 closest records to a particular location.
 
-In order to modify data or access data in private tables, you will need to authenticate your requests. When a table is public on the other hand, you can do non-authenticated queries that only read data.
+Remember that in order to access, read or modify data in private tables, you will need to authenticate your requests. When a table is public, you can do non-authenticated queries that read data, but you cannot write or modify data without authentication.
 
 
 # Authentication
 
-For all private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries through the use of an API key or with OAuth using a Consumer key and Secret. Using the API key or OAuth, you can access and write data to private and public tables in your account. Below are instructions for using either.
+For all access to private tables and for write access to public tables, CartoDB enforces secure API access that requires you to authorize your queries. In order to authorize queries, you can use an API key or a Consumer Key and Secret from OAuth.
 
 ## API Key
 
-The API key offers the simplest way to access private data or perform writes and updates to your account. Like OAuth data, be sure not to share your API key with anyone you don't want to give write access to! You can always reset your key in your admin dashboard.
+The API key offers the simplest way to access private data or perform writes and updates to your public data. Remember that your API key protects access to your data, so keep it confidential and only share it if you want others to have this access. If necessary, you can reset your API key in your admin dashboard.
+To find your API key:
 
 * Go to your dashboard.
-* In the top right, click Your api keys.
-* On this page you will find your API Key.
+* Click on your username in the top right corner, and select "Your API keys."
+* Here, you can copy your API key, see use examples, and reset your API key.
 
 To use your API key, pass it as a parameter in an URL call to the CartoDB API. For example, to perform an insert into your table, you would use the following URL structure.
 
@@ -36,21 +37,17 @@ http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&api_key={Your API key}
 
 ## OAuth
 
-OAuth is an authentication protocol that allows users to approve application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the excellent [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
+OAuth is an authentication protocol that allows users to allow an application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
-But if you want to have things really easy, check out the CartoDB clients [below](#libraries-in-different-languages), it will make this process much easier.
+For an easier route, check out the CartoDB clients [below](#libraries-in-different-languages).
 
-Getting keys - For secure access to your application you will need to generate a consumer key in your CartoDB dashboard.
+Getting OAuth keys - For secure access to your application you will need to generate a consumer key in your CartoDB dashboard.
 
 * Go to your dashboard.
-* In the top right, click Your api keys.
-* On this page you will find your Consumer key and Secret.
+* Click on your username in the top right corner, and select "Your API keys."
+* Here, you can view and copy your OAuth Keys and Tokens, and you can request new OAuth Keys. Remember that requesting new OAuth Keys will affect all applications using OAuth for your CartDB application, and that your old keys will immediately become invalid.
 
-For various reasons you may feel the need to reset your Consumer key and Secret. Doing so on CartoDB is simple, just go to your API keys page from your dashboard, and click Get new key and secret. This will affect all applications using OAuth for your CartDB application, as your old keys will immediately become invalid.
-
-There are a lot of libraries that helps you to get authenticated via OAuth, take a look at [this list](http://oauth.net/code/) or take a look at the libraries availables for [integrating CartoDB](#libraries-in-different-languages) with several programming languages.
-
-
+There are many other resources to help you authenticate access via OAuth. For further reading, take a look at [this list](http://oauth.net/code/) or at the libraries available for [integrating CartoDB](#libraries-in-different-languages) with several programming languages.
 
 # Making calls to the SQL API
 
