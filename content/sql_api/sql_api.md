@@ -18,6 +18,7 @@ For all access to private tables and for write access to public tables, CartoDB 
 ## API Key
 
 The API key offers the simplest way to access private data or perform writes and updates to your public data. Remember that your API key protects access to your data, so keep it confidential and only share it if you want others to have this access. If necessary, you can reset your API key in your admin dashboard.
+
 To find your API key:
 
 * Go to your dashboard.
@@ -51,13 +52,13 @@ There are many other resources to help you authenticate access via OAuth. For fu
 
 # Making calls to the SQL API
 
-CartoDB is based on the rock solid PostgreSQL database. All your tables are inside a single database which means you can perform complex queries joining tables or performing complicated geospatial operations. The best place to learn about PostgreSQL SQL language is the [official documentation](http://www.postgresql.org/docs/9.1/static/).
+CartoDB is based on the rock solid PostgreSQL database. All of your tables reside a single database, which means you can perform complex queries joining tables or carrying out geospatial operations. The best place to learn about PostgreSQL's SQL language is the [official documentation](http://www.postgresql.org/docs/9.1/static/).
 
-CartoDB is also based on PostGIS, so take a look at the [official PostGIS reference](http://postgis.refractions.net/docs/) to know what functionality we support in terms on geospatial operations. All our tables include a column called the_geom with the geometry field and indexes on them in the EPSG:4326 projection. All tables also have an automatically generated and updated the_geom_webmercator column that we use internally to create tiles for maps as fast as possible.
+CartoDB is also based on PostGIS, so take a look at the [official PostGIS reference](http://postgis.refractions.net/docs/) to know what functionality we support in terms of geospatial operations. All of our tables include a column called *the_geom,* which is a geometry field that indexes geometries in the EPSG:4326 (WGS 1984) coordinate system. All tables also have an automatically generated and updated column called *the_geom_webmercator*. We use the column internally to quickly create tiles for maps.
 
 ## URL endpoints
 
-All SQL API request to your CaroDB account use this pattern
+All SQL API requests to your CaroDB account should follow this general pattern:
 
 ```sql
 
@@ -67,7 +68,7 @@ http://{account}.cartodb.com/api/v2/sql?q={SQL statement}
 
 ```
 
-Be sure you account name is right and that your SQL statement is valid. A good test is a simple count of all the records in a table,
+If you encounter errors, double-check that you are using the correct account name, and that your SQL statement is valid. A simple example of this pattern is conducting a count of all the records in your table:
 
 ```sql
 
@@ -91,12 +92,12 @@ RESULT
 }
 ```
 
-Finally, remember that unless you are authenticated your table needs to be public for the SQL API to work.
+Finally, remember that in order to use the SQL API, you table must either be public, or you must be authenticated using API Keys or OAuth, as discussed above.
 
 
 ## POST and GET
 
-The CartoDB SQL API is setup to handle both GET and POST requests. You can test the GET method directly in your browser. Below is an example of a JQuery SQL API request to a CartoDB.
+The CartoDB SQL API is setup to handle both GET and POST requests. You can test the GET method directly in your browser. Below is an example of a JQuery SQL API request to CartoDB: 
 
 ```js
 JQUERY
@@ -110,7 +111,7 @@ $.getJSON('http://'+your_account_name+'.cartodb.com/api/v2/sql/?q='+sql_statemen
 ```
 
 
-By default GET requests work from anywhere. In CartoDB, POST requests work from any website as well. We achieve this by hosting a cross domain policy file at the root of all of our servers. This allows you the greatest level of flexibility when developing your application.
+By default, GET requests work from anywhere. In CartoDB, POST requests work from any website as well. We achieve this by hosting a cross-domain policy file at the root of all of our servers. This allows you the greatest level of flexibility when developing your application.
 
 ## Response formats
 
