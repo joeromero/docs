@@ -92,7 +92,7 @@ RESULT
 }
 ```
 
-Finally, remember that in order to use the SQL API, you table must either be public, or you must be authenticated using API Keys or OAuth, as discussed above.
+Finally, remember that in order to use the SQL API, either your table must be public, or you must be authenticated using API Keys or OAuth, as discussed above.
 
 
 ## POST and GET
