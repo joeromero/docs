@@ -147,7 +147,7 @@ RESULT
   
 ```
 
-Alternatively, you can use the [GeoJSON specification](http://www.geojson.org/geojson-spec.html) for returning data from the API. To do so, simply supply the format parameter as GeoJSON:
+Alternatively, you can use the [GeoJSON specification](http://www.geojson.org/geojson-spec.html) to return data from the API. To do so, simply supply the format parameter as GeoJSON:
 
 
 ```sql
@@ -190,7 +190,7 @@ The SQL API accepts other output formats that can be useful to export data. Righ
 
 ## Getting table information
 
-Currently, there is no public method for accessing your table schemas. The simplest way to get table structure is to access the first row of the data,
+Currently, there is no public method to access your table schemas. The simplest way to retrieve table structure is to access the first row of the data,
 
 ```sql
 COLUMNS
@@ -214,11 +214,11 @@ ERRORS
 
 ```
 
-You can use these errors to help understand your SQL, for more complete documentation see the Error codes and Solutions section of this Users Guide.
+You can use these errors to help understand your SQL. For more complete documentation see the Error Codes and Solutions section of this Users Guide.
 
 ## Write data to your CartoDB account
 
-Perform inserts or updates on your data is simple now using your [API key](#authentication). All you need to do, is supply a correct SQL [INSERT](http://www.postgresql.org/docs/9.1/static/sql-insert.html) or [UPDATE](http://www.postgresql.org/docs/9.1/static/sql-update.html) statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).
+Performing inserts or updates on your data is simple using your [API key](#authentication). All you need to do is supply a correct SQL [INSERT](http://www.postgresql.org/docs/9.1/static/sql-insert.html) or [UPDATE](http://www.postgresql.org/docs/9.1/static/sql-update.html) statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).
 
 ```sql
 INSERT
@@ -238,7 +238,7 @@ http://{account}.cartodb.com/api/v2/sql?q=UPDATE test_table SET column_name = 'm
 
 # Handling geospatial data
 
-Handling geospatial data through the SQL API is easy! By default, the_geom is returned straight from the database, in a format called Well-Known Binary. There are a handful of ways you can transform your geometries into more useful formats.
+Handling geospatial data through the SQL API is easy! By default, *the_geom* is returned straight from the database, in a format called Well-Known Binary. There are a handful of ways you can transform your geometries into more useful formats.
 
 
 The first, is to use the format=GeoJSON method described above. Others can be handled through your SQL statements directly. For example, enclosing your the_geom in a function called [ST_AsGeoJSON](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) will allow you to use JSON for your data but a GeoJSON string for your geometry column only. Alternatively, using a the [ST_AsText](http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html) function will return your geometry as Well-Known Text.
@@ -288,9 +288,9 @@ RESULT
 }
 ```
 
-More advanced methods exist in the PostGIS library to extract meaningful data from your geometry. Explore the PostGIS documentation and get familiar with functions such as, [ST_XMin](http://www.postgis.org/docs/ST_XMin.html), [ST_XMax](http://www.postgis.org/docs/ST_XMax.html), [ST_AsText](http://www.postgis.org/docs/ST_AsText.html), etc.
+More advanced methods exist in the PostGIS library to extract meaningful data from your geometry. Explore the PostGIS documentation and get familiar with functions such as, [ST_XMin](http://www.postgis.org/docs/ST_XMin.html), [ST_XMax](http://www.postgis.org/docs/ST_XMax.html), [ST_AsText](http://www.postgis.org/docs/ST_AsText.html), and more.
 
-All data returned from the_geom column is in WGS 83 (EPSG:4326). You can change this quickly and easily on the fly using SQL. For example, if you desire geometries in the Hanoi 1972 (EPSG:4147) projection, you could [ST_Transform](http://www.postgis.org/docs/ST_Transform.html),
+All data returned from *the_geom* column is in WGS 83 (EPSG:4326). You can change this quickly and easily on the fly using SQL. For example, if you desire geometries in the Hanoi 1972 (EPSG:4147) projection, you could [ST_Transform](http://www.postgis.org/docs/ST_Transform.html),
 
 ```sql
 PROJECTION
@@ -299,20 +299,20 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT ST_Transform(the_geom,4147) FRO
 
 ```
 
-CartoDB also stores a second geometry column, the_geom_webmercator. We use this internally to build your map tiles as fast as we can. In the user-interface it is hidden, but it is visible and available for use. In this column we store a reprojected version of all your geometries using Web Mercator (EPSG:3857).
+CartoDB also stores a second geometry column, *the_geom_webmercator*. We use this internally to build your map tiles as fast as we can. In the user-interface it is hidden, but it is visible and available for use. In this column we store a reprojected version of all your geometries using Web Mercator (EPSG:3857).
 
 
 # Query optimizations
 
 There are some tricks to consider when using the SQL API that might make your application a little faster.
 
-* Only request the fields you need. Selecting all columns will return a full version of your geometry in the_geom as well as a reprojected version in the_geom_webmercator.
+* Only request the fields you need. Selecting all columns will return a full version of your geometry in *the_geom* as well as a reprojected version in *the_geom_webmercator*.
 
 * Use PostGIS functions to simplify and filter out unneeded geometries when possible. One very handy function is, [ST_Simplify](http://www.postgis.org/docs/ST_Simplify.html).
 
 * Remember to build indexes that will speed up some of your more common queries.
 
-* Use cartodb_id to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
+* Use *cartodb_id* to retrieve specific rows of your data, this is the unique key column added to every CartoDB table.
 
 	
 # API version number
