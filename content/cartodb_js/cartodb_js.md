@@ -433,11 +433,11 @@ sublayer.setSQL('SELECT * FROM table_name limit 10');
 
 #### layer.createSubLayer(layerDefinition)
 
-Adds new data to the current layer. With this method data from multiple tables can be easily visualized. New in V3.
+Adds new data to the current layer. With this method, data from multiple tables can be easily visualized. New in V3.
 
 ##### ARGUMENTS
 
-* **layerDefinition**: an object with the sql and cartocss that defines the data, should be like:
+* **layerDefinition**: an object with the SQL and CartoCSS that defines the data, should look like:
 
 ```
 sql: "SELECT * FROM table_name",
@@ -446,10 +446,10 @@ interactivity: 'cartodb_id, area, column' // optional
 ```
 
 
-sql and cartocss are mandatory, an exception is raised if any of them are not present. If the interactivity is not set, there is no interactivity enabled for that layer (better performance). SQL and CartoCSS syntax should be correct, see Postgres and CartoCSS reference. There are some restrictions in the SQL queries:
+SQL and CartoCSS are mandatory, an exception is raised if either of them are not present. If the interactivity is not set, there is no interactivity enabled for that layer (for better performance). SQL and CartoCSS syntax should be correct, see Postgres and CartoCSS reference. There are some restrictions in the SQL queries:
 
-* must not write. INSERT, DELETE, UPDATE, ALTER and so on are not allowed (the query will fail)
-* must not contain trailing semicolon
+* Must not write. INSERT, DELETE, UPDATE, ALTER and so on are not allowed (the query will fail)
+* Must not contain trailing semicolon
 
 ##### RETURNS
 
@@ -538,7 +538,7 @@ Shortcut for set({'cartocss': '#layer {...}' });
 
 #### sublayer.remove
 
-Remove the sublayer. If a method is called after removing it an exception is thrown.
+Remove the sublayer. If a method is called after removing the layer, an exception is thrown.
 
 
 #### sublayer.setInteraction(true)
@@ -611,7 +611,7 @@ A callback when hovers in a feature.
 * **event**: Browser mouse event object.
 * **latlng**: The LatLng in an array [lat,lng] where was clicked.
 * **pos**: Object with x and y position in the DOM map element.
-* **data**: The CartoDB data of the clicked feature with the interactivity param.
+* **data**: The CartoDB data of the clicked feature with the interactivity parameter.
 * **layerIndex**: the layerIndex where the event happened
 
 <!-- EXAMPLE
@@ -738,7 +738,7 @@ These arguments will be applied for all the queries performed by this object, if
 
 ### sql.execute(sql [,vars][, options][, callback])
 
-It executes a sql query.
+It executes a SQL query.
 
 ##### ARGUMENTS
 
@@ -774,7 +774,7 @@ sql.getBounds('select * from table').done(function(bounds) {
 
 ##### ARGUMENTS
 
-* **sql**: a string with the sql query to calculate the bounds from.
+* **sql**: a string with the SQL query to calculate the bounds from.
 
 ## Application of getBounds in Leaflet and Google GETBOUNDSMaps
 
@@ -805,9 +805,9 @@ sql.getBounds('select * from table').done(function(bounds) {
 
 ## Core API functionality
 
-In case you are not using Google Maps or Leaflet or you want to implement your own layer object cartodb provides a way to get the tiles url for a layer definition.
+If you are not using Google Maps or Leaflet, or if you want to implement your own layer object, CartoDB provides a way to get the tiles URL for a layer definition.
 
-If you want to use this functionality you only need to load cartodb.core.js from our cdn, no css is needed:
+If you want to use this functionality you only need to load cartodb.core.js from our cdn, no CSS is needed:
 
 <!-- CORE API FUNCTIONALITY -->
 
@@ -843,7 +843,7 @@ tiler_host: 'cartodb.com', // not required
 tiler_port: 80 // not required
 ```
 
-* **callback(tilesUrl, error)**: a function that receives the tiles templates. In case of an error the first param is null and second one is an object with errors attribute witch is a list of errors. The tilesUrl object contains url template for tiles and for interactivity grids:
+* **callback(tilesUrl, error)**: a function that receives the tiles templates. In case of an error the first param is null and second one is an object with errors attribute witch is a list of errors. The tilesUrl object contains URL template for tiles and for interactivity grids:
 
 <!-- CARTODB.TILES.GETTILES -->
 
@@ -981,7 +981,7 @@ layer.on('featureOut', function(e, latlng, pos, data, layer) {
 
 #### Leaflet integration
 
-Using Leaflet with CartoDB is easy as CartoDB.js handles loading all the necessary libraries for you! Just include links to CartoDB.js and CartoDB.css in the HEAD of your website and you are ready to go! The CartoDB.css document isn’t mandatory, however if you are making a map and are not familiar with writing your own CSS for the various needed elements, it can greatly help to jumpstart the process. Adding it is as simple as adding the main JavaScript library:
+Using Leaflet with CartoDB is easy, because CartoDB.js handles loading all the necessary libraries for you! Just include links to CartoDB.js and CartoDB.css in the HEAD of your website and you are ready to go! The CartoDB.css document isn’t mandatory, however if you are making a map and are not familiar with writing your own CSS for the various needed elements, it can greatly help to jumpstart the process. Adding it is as simple as adding the main JavaScript library:
 
 <!-- LEAFLET INTEGRATION -->
 
