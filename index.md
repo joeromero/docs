@@ -13,6 +13,8 @@ CartoDB is a geospatial database on the cloud that allows for the storage and vi
 
 * Analyze and integrate data you store on CartoDB into your applications using the [SQL API][sql_api].
 
+* Create maps from your application [Maps API][maps_api].
+
 * Create advanced integrations of CartoDB maps on your website or application using [CartoDB.js][cartodb_js]
 
 <!-- invite to visit use cases and industries -->
