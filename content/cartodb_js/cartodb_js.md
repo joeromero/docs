@@ -96,13 +96,13 @@ To start using CartoDB.js just paste this piece of code within the HEAD tags of 
 
 ### Using CartoDB visualizations in your webpage
 
-There are two ways to include a visualization you have made using the CartoDB UI in your webpage.
+There are two ways to include a visualization you made using the CartoDB UI in your webpage. You can either create a visualization from scratch, or you can add CartoDB layers to an existing map.
 
 #### Create a visualization from scratch
 
-This is the easiest way to quickly get a CartoDB map onto your webpage. Use this when there is no map in you application and you want to add the visualization to hack over it. With this method, CartoDB.js handles all the details of loading a map interface, basemap, and your CartoDB visualization.
+This is the easiest way to quickly get a CartoDB map onto your webpage. Use this when there is no map in your application and you want to add a map visualization. With this method, CartoDB.js handles all the details of loading a map interface, basemap, and your CartoDB visualization.
 
-You can start by giving cartodb.js the DIV ID from your HTML where you want to place your map, and the viz.json URL of your visualization, which you can get from the publish window.
+You can start by giving cartodb.js the DIV ID from your HTML where you want to place your map, and the viz.json URL of your visualization, which you can get from the publish window. Check it out below.
 
 #### SIMPLEST WAY TO ADD YOUR MAP TO A WEBPAGE EVER!
 
@@ -110,9 +110,8 @@ You can start by giving cartodb.js the DIV ID from your HTML where you want to p
 cartodb.createVis('map', 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json');
 ```
 
-That’s it! No need to create the map instance, insert controls, or load layers, it handles it all for you. If you want to modify the result after instantiating your map with this method, take a look at the CartoDB.js API available methods. For example, you can also use the returned layer to build more functionality (show/hide, click, hover, custom infowindows):
+That’s it! No need to create the map instance, insert controls, or load layers; this handles it all for you. If you want to modify the result after instantiating your map with this method, take a look at the CartoDB.js API available methods. For example, you can use the returned layer to build more functionality (show/hide, click, hover, custom infowindows).
 
-#### SIMPLEST WAY TO ADD YOUR MAP TO A WEBPAGE EVER!
 
 ```js
 cartodb.createVis('map', 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e7c1-11e2-806b-5404a6a683d5/viz.json')
@@ -135,12 +134,12 @@ cartodb.createVis('map', 'http://documentation.cartodb.com/api/v2/viz/2b13c956-e
 ```
 
 
-If you are using Google Maps for you basemap in your CartoDB account, using createViz requires that you load the Google Maps V3 JavaScript library in the HEAD of your HTML. If you use other basemaps, cartodb.js will load the Leaflet JS library for you automatically.
+If you are using Google Maps for your basemap in your CartoDB account, using createViz requires that you load the Google Maps V3 JavaScript library in the HEAD of your HTML. If you use other basemaps, cartodb.js will load the Leaflet JS library for you automatically.
 
 
 #### ADDING CARTODB LAYERS TO AN EXISTING MAP
 
-If you already have a map instantiated on your page, you can simply use the createLayer method to add new CartoDB layers to it. This is particularly useful when you have more features on your map that aren't CartoDB layers or if you have an application and want to integrate CartoDB layers. Below, you have an example using a previously instantiated leaflet map.
+If you already have a map instantiated on your page, you can simply use the createLayer method to add new CartoDB layers to it. This is particularly useful when you have more features on your map that aren't CartoDB layers, or if you have an application and want to integrate CartoDB layers. Below, you have an example using a previously instantiated leaflet map.
 
 
 #### ADDING CARTODB LAYERS TO AN EXISTING MAP
@@ -168,9 +167,9 @@ If you already have a map instantiated on your page, you can simply use the crea
 
 ### Creating visualizations at runtime
 
-All CartoDB services are available through the API, which basically means that you can create a new visualization without using the CartoDB user interface. This is particularly useful when you are modifying the visualization depending on user interactions that change the SQL to get the data or CartoCSS to style it. Although this method requires more programming skills it provides all the flexibility you may need to create more dynamic visualizations.
+All CartoDB services are available through the API, which basically means that you can create a new visualization without using the CartoDB user interface. This is particularly useful when you are modifying the visualization depending on user interactions. Although this method requires more programming skills, it provides all the flexibility you may need to create more dynamic visualizations.
 
-When you create a visualization using the CartoDB website, you automatically are given a viz.json URL that links to it. When you want to create the visualization on the fly via JS you will need to pass all the required parameters to the library so that it can create the visualization at runtime and display it on your map. It is pretty simple.
+When you create a visualization using the CartoDB website, you automatically are given a viz.json URL that links to it. When you want to create the visualization on the fly via JS, you will need to pass all the required parameters to the library so that it can create the visualization at runtime and display it on your map. You can see an example below.
 
 #### CREATING VISUALIZATIONS AT RUNTIME
 
@@ -216,7 +215,7 @@ If you want to start playing with the library, the best way to do it might be to
 
 ## API methods
 
-The documentation below reflects CartoDB.js for the v3 library versions. For major changes in the library we will update the documentation here. This documentation is meant to help developers find specific methods for using the CartoDB.js library.
+The documentation below reflects CartoDB.js for the v3 library versions. For major changes in the library, we will update the documentation here. This documentation is meant to help developers find specific methods for using the CartoDB.js library.
 For deprecated versions of this library, refer to this documentation.
 
 ### Visualization
@@ -306,7 +305,7 @@ Returns the native map object being used. It can be google.maps.Map or L.Map dep
 #### vis.Overlays
 
 An overlay is a control shown on top of the map. Overlay objects are always created using method addOverlay of cartodb.Vis object.
-An overlay is internally a Backbone.View so if you know how backbone works you can use it. If you want to use plain DOM objects you can access to overlay.el (overlay.$el for jQuery object).
+An overlay is internally a Backbone.View so if you know how backbone works, you can use it. If you want to use plain DOM objects you can access to overlay.el (overlay.$el for jQuery object).
 
 
 #### cartodb.createLayer(map, layerSource [, options] [, callback])
@@ -411,7 +410,7 @@ Change the opacity of the layer.
 
 #### layer.getSubLayer(layerIndex)
 
-Get a previously created sublayer. And exception is raised if not exists
+Get a previously created sublayer. An exception is raised if does not exist.
 
 ##### ARGUMENTS
 
