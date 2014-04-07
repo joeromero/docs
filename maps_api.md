@@ -128,12 +128,16 @@ the response includes:
       metadata
     - cdn_url: urls to fetch the data using the best CDN for your zone
 
-```
+
 #### example request
+
+
 ```
 curl 'http://documentation.cartodb.com/api/v1/map' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
+
 #### example response
+
 ```
 {
        "layergroupid":"c01a54877c62831bb51720263f91fb33:0",
@@ -210,7 +214,11 @@ Template maps are persistent, can only be created and deleted by the CartoDB use
 
 ### create a new map
 
-You can create a named map with POST sending JSON data with the following format:
+#### definition
+POST /api/v1/map/named
+
+#### params
+JSON payload:
 
 ```js
 // template.json 
@@ -259,16 +267,7 @@ You can create a named map with POST sending JSON data with the following format
 }
 ```
 
-this is the request needed to create the named map:
-
-```sh
-curl -X POST \
-   -H 'Content-Type: application/json' \
-   -d @template.json \
-   'https://docs.cartodb.com/api/v1/named?api_key=APIKEY'
-```
-
-#### Template format
+##### Template format
 
 A templated layergroup would allow using placeholders in the "cartocss" and "sql" elements in the "option" field of any "layer" of a layergroup configuration
 
@@ -289,17 +288,57 @@ Placeholder default value will be used when not provided at instantiation time a
 
 Be careful selecting the template types and defining the template, some user couldaccess
 
+#### response
+
+```
+{
+       "templateid":"name",
+}
+```
+
+
+#### example request
+this is the request needed to create the named map:
+
+```sh
+curl -X POST \
+   -H 'Content-Type: application/json' \
+   -d @template.json \
+   'https://docs.cartodb.com/api/v1/named?api_key=APIKEY'
+```
+
+
 ### Instantiating a template map
 
 Instanciate a map allows to get a temporal map to fetch tiles. That temporal map is actually an anonymous map
 
+#### definition
+POST /api/v1/named/:template_name
+
+#### params
+- A JSON with the template parameters in the body
+
+```json
+// params.json
+{
+ color: '#ff0000',
+ cartodb_id: 3
+}
+```
+it depends on the variables allowed by the named map. If there are some variable missing it will
+raise an error (HTTP 400)
+
+- auth_token: (optional) it the named map needs auth
+
+
+#### example request
 You can instantiate a template map passing all required parameters with
 a POST to ``/api/v1/named/:template_name``.
 
 Valid credentials will be needed, if required by the template.
 
 ```js
-// params.js
+// params.json
 {
  color: '#ff0000',
  cartodb_id: 3
@@ -309,7 +348,7 @@ Valid credentials will be needed, if required by the template.
 ```sh
 curl -X POST \
   -H 'Content-Type: application/json' \
-  -d @params.js \
+  -d @params.json \
   'https://docs.cartodb.com/api/v1/template/@template_name?auth_token=AUTH_TOKEN'
 
 ```
@@ -336,7 +375,34 @@ normally (see anonymous map section).  But you'll still have to show the ``auth_
 
 
 ### using JSONP
+
 There is also a special endpoint to be able to instanciate using JSONP (for old browsers)
+
+#### definition
+GET /api/v1/named/:template_name/jsonp
+
+#### params
+- auth_token: (optional) it the named map needs auth
+- config: encoded JSON with the params to creating named maps (the variables defined in the
+  template)
+- lmza: This attribute contains the same than config but LZMA compressed. It can't be used at the same time than ``config``.
+- callback: JSON callback name
+
+
+#### response 
+```
+callback(
+       "layergroupid":"c01a54877c62831bb51720263f91fb33:0",
+       "last_updated":"1970-01-01T00:00:00.000Z"
+       "cdn_url": {
+           "http": "http://cdb.com",
+           "https": "https://cdb.com"
+}
+```
+see anonymous maps response format, it's the same but wrapped in a function call
+
+
+#### example request
 
 ```
 curl 'https://docs.cartodb.com/api/v1/named/:template_name/jsonp?auth_token=AUTH_TOKEN&callback=function_name&config=template_params_json'
@@ -360,6 +426,20 @@ last_updated: "2014-01-27T17:41:03.021Z"
 
 
 ### update an existing name
+
+#### definition
+PUT /api/v1/map/:map_name
+
+#### params
+same params used to create a map
+
+#### response
+same than updating a map
+
+#### other info
+updating a named map remove all the named map instances so they need to be instanciated again.
+
+#### example
 
 You can update a signed template map with a PUT:
 
@@ -391,13 +471,12 @@ Update of a template map implies removal all signatures from previous map instan
 
 
 ### remove 
+removes from the server that template map
 
-You can delete a templated map with a DELETE to ``/template/:template_name``:
+#### definition
+DELETE to ``/template/:template_name``:
 
-```sh
-curl -X DELETE 'https://docs.cartodb.com/tiles/template/@template_name?auth_token=AUTH_TOKEN'
-```
-
+#### response
 On success, a 204 (No Content) response would be issued.
 Otherwise a 4xx response with this format:
 
@@ -407,13 +486,27 @@ Otherwise a 4xx response with this format:
 }
 ```
 
+#### other info
 Deletion of a template map will imply removal all instance signatures
+
+#### example
+
+```sh
+curl -X DELETE 'https://docs.cartodb.com/tiles/template/@template_name?auth_token=AUTH_TOKEN'
+```
+
 
 ### Listing available templates
 
-You can get a list of available templates with a GET to ``/template``.
-A valid api_key is required.
+You can get a list of available templates 
 
+#### definition
+GET /api/v1/map/named/
+
+#### params
+ - api_key is required.
+
+#### Example
 ```sh
 curl -X GET 'https://docs.cartodb.com/tiles/template?api_key=APIKEY'
 ```
@@ -434,12 +527,15 @@ Or, on error:
 ```
 
 ### Getting a specific template
+Gets the definition of a template
 
-You can get the definition of a template with a
-GET to ``/template/:template_name``.
-A valid api_key is required.
+#### definition
+GET ``/api/v1/map/named/:template_name``.
 
-Example:
+#### params
+ - api_key is required.
+
+#### Example
 
 ```sh
 curl -X GET 'https://docs.cartodb.com/tiles/template/@template_name?auth_token=AUTH_TOKEN'
