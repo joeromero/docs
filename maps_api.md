@@ -12,7 +12,8 @@ Leaflet, Google Maps, OpenLayers and so on.
 There are two types of maps:
 
 - Anonymous maps: those maps that can be created using your public data. All clients have rights to
-  it and can change SQL and CartoCSS that generates the map
+  it and can change SQL and CartoCSS that generates the map. These kind of maps can be created from
+  the javascript application so no previous calls are needed. See [this cartodb.js example](http://developers.cartodb.com/documentation/cartodb-js.html#sec-7)
 
 - Named maps: maps that access to your private data and only the owner has the rights the modify the
   CartoCSS and the SQL.
