@@ -20,6 +20,7 @@ There are two types of maps:
 
 ## quickstart
 
+Let's create a map using some private tables in CartoDB account.
 The following call creates a map of european countries drawn in white:
 
 ```json
@@ -56,6 +57,7 @@ With that ``layergroupid`` the url template to access the tiles can be created:
 ```
 http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
 ```
+
 
 
 # general concepts
