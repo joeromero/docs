@@ -48,7 +48,8 @@ $.ajax({
      url: 'http://documentation.cartodb.com/api/v1/map',
      data: JSON.stringify(mapconfig),
      success: function(data) {
-         console.log(data.layergroupid)
+         var templateUrl = 'http://documentation.cartodb.com/api/v1/map/' + data.layergroupid + '{z}/{x}/{y}.png'
+         console.log(templateUrl);
      }
 })
 
