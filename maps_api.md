@@ -17,9 +17,45 @@ There are two types of maps:
 
 - Named maps: maps that access to your private data and only the owner has the rights the modify the
   CartoCSS and the SQL.
+              maps that access to your private data and only the owner has the rights the modify the
+   CartoCSS and the SQL.
+
 
 ## quickstart
 
+### anonymous maps
+
+here is an example of how to create an anomymous map from javascript
+
+```javascript
+var mapconfig = {
+  "version": "1.0.1",
+  "layers": [{
+    "type": "cartodb",
+    "options": {
+      "cartocss_version": "2.1.1",
+      "cartocss": "#layer { polygon-fill: #FFF; }",
+      "sql": "select * from european_countries_e"
+    }
+  }]
+}
+
+$.ajax({
+     crossOrigin: true,
+     type: 'POST',
+     dataType: 'json',
+     contentType: 'application/json',
+     url: 'http://documentation.cartodb.com/api/v1/map',
+     data: JSON.stringify(mapconfig),
+     success: function(data) {
+         console.log(data.layergroupid)
+     }
+})
+
+```
+
+
+### named maps
 Let's create a map using some private tables in CartoDB account.
 The following call creates a map of european countries drawn in white:
 
@@ -40,7 +76,7 @@ The following call creates a map of european countries drawn in white:
 
 the call would be (documentation should be replaced with the cartodb username):
 ```bash
-curl 'http://documentation.cartodb.com/api/v1/map' -H 'Content-Type: application/json' -d @mapconfig.json
+curl 'http://documentation.cartodb.com/api/v1/map/named' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
 
 it will return a json with the layergroup id and the timestamp of the last data modification:
