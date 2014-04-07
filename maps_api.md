@@ -121,12 +121,13 @@ should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/Map
 
 #### response
 the response includes:
-    - layergroupid: id for that map, used to componse the url for the tiles, so the final url is:
-      http://user.cartodb.com/api/v1/map/:layergroupid/{z}/{x}/{y}.png
-    - updated_at: ISO date of the last time the data involved in the query was updated
-    - metadata: (optional) includes information about the layers. Some layers may not have this
-      metadata
-    - cdn_url: urls to fetch the data using the best CDN for your zone
+
+  - layergroupid: id for that map, used to componse the url for the tiles, so the final url is:
+    http://user.cartodb.com/api/v1/map/:layergroupid/{z}/{x}/{y}.png
+  - updated_at: ISO date of the last time the data involved in the query was updated
+  - metadata: (optional) includes information about the layers. Some layers may not have this
+    metadata
+  - cdn_url: urls to fetch the data using the best CDN for your zone
 
 
 #### example request
@@ -183,9 +184,12 @@ JSONP endpoint is provided in order to allow web browsers which don't support CO
 GET /api/v1/map?callback=method
 
 #### params
-it gets one of the following params
-    - config: MapConfig json (url encoded)
-    - lzma: same than config but lzma compressed (for long MapConfigs)
+
+  - auth_token: (optional) it the named map needs auth
+  - config: encoded JSON with the params to creating named maps (the variables defined in the
+    template)
+  - lmza: This attribute contains the same than config but LZMA compressed. It can't be used at the same time than ``config``.
+  - callback: JSON callback name
 
 #### example request
 'curl http://....'
