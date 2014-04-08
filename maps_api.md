@@ -89,24 +89,20 @@ http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb
 
 
 
-# general concepts
+# General Concepts
 
 The following concepts are the same for every endpoint in the API except it's noted explicitly.
 
-## auth
-By default the user don't have access to private tables in CartoDB, in order to create maps where
-private tables are involved the user needs to use the API Key. Some of the endpoints also need that
-API Key to be called, like named map creation.
+## Auth
+By default, users do not have access to private tables in CartoDB. In order to create maps where private tables are involved, the user needs to use the API Key. Some of the endpoints also need the API Key to be called, like named map creation.
 
-To execute an authorized request just api_key=YOURAPIKEY should be added to the request url. The
-param can be also passed as POST param.
+To execute an authorized request, api_key=YOURAPIKEY should be added to the request URL. The param can be also passed as POST param.
 
-Please, take care if you are using API Key as query param, always use https in those cases.
+Please, be careful if you are using API Key as query param, always use HTTPS in those cases.
 
-## errors
+## Errors
 
-Error are reported using standard HTTP codes and also extended information encoded in json with this
-format
+Errors are reported using standard HTTP codes and also extended information encoded in json with this format
 ```
 {
     "errors": [
@@ -115,12 +111,11 @@ format
 }
 ```
 
-If you use JSONP 200 HTTP code is always returned so the javascript client can receive the error
+If you use JSONP 200 HTTP code is always returned so the javascript client can receive the error.
 
 ## CORS support
 
-All the endpoints which migth be accessed using a web browser add CORS headers and allow OPTIONS
-method.
+All the endpoints which might be accessed using a web browser add CORS headers and allow OPTIONS method.
 
 # Maps API
 
