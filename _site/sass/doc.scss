@@ -38,8 +38,10 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     border-left: 1px solid #EEEEEE;
   }
   .inner h2 { margin-bottom: 22px; font: 32px/34px 'Proxima Nova Th'; }
+  .inner h1 { margin-bottom: 22px; font: 32px/34px 'Proxima Nova Th'; }
+  .inner a { }
   .inner p { font: 18px/28px 'Proxima Nova Rg'; margin-bottom: 38px; }
-  .inner h2, p { float: left; display: inline; width: 50%; clear:left; }
+  .inner h2, .inner > p, .inner h1, .inner table, .inner ol, .inner ul, .inner h3, .inner h4 { float: left; display: inline; width: 50%; clear:left; }
   .inner-code { 
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
