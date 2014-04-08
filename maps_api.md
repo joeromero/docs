@@ -515,15 +515,15 @@ curl -X DELETE 'https://docs.cartodb.com/tiles/template/@template_name?auth_toke
 ```
 
 
-### Listing available templates
+### Listing Available Templates
 
-You can get a list of available templates 
+This allows you to get a list of available templates. 
 
-#### definition
+#### Definition
 GET /api/v1/map/named/
 
-#### params
- - api_key is required.
+#### Params
+ - api_key is required
 
 #### Example
 ```sh
@@ -545,14 +545,14 @@ Or, on error:
 }
 ```
 
-### Getting a specific template
-Gets the definition of a template
+### Getting a Specific Template
+This gets the definition of a template
 
-#### definition
+#### Definition
 GET ``/api/v1/map/named/:template_name``.
 
-#### params
- - api_key is required.
+#### Params
+ - api_key is required
 
 #### Example
 
@@ -560,7 +560,7 @@ GET ``/api/v1/map/named/:template_name``.
 curl -X GET 'https://docs.cartodb.com/tiles/template/@template_name?auth_token=AUTH_TOKEN'
 ```
 
-The response would be like this:
+The response will look like:
 ```js
 {
    "template": {...}  // see template.json above
