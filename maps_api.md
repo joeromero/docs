@@ -119,17 +119,16 @@ All the endpoints which might be accessed using a web browser add CORS headers a
 
 # Maps API
 
-## anonymous maps
+## Anonymous Maps
 
-Allow to create a map given SQL and CartoCSS. It also allows to add interaction capabilities using
-[UTF Grid](https://github.com/mapbox/utfgrid-spec)
+This allows you to create a map given SQL and CartoCSS. It also allows you to add interaction capabilities using [UTF Grid.](https://github.com/mapbox/utfgrid-spec)
 
-### create
+### Create
 
-#### definition
+#### Definition
 POST /api/v1/map
 
-#### params
+#### Params
 should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/MapConfig-1.1.0.md)
 ```
 {
@@ -146,25 +145,24 @@ should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/Map
 }
 ```
 
-#### response
-the response includes:
+#### Response
+The response includes:
 
-  - layergroupid: id for that map, used to componse the url for the tiles, so the final url is:
-    http://user.cartodb.com/api/v1/map/:layergroupid/{z}/{x}/{y}.png
-  - updated_at: ISO date of the last time the data involved in the query was updated
-  - metadata: (optional) includes information about the layers. Some layers may not have this
-    metadata
-  - cdn_url: urls to fetch the data using the best CDN for your zone
+  - layergroupid: The ID for that map, used to componse the URL for the tiles, so the final URL is:
+    http://{account}.cartodb.com/api/v1/map/:layergroupid/{z}/{x}/{y}.png
+  - updated_at: The ISO date of the last time the data involved in the query was updated
+  - metadata: (optional) Includes information about the layers. Some layers may not have this metadata
+  - cdn_url: URLs to fetch the data using the best CDN for your zone
 
 
-#### example request
+#### Example Request
 
 
 ```
 curl 'http://documentation.cartodb.com/api/v1/map' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
 
-#### example response
+#### Example Response
 
 ```
 {
@@ -181,47 +179,44 @@ The tiles can be accessed using:
 ```
 http://documentation.cartodb.com/api/v1/map/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
 ```
-utf grid ones
+For UTF grid tiles:
 
 ```
 http://documentation.cartodb.com/api/v1/map/c01a54877c62831bb51720263f91fb33:0/:layer/{z}/{x}/{y}.grid.json
 ```
 
-and attributes defined in ``attributes`` section:
+For attributes defined in ``attributes`` section:
 
 ```
 http://documentation.cartodb.com/api/v1/map/c01a54877c62831bb51720263f91fb33:0/:layer/attributes/:feature_id
 ```
 
-which returns a JSON with the attributes defined, like:
+Which returns a JSON with the attributes defined, like:
 
 ```json
     { c: 1, d: 2 }
 ```
 
-Notice UTF Grid and attributes endpoints need an intenger parameter, ``layer``. That number is the 0-base index of the
-layer inside the mapconfig. So in this case 0 returns the UTF grid tiles/attributes for layer 0 (the only one
-in that example mapconfig)
+Notice UTF Grid and attributes endpoints need an intenger parameter, ``layer``. That number is the 0-base index of the layer inside the mapconfig. So in this case 0 returns the UTF grid tiles/attributes for layer 0 (the only one in that example mapconfig)
 
 
-### create JSONP
+### Create JSONP
 JSONP endpoint is provided in order to allow web browsers which don't support CORS
 
-#### definition
+#### Definition
 GET /api/v1/map?callback=method
 
-#### params
+#### Params
 
-  - auth_token: (optional) it the named map needs auth
-  - config: encoded JSON with the params to creating named maps (the variables defined in the
-    template)
-  - lmza: This attribute contains the same than config but LZMA compressed. It can't be used at the same time than ``config``.
+  - auth_token: (optional) If the named map needs authorization
+  - config: Encoded JSON with the params for creating named maps (the variables defined in the template)
+  - lmza: This attribute contains the same as config but LZMA compressed. It cannot be used at the same time as ``config``.
   - callback: JSON callback name
 
-#### example request
+#### Example Request
 'curl http://....'
 
-#### example response
+#### Example Response
 ```json
 {
 }
