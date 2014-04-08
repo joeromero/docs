@@ -13,11 +13,11 @@ You can create two types of maps with the Maps API:
 
 - Named maps: Maps that access to your private data, and which only the owner can modify through the SQL and CartoCSS parameters. 
 
-## quickstart
+## Quickstart
 
-### anonymous maps
+### Anonymous maps
 
-here is an example of how to create an anomymous map from javascript
+Here is an example of how to create an anomymous map from javascript
 
 ```javascript
 var mapconfig = {
@@ -48,7 +48,7 @@ $.ajax({
 ```
 
 
-### named maps
+### Named maps
 Let's create a map using some private tables in CartoDB account.
 The following call creates a map of european countries drawn in white:
 
@@ -67,9 +67,9 @@ The following call creates a map of european countries drawn in white:
 }
 ```
 
-the call would be (documentation should be replaced with the cartodb username):
+the call would be:
 ```bash
-curl 'http://documentation.cartodb.com/api/v1/map/named' -H 'Content-Type: application/json' -d @mapconfig.json
+curl 'http://{account}.cartodb.com/api/v1/map/named' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
 
 it will return a json with the layergroup id and the timestamp of the last data modification:
@@ -81,7 +81,7 @@ it will return a json with the layergroup id and the timestamp of the last data 
 }
 ```
 
-With that ``layergroupid`` the url template to access the tiles can be created:
+With that ``layergroupid`` the URL template to access the tiles can be created:
 
 ```
 http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
