@@ -419,22 +419,22 @@ callback(
            "https": "https://cdb.com"
 }
 ```
-see anonymous maps response format, it's the same but wrapped in a function call
+Take a look at the anonymous maps response format. Here it is the same but wrapped in a function call.
 
 
-#### example request
+#### Example Request
 
 ```
 curl 'https://docs.cartodb.com/api/v1/named/:template_name/jsonp?auth_token=AUTH_TOKEN&callback=function_name&config=template_params_json'
 ```
 
-it takes the ``callback`` function (required), ``auth_token`` in case the template needs auth and ``config`` which is the variabñes for the template (in case it has variables). For example config may be created (using javascript)
+This takes the ``callback`` function (required), ``auth_token`` if the template needs auth, and ``config`` which is the variable for the template (in case it has variables). For example config may be created (using javascript).
 ```
 url += "config=" + encodeURIComponent(
 JSON.stringify({ color: 'red' });
 ```
 
-the response it's in this format:
+The response is in this format:
 ```
 jQuery17205720721024554223_1390996319118(
 {
@@ -445,21 +445,21 @@ last_updated: "2014-01-27T17:41:03.021Z"
 ```
 
 
-### update an existing name
+### Update an Existing Name
 
-#### definition
+#### Definition
 PUT /api/v1/map/:map_name
 
-#### params
-same params used to create a map
+#### Params
+Same params used to create a map
 
-#### response
-same than updating a map
+#### Response
+Same as updating a map
 
-#### other info
-updating a named map remove all the named map instances so they need to be instanciated again.
+#### Other Info
+Updating a named map removes all the named map instances so they need to be instantiated again.
 
-#### example
+#### Example
 
 You can update a signed template map with a PUT:
 
@@ -478,8 +478,7 @@ The response would be like this:
 }
 ```
 
-If a template with the same name does NOT exist,
-a 400 HTTP response is generated with an error in this format:
+If a template with the same name does NOT exist, a 400 HTTP response is generated with an error in this format:
 
 ```js
 {
@@ -490,15 +489,15 @@ a 400 HTTP response is generated with an error in this format:
 Update of a template map implies removal all signatures from previous map instances.
 
 
-### remove 
-removes from the server that template map
+### Remove 
+Removes the specified template map from the server.
 
-#### definition
+#### Definition
 DELETE to ``/template/:template_name``:
 
-#### response
+#### Response
 On success, a 204 (No Content) response would be issued.
-Otherwise a 4xx response with this format:
+Otherwise a 4xx response with this format will be returned:
 
 ```js
 {
@@ -506,10 +505,10 @@ Otherwise a 4xx response with this format:
 }
 ```
 
-#### other info
-Deletion of a template map will imply removal all instance signatures
+#### Other Info
+Deletion of a template map will imply removal of all instance signatures.
 
-#### example
+#### Example
 
 ```sh
 curl -X DELETE 'https://docs.cartodb.com/tiles/template/@template_name?auth_token=AUTH_TOKEN'
