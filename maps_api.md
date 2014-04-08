@@ -3,23 +3,15 @@ layout: default
 title: Maps API
 ---
 
-# introduction
+# Maps API
 
-Maps API allows to generate maps based on the data hosted in your CartoDB account styling them with
-CartoCSS. The API generates a ZXY web mercator based url to fetch tiles from it using a client like
-Leaflet, Google Maps, OpenLayers and so on.
+The CartoDB Maps API allows you to generate maps based on data hosted in your CartoDB account, and style them using CartoCSS. The API generates a ZXY web mercator based URL to fetch tiles using a client like Leaflet, Google Maps, OpenLayers and so on.
 
-There are two types of maps:
+You can create two types of maps with the Maps API:
 
-- Anonymous maps: those maps that can be created using your public data. All clients have rights to
-  it and can change SQL and CartoCSS that generates the map. These kind of maps can be created from
-  the javascript application so no previous calls are needed. See [this cartodb.js example](http://developers.cartodb.com/documentation/cartodb-js.html#sec-7)
+- Anonymous maps: Maps that can be created using your CartoDB public data. All clients can change the SQL and CartoCSS parameters that generate the map. These kind of maps can be created from the javascript application, so no previous calls are needed. See [this cartodb.js example.](http://developers.cartodb.com/documentation/cartodb-js.html#sec-7)
 
-- Named maps: maps that access to your private data and only the owner has the rights the modify the
-  CartoCSS and the SQL.
-              maps that access to your private data and only the owner has the rights the modify the
-   CartoCSS and the SQL.
-
+- Named maps: Maps that access to your private data, and which only the owner can modify through the SQL and CartoCSS parameters. 
 
 ## quickstart
 
