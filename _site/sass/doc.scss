@@ -144,7 +144,8 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   .code-txt { background: #f5f5f5; }
   .inner { margin-right: 20px; }
   .inner:after { visibility: hidden; }
-  .inner h2, p { display: block; width: 100%;  }
+
+  .inner h2, .inner > p, .inner h1, .inner table, .inner ol, .inner ul, .inner h3, .inner h4 { display: block; width: 100%; }
   .code-info { float: none; display: block; width: 100%; }
   .code { float:none; width: 100%;  margin-bottom: 32px; clear:both; }
 }
@@ -157,7 +158,6 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   }
   .inner { margin: 0 20px; }
   .inner:after { visibility: hidden; }
-  .inner h2, p { display: block; width: 100%;  }
   .code-info { float: none; display: block; width: 100%;}
   .code { float:none; width: 100%;   margin-bottom: 32px;}
 }
