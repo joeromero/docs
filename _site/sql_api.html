@@ -19,24 +19,102 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/doc.css">
   <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-  <header class="header">
-  </header>
 
-  <div class="content">
-    <ul>
-  <li><a href='index.html'>The CartoDB UI</a></li>
-  <li><a href='cartodb_js.html'>CartoDB.js</a></li>
-  <li><a href='sql_api.html'>SQL API</a></li>
-  <li><a href='tutorials.html'>Tutorials</a></li>
-  <li><a href='tips_and_tricks.html'>Tips and tricks</a></li>
-</ul>
+  <header class="hdr cf">
+  <nav>
+    <ul class="nav-principal">
+      <li class="selected"><a href='index.html'>THE CARTODB UI</a></li>
+      <li><a href='cartodb_js.html'>CARTODB.JS</a></li>
+      <li><a href='sql_api.html'>SQL API</a></li>
+      <li><a href='tutorials.html'>TUTORIALS</a></li>
+      <li><a href='tips_and_tricks.html'>TIPS AND TRICKS</a></li>
+    </ul>
+  </nav>
+  <form class="hdr-form">
+    <input type="text" name="search" />
+  </form>
+</header>
 
 
-    <h1 id="sql_api">SQL API</h1>
+  <div class="container cf">
+    <nav class="nav">
+  <ul class="nav-inner">
+    <li class="selected">
+      <h2><a href="#">What is CartoDB</a></h2>
+    </li>
+    <li>
+      <h2><a href="#">1 minute Introduction</a></h2>
+    </li>
+    <li>
+      <h2><a href="#">Tables</a></h2>
+      <ul>
+        <li>
+          <h3><a href="#">Import your data</a></h3>
+          <ul>
+            <li class="selected">
+              <h4><a href="#">Sync tables</a></h4>
+            </li>
+            <li>
+              <h4><a href="#">Support data formats</a></h4>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="#">Manage your tables</a></h3>
+          <ul>
+            <li>
+              <h4><a href="#">Sync tables</a></h4>
+            </li>
+            <li class="selected">
+              <h4><a href="#">Support data formats</a></h4>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="#">Inside a table</a></h3>
+          <ul>
+            <li>
+              <h4><a href="#">Sync tables</a></h4>
+            </li>
+            <li>
+              <h4><a href="#">Support data formats</a></h4>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h2><a href="#">Visualizations</a></h2>
+      <ul>
+        <li>
+          <h3><a href="#">What is a visualization?</a></h3>
+        </li>
+        <li>
+          <h3><a href="#">Visualization metadata</a></h3>
+        </li>
+        <li>
+          <h3><a href="#">Basemaps</a></h3>
+          <ul>
+            <li>
+              <h4><a href="#">What is a basemap</a></h4>
+            </li>
+            <li>
+              <h4><a href="#">Selecting your basemap</a></h4>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>  
+    <div class="inner">
+      <h1 id="sql_api">SQL API</h1>
 
 <p>CartoDB’s SQL API allows you to interact with your tables and data inside CartoDB as if you were running SQL statements against a normal database. The database behind CartoDB is PostgreSQL so if you need help with specific SQL statements or you want to learn more about it, visit the <a href="http://www.postgresql.org/docs/9.1/static/sql.html">official documentation</a>.</p>
 
@@ -75,9 +153,11 @@
 <p>To use your API key, pass it as a parameter in an URL call to the CartoDB API. For example, to perform an insert into your table, you would use the following URL structure.</p>
 
 <pre class="sql"><code class="sql">
+
 QUERY EXAMPLE WITH THE API_KEY PARAMETER
 
 http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&amp;api_key={Your API key}
+
 </code></pre>
 
 <h2 id="oauth">OAuth</h2>
@@ -109,20 +189,25 @@ http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&amp;api_key={Your API 
 <p>All SQL API requests to your CaroDB account should follow this general pattern:</p>
 
 <pre class="sql"><code class="sql">
+
 SQL QUERY EXAMPLE
 
 http://{account}.cartodb.com/api/v2/sql?q={SQL statement}
+
 </code></pre>
 
 <p>If you encounter errors, double-check that you are using the correct account name, and that your SQL statement is valid. A simple example of this pattern is conducting a count of all the records in your table:</p>
 
 <pre class="sql"><code class="sql">
+
 SQL QUERY COUNT EXAMPLE
 
 http://{account}.cartodb.com/api/v2/sql?q=SELECT count(*) FROM {table_name}
+
 </code></pre>
 
-<pre class="sql"><code class="sql">RESULT
+<pre class="sql"><code class="sql">
+RESULT
 
 {
   time: 0.007,
@@ -132,7 +217,8 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT count(*) FROM {table_name}
       count: 4994
     }
   ]
-}</code></pre>
+}
+</code></pre>
 
 <p>Finally, remember that in order to use the SQL API, either your table must be public, or you must be authenticated using API Keys or OAuth, as discussed above.</p>
 
@@ -140,13 +226,15 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT count(*) FROM {table_name}
 
 <p>The CartoDB SQL API is setup to handle both GET and POST requests. You can test the GET method directly in your browser. Below is an example of a JQuery SQL API request to CartoDB:</p>
 
-<pre class="js"><code class="js">JQUERY
+<pre class="js"><code class="js">
+JQUERY
 
 $.getJSON(&#39;http://&#39;+your_account_name+&#39;.cartodb.com/api/v2/sql/?q=&#39;+sql_statement, function(data) {
     $.each(data.rows, function(key, val) {
       // do something!
     });
   });
+
 </code></pre>
 
 <p>By default, GET requests work from anywhere. In CartoDB, POST requests work from any website as well. We achieve this by hosting a cross-domain policy file at the root of all of our servers. This allows you the greatest level of flexibility when developing your application.</p>
@@ -155,12 +243,15 @@ $.getJSON(&#39;http://&#39;+your_account_name+&#39;.cartodb.com/api/v2/sql/?q=&#
 
 <p>The standard response from the CartoDB SQL API is JSON. If you are building a web-application, the lightweight JSON format allows you to quickly integrate data from the SQL API.</p>
 
-<pre class="sql"><code class="sql">JSON
+<pre class="sql"><code class="sql">
+JSON
 
 http://{account}.cartodb.com/api/v2/sql?q=SELECT * FROM {table_name} LIMIT 1
+
 </code></pre>
 
 <pre class="js"><code class="js">
+
 RESULT
 
 {
@@ -179,16 +270,20 @@ RESULT
     }
   ]
 }
+
 </code></pre>
 
 <p>Alternatively, you can use the <a href="http://www.geojson.org/geojson-spec.html">GeoJSON specification</a> to return data from the API. To do so, simply supply the format parameter as GeoJSON:</p>
 
-<pre class="sql"><code class="sql">GEOJSON
+<pre class="sql"><code class="sql">
+GEOJSON
 
 http://{account}.cartodb.com/api/v2/sql?format=GeoJSON&amp;q=SELECT * FROM {table_name} LIMIT 1
+
 </code></pre>
 
 <pre class="js"><code class="js">
+
 RESULT
 
 {
@@ -213,7 +308,8 @@ RESULT
       }
     }
   ]
-}</code></pre>
+}
+</code></pre>
 
 <p>The SQL API accepts other output formats that can be useful to export data. Right now you can use the following formats: CSV, SHP, SVG, KML, GeoJSON.</p>
 
@@ -221,22 +317,26 @@ RESULT
 
 <p>Currently, there is no public method to access your table schemas. The simplest way to retrieve table structure is to access the first row of the data,</p>
 
-<pre class="sql"><code class="sql">COLUMNS
+<pre class="sql"><code class="sql">
+COLUMNS
 
 http://{account}.cartodb.com/api/v2/sql?q=SELECT * FROM {table_name} LIMIT 1
+
 </code></pre>
 
 <h2 id="response_errors">Response errors</h2>
 
 <p>To help you debug your SQL queries, the CartoDB SQL API returns errors as part of the JSON response. Errors come back as follows,</p>
 
-<pre class="json"><code class="json">ERRORS
+<pre class="json"><code class="json">
+ERRORS
 
 {
   error: [
     &quot;syntax error at or near &quot;LIMIT&quot;&quot;
   ]
 }
+
 </code></pre>
 
 <p>You can use these errors to help understand your SQL. For more complete documentation see the Error Codes and Solutions section of this Users Guide.</p>
@@ -245,16 +345,20 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT * FROM {table_name} LIMIT 1
 
 <p>Performing inserts or updates on your data is simple using your <a href="#authentication">API key</a>. All you need to do is supply a correct SQL <a href="http://www.postgresql.org/docs/9.1/static/sql-insert.html">INSERT</a> or <a href="http://www.postgresql.org/docs/9.1/static/sql-update.html">UPDATE</a> statement for your table along with the api_key parameter for your account. Be sure to keep these requests private, as anyone with your API key will be able to modify your tables. A correct SQL insert statement means that all the columns you want to insert into already exist in your table, and all the values for those columns are the right type (quoted string, unquoted string for geoms and dates, or numbers).</p>
 
-<pre class="sql"><code class="sql">INSERT
+<pre class="sql"><code class="sql">
+INSERT
 
 http://{account}.cartodb.com/api/v2/sql?q=INSERT INTO test_table (column_name, column_name_2, the_geom) VALUES (&#39;this is a string&#39;, 11, ST_SetSRID(ST_Point(-110, 43),4326))&amp;api_key={Your API key}
+
 </code></pre>
 
 <p>Updates are just as simple. Here is an example, updating a row based on the value of the cartodb_id column.</p>
 
-<pre class="sql"><code class="sql">UPDATE
+<pre class="sql"><code class="sql">
+UPDATE
 
 http://{account}.cartodb.com/api/v2/sql?q=UPDATE test_table SET column_name = &#39;my new string value&#39; WHERE cartodb_id = 1 &amp;api_key={Your API key}
+
 </code></pre>
 
 <h1 id="handling_geospatial_data">Handling geospatial data</h1>
@@ -263,12 +367,15 @@ http://{account}.cartodb.com/api/v2/sql?q=UPDATE test_table SET column_name = &#
 
 <p>The first, is to use the format=GeoJSON method described above. Others can be handled through your SQL statements directly. For example, enclosing your the_geom in a function called <a href="http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html">ST_AsGeoJSON</a> will allow you to use JSON for your data but a GeoJSON string for your geometry column only. Alternatively, using a the <a href="http://www.postgis.org/documentation/manual-svn/ST_AsGeoJSON.html">ST_AsText</a> function will return your geometry as Well-Known Text.</p>
 
-<pre class="sql"><code class="sql">ASGEOJSON
+<pre class="sql"><code class="sql">
+ASGEOJSON
 
 http://{account}.cartodb.com/api/v2/sql?q=SELECT cartodb_id,ST_AsGeoJSON(the_geom) as the_geom FROM {table_name} LIMIT 1
+
 </code></pre>
 
-<pre class="json"><code class="json">RESULT
+<pre class="json"><code class="json">
+RESULT
 
 {
   time: 0.003,
@@ -279,14 +386,18 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT cartodb_id,ST_AsGeoJSON(the_geo
       the_geom: &quot;{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-97.3349,35.4979]}&quot;
     }
   ]
-}</code></pre>
-
-<pre class="sql"><code class="sql">ASTEXT
-
-http://{account}.cartodb.com/api/v2/sql?q=SELECT cartodb_id,ST_AsText(the_geom) FROM {table_name} LIMIT 1
+}
 </code></pre>
 
-<pre class="json"><code class="json">RESULT
+<pre class="sql"><code class="sql">
+ASTEXT
+
+http://{account}.cartodb.com/api/v2/sql?q=SELECT cartodb_id,ST_AsText(the_geom) FROM {table_name} LIMIT 1
+
+</code></pre>
+
+<pre class="json"><code class="json">
+RESULT
 
 {
   time: 0.003,
@@ -297,15 +408,18 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT cartodb_id,ST_AsText(the_geom) 
       the_geom: &quot;POINT(-74.0004162 40.6920918)&quot;,
     }
   ]
-}</code></pre>
+}
+</code></pre>
 
 <p>More advanced methods exist in the PostGIS library to extract meaningful data from your geometry. Explore the PostGIS documentation and get familiar with functions such as, <a href="http://www.postgis.org/docs/ST_XMin.html">ST_XMin</a>, <a href="http://www.postgis.org/docs/ST_XMax.html">ST_XMax</a>, <a href="http://www.postgis.org/docs/ST_AsText.html">ST_AsText</a>, and more.</p>
 
 <p>All data returned from <em>the_geom</em> column is in WGS 83 (EPSG:4326). You can change this quickly and easily on the fly using SQL. For example, if you desire geometries in the Hanoi 1972 (EPSG:4147) projection, you could <a href="http://www.postgis.org/docs/ST_Transform.html">ST_Transform</a>,</p>
 
-<pre class="sql"><code class="sql">PROJECTION
+<pre class="sql"><code class="sql">
+PROJECTION
 
 http://{account}.cartodb.com/api/v2/sql?q=SELECT ST_Transform(the_geom,4147) FROM {table_name} LIMIT 1
+
 </code></pre>
 
 <p>CartoDB also stores a second geometry column, <em>the_geom_webmercator</em>. We use this internally to build your map tiles as fast as we can. In the user-interface it is hidden, but it is visible and available for use. In this column we store a reprojected version of all your geometries using Web Mercator (EPSG:3857).</p>
@@ -397,9 +511,19 @@ http://{account}.cartodb.com/api/v2/sql?q=SELECT ST_Transform(the_geom,4147) FRO
 <p>Objective-C library for interacting with CartoDB in native iOS applications. <a href="https://github.com/jmnavarro/cartodb-objectivec-client">Fork it on GitHub!</a></p>
 </li>
 </ul>
+
+    </div>
+
   </div>
 
-  <footer class="footer">
-  </footer>
+  <script>
+      window.addEventListener("load", function(){
+      var heightHeader = document.querySelector(".hdr").offsetHeight;
+      var canvas = document.body.offsetHeight;
+      document.querySelector(".nav").style.height = canvas - heightHeader +'px';
+    });
+  </script>
+
+
 </body>
 </html>

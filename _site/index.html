@@ -19,24 +19,102 @@
 
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/doc.css">
   <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-  <header class="header">
-  </header>
 
-  <div class="content">
-    <ul>
-  <li><a href='index.html'>The CartoDB UI</a></li>
-  <li><a href='cartodb_js.html'>CartoDB.js</a></li>
-  <li><a href='sql_api.html'>SQL API</a></li>
-  <li><a href='tutorials.html'>Tutorials</a></li>
-  <li><a href='tips_and_tricks.html'>Tips and tricks</a></li>
-</ul>
+  <header class="hdr cf">
+  <nav>
+    <ul class="nav-principal">
+      <li class="selected"><a href='index.html'>THE CARTODB UI</a></li>
+      <li><a href='cartodb_js.html'>CARTODB.JS</a></li>
+      <li><a href='sql_api.html'>SQL API</a></li>
+      <li><a href='tutorials.html'>TUTORIALS</a></li>
+      <li><a href='tips_and_tricks.html'>TIPS AND TRICKS</a></li>
+    </ul>
+  </nav>
+  <form class="hdr-form">
+    <input type="text" name="search" />
+  </form>
+</header>
 
 
-    <h1 id="what_is_cartodb">What is CartoDB</h1>
+  <div class="container cf">
+    <nav class="nav">
+  <ul class="nav-inner">
+    <li class="selected">
+      <h2><a href="#">What is CartoDB</a></h2>
+    </li>
+    <li>
+      <h2><a href="#">1 minute Introduction</a></h2>
+    </li>
+    <li>
+      <h2><a href="#">Tables</a></h2>
+      <ul>
+        <li>
+          <h3><a href="#">Import your data</a></h3>
+          <ul>
+            <li class="selected">
+              <h4><a href="#">Sync tables</a></h4>
+            </li>
+            <li>
+              <h4><a href="#">Support data formats</a></h4>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="#">Manage your tables</a></h3>
+          <ul>
+            <li>
+              <h4><a href="#">Sync tables</a></h4>
+            </li>
+            <li class="selected">
+              <h4><a href="#">Support data formats</a></h4>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h3><a href="#">Inside a table</a></h3>
+          <ul>
+            <li>
+              <h4><a href="#">Sync tables</a></h4>
+            </li>
+            <li>
+              <h4><a href="#">Support data formats</a></h4>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h2><a href="#">Visualizations</a></h2>
+      <ul>
+        <li>
+          <h3><a href="#">What is a visualization?</a></h3>
+        </li>
+        <li>
+          <h3><a href="#">Visualization metadata</a></h3>
+        </li>
+        <li>
+          <h3><a href="#">Basemaps</a></h3>
+          <ul>
+            <li>
+              <h4><a href="#">What is a basemap</a></h4>
+            </li>
+            <li>
+              <h4><a href="#">Selecting your basemap</a></h4>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>  
+    <div class="inner">
+      <h1 id="what_is_cartodb">What is CartoDB</h1>
 
 <p>CartoDB is a geospatial database on the cloud that allows for the storage and visualization of data on the web. Using CartoDB will allow you to quickly create map based visualizations. Here are a few ways you can use CartoDB:</p>
 
@@ -51,6 +129,10 @@
 
 <li>
 <p>Analyze and integrate data you store on CartoDB into your applications using the <a href="http://docs.cartodb.com/sql-api.html">SQL API</a>.</p>
+</li>
+
+<li>
+<p>Create maps from your application <a href="maps_api">Maps API</a>.</p>
 </li>
 
 <li>
@@ -390,9 +472,19 @@
 <h2 id="what_is_a_map_view">What is a map view</h2>
 
 <h2 id="academic_plans">Academic plans</h2>
+
+    </div>
+
   </div>
 
-  <footer class="footer">
-  </footer>
+  <script>
+      window.addEventListener("load", function(){
+      var heightHeader = document.querySelector(".hdr").offsetHeight;
+      var canvas = document.body.offsetHeight;
+      document.querySelector(".nav").style.height = canvas - heightHeader +'px';
+    });
+  </script>
+
+
 </body>
 </html>

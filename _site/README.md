@@ -1,4 +1,4 @@
-cartodb-grants
+cartodb docs
 ==============
 
 ```

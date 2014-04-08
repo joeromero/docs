@@ -19,20 +19,32 @@
 
   <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
 
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/application.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/fonts.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/doc.css">
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-  <header class="header">
-  </header>
 
-  <div class="content">
-    {% include menu.html %}
+  {% include menu.html %}
 
-    {{ content }}
+  <div class="container cf">
+    {% include nav.html %}
+    <div class="inner">
+      {{ content }}
+
+    </div>
+
   </div>
 
-  <footer class="footer">
-  </footer>
+  <script>
+      window.addEventListener("load", function(){
+      var heightHeader = document.querySelector(".hdr").offsetHeight;
+      var canvas = document.body.offsetHeight;
+      document.querySelector(".nav").style.height = canvas - heightHeader +'px';
+    });
+  </script>
+
+
 </body>
 </html>
