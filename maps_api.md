@@ -9,7 +9,7 @@ The CartoDB Maps API allows you to generate maps based on data hosted in your Ca
 
 You can create two types of maps with the Maps API:
 
-- Anonymous maps: Maps that can be created using your CartoDB public data. Any client can change the read-only SQL and CartoCSS parameters that generate the map tiles. These maps can be created from a JavaScript application and no setup calls are needed. See [this cartodb.js example.](http://developers.cartodb.com/documentation/cartodb-js.html#sec-7)
+- Anonymous maps: Maps that can be created using your CartoDB public data. Any client can change the read-only SQL and CartoCSS parameters that generate the map tiles. These maps can be created from a JavaScript application alone and no authenticated calls are needed. See [this cartodb.js example.](http://developers.cartodb.com/documentation/cartodb-js.html#sec-7)
 
 - Named maps: Maps that access to your private data. These maps require an owner to setup and modify any SQL and CartoCSS parameters and are not modifiable without new setup calls. 
 
@@ -17,7 +17,7 @@ You can create two types of maps with the Maps API:
 
 ### Anonymous maps
 
-Here is an example of how to create an anomymous map from JavaScript
+Here is an example of how to create an anomymous map from JavaScript:
 
 ```javascript
 var mapconfig = {
@@ -49,8 +49,9 @@ $.ajax({
 
 
 ### Named maps
+
 Let's create a map using some private tables in CartoDB account.
-The following call creates a map of european countries drawn in white:
+The following call creates a map of European countries filled in the color white:
 
 ```json
 // mapconfig.json
@@ -67,12 +68,13 @@ The following call creates a map of european countries drawn in white:
 }
 ```
 
-the call would be:
+The map config needs to be sent to the Map API using an authenticated call. The call would be:
+
 ```bash
 curl 'http://{account}.cartodb.com/api/v1/map/named' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
 
-it will return a json with the layergroup id and the timestamp of the last data modification:
+The request will return JSON with the ```layergroupid``` and the ```timestamp``` of the last data modification. Here is an example:
 
 ```json
 {
@@ -81,7 +83,7 @@ it will return a json with the layergroup id and the timestamp of the last data 
 }
 ```
 
-With that ``layergroupid`` the URL template to access the tiles can be created:
+You can use the ``layergroupid`` to create a URL template for accessing tiles on the client. We use the ```layergroupid``` from the example response above in this URL template:
 
 ```
 http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
@@ -91,10 +93,11 @@ http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb
 
 # General Concepts
 
-The following concepts are the same for every endpoint in the API except it's noted explicitly.
+The following concepts are the same for every endpoint in the API except when it's noted explicitly.
 
 ## Auth
-By default, users do not have access to private tables in CartoDB. In order to create maps where private tables are involved, the user needs to use the API Key. Some of the endpoints also need the API Key to be called, like named map creation.
+
+By default, users do not have access to private tables in CartoDB. In order to create maps where private tables are involved, the user needs to use the API Key. Some of the endpoints also need the API Key to be included (e.g. creating a named map).
 
 To execute an authorized request, api_key=YOURAPIKEY should be added to the request URL. The param can be also passed as POST param.
 
