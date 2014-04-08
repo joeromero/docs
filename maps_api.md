@@ -99,13 +99,12 @@ The following concepts are the same for every endpoint in the API except when it
 
 By default, users do not have access to private tables in CartoDB. In order to create maps where private tables are involved, the user needs to use the API Key. Some of the endpoints also need the API Key to be included (e.g. creating a named map).
 
-To execute an authorized request, api_key=YOURAPIKEY should be added to the request URL. The param can be also passed as POST param.
-
-Please, be careful if you are using API Key as query param, always use HTTPS in those cases.
+To execute an authorized request, api_key=YOURAPIKEY should be added to the request URL. The param can be also passed as POST param. We **strongly advise** using HTTPS when you are performing requests that include your ```api_key```.
 
 ## Errors
 
-Errors are reported using standard HTTP codes and also extended information encoded in json with this format
+Errors are reported using standard HTTP codes and also extended information encoded in JSON with this format:
+
 ```
 {
     "errors": [
@@ -114,7 +113,7 @@ Errors are reported using standard HTTP codes and also extended information enco
 }
 ```
 
-If you use JSONP 200 HTTP code is always returned so the javascript client can receive the error.
+If you use JSONP, 200 HTTP code is always returned so the JavaScript client can receive the error from the JSON object.
 
 ## CORS support
 
@@ -124,15 +123,17 @@ All the endpoints which might be accessed using a web browser add CORS headers a
 
 ## Anonymous Maps
 
-This allows you to create a map given SQL and CartoCSS. It also allows you to add interaction capabilities using [UTF Grid.](https://github.com/mapbox/utfgrid-spec)
+Anonymous maps allows you to create a map given SQL and CartoCSS. It also allows you to add interaction capabilities using [UTF Grid.](https://github.com/mapbox/utfgrid-spec)
 
 ### Create
 
 #### Definition
+
 POST /api/v1/map
 
 #### Params
-should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/MapConfig-1.1.0.md)
+
+Should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/MapConfig-1.1.0.md)
 ```
 {
       "version": "1.0.1",
@@ -149,6 +150,7 @@ should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/Map
 ```
 
 #### Response
+
 The response includes:
 
   - layergroupid: The ID for that map, used to componse the URL for the tiles, so the final URL is:
@@ -179,9 +181,11 @@ curl 'http://documentation.cartodb.com/api/v1/map' -H 'Content-Type: application
 ```
 
 The tiles can be accessed using:
+
 ```
 http://documentation.cartodb.com/api/v1/map/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
 ```
+
 For UTF grid tiles:
 
 ```
@@ -202,11 +206,12 @@ Which returns a JSON with the attributes defined, like:
 
 Notice UTF Grid and attributes endpoints need an intenger parameter, ``layer``. That number is the 0-base index of the layer inside the mapconfig. So in this case 0 returns the UTF grid tiles/attributes for layer 0 (the only one in that example mapconfig)
 
-
 ### Create JSONP
+
 JSONP endpoint is provided in order to allow web browsers which don't support CORS
 
 #### Definition
+
 GET /api/v1/map?callback=method
 
 #### Params
@@ -217,27 +222,30 @@ GET /api/v1/map?callback=method
   - callback: JSON callback name
 
 #### Example Request
+
 'curl http://....'
 
 #### Example Response
+
 ```json
 {
 }
 ```
 
 ### Remove
-Anonymous maps can't be removed, they expire after some time, usually after five minutes. If a map expires and tiles are requested from it, an error will be raised. This could happen if an user leaves a map open and after some minutes tries to zoom. Creating the map again fixes the problem.
 
+Anonymous maps cannot be removed by an API call. They will after about five minutes but sometimes longer. If an anonymous map expires and tiles are requested from it, an error will be raised. This could happen if a user leaves a map open and after time returns to the map an attempts to interact with it in a way that requires new tiles (e.g. zoom). The client will need to go through the steps of creating the map again to fix the problem.
 
 ## Named Maps
-Named maps are basically the same as anonymous maps but the mapconfig is stored in the server behind a name. The other big differences are that they allow you to create maps using private data, and users without an API Key can see them.
+
+Named maps are essentially the same as anonymous maps but the mapconfig is stored in the server and given a unique name. Two other big differences are that you can created named maps from private data and that users without an API Key can see them even though they are from that private data. 
 
 The main two differences compared to anonymous maps are:
 
 - auth layer: This allows you to control who is able to see the map based on a token auth
 - templates: Since the mapconfig is static it can contain some variables so the client con modify the map appearance using those variables.
 
-Template maps are persistent, can only be created and deleted by the CartoDB user showing a valid API_KEY (see auth section).
+Template maps are persistent with no preset expiration. They can only be created or deleted by a CartoDB user with a valid API_KEY (see auth section).
 
 ### Create a New Map
 
@@ -296,24 +304,24 @@ JSON payload:
 
 ##### Template Format
 
-A templated layergroup would allow using placeholders in the "cartocss" and "sql" elements in the "option" field of any "layer" of a layergroup configuration
+A templated ```layergroup``` allows using placeholders in the "cartocss" and "sql" elements of the "option" object in any "layer" of a layergroup configuration
 
 Valid placeholder names start with a letter and can only contain letters, numbers or underscores. They have to be written between ``<%= `` and `` %>`` strings in order to be replaced. Example: ``<%= my_color %>``.
 
-The set of supported placeholders for a template will need to be explicitly defined specifying type and default value for each.
+The set of supported placeholders for a template will need to be explicitly defined with a specific type and default value for each.
 
 **Placeholder Types**
 
-Placeholder type will determine the kind of escaping for the associated value. Supported types are:
+The placeholder type will determine the kind of escaping for the associated value. Supported types are:
 
  * sql_literal (internal single-quotes will be sql-escaped)
  * sql_ident (internal double-quotes will be sql-escaped)
  * number (can only contain numerical representation)
  * css_color (can only contain color names or hex-values)
 
-Placeholder default values will be used when not provided at instantiation time and could be used to test validity of the template by creating a default instance.
+Placeholder default values will be used whenever new values are not provided as options at the time of creation on the client. They can also be used to test the template by creating a default version with now options provided.
 
-Be careful selecting the template types and defining the template, some users could access.
+When using templates, be very careful about your selections as they can give broad access to your data if they are defined losely.
 
 #### Response
 
@@ -325,7 +333,8 @@ Be careful selecting the template types and defining the template, some users co
 
 
 #### Example Request
-This is the request needed to create the named map:
+
+This is the request needed to create a named map:
 
 ```sh
 curl -X POST \
@@ -337,12 +346,14 @@ curl -X POST \
 
 ### Instantiating a template map
 
-Instantiating a map allows you to get a temporal map to fetch tiles. That temporal map is an anonymous map.
+Instantiating a map allows you to get the information needed to fetch tiles. That temporal map is an anonymous map.
 
 #### Definition
+
 POST /api/v1/named/:template_name
 
 #### Params
+
 - A JSON with the template parameters in the body
 
 ```json
@@ -352,13 +363,14 @@ POST /api/v1/named/:template_name
  cartodb_id: 3
 }
 ```
-These depend on the variables allowed by the named map. If there are some variables missing it will raise an error (HTTP 400)
+
+The fields you pass as ```params.json``` depend on the variables allowed by the named map. If there are variables missing it will raise an error (HTTP 400)
 
 - auth_token: (optional) if the named map needs auth
 
-
 #### Example Request
-You can instantiate a template map by passing all required parameters with a POST to ``/api/v1/named/:template_name``.
+
+You can initialize a template map by passing all of the required parameters in a POST to ``/api/v1/named/:template_name``.
 
 Valid credentials will be needed if required by the template.
 
@@ -395,12 +407,12 @@ Or, an error woulr return:
 }
 ```
 
-You can then use the ``layergroupid`` for fetching tiles and grids as you would normally (see anonymous map section).  However, you'll still have to show the ``auth_token``, if required by the template.
+You can then use the ```layergroupid``` for fetching tiles and grids as you would normally (see anonymous map section).  However, you'll need to show the ``auth_token``, if required by the template.
 
 
 ### Using JSONP
 
-There is also a special endpoint to be able to instantiate using JSONP (for old browsers).
+There is also a special endpoint to be able to initialize a map using JSONP (for old browsers).
 
 #### Definition
 GET /api/v1/named/:template_name/jsonp
@@ -422,8 +434,8 @@ callback(
            "https": "https://cdb.com"
 }
 ```
-Take a look at the anonymous maps response format. Here it is the same but wrapped in a function call.
 
+Take a look at the anonymous maps response format. Here it is the same but wrapped in a function call.
 
 #### Example Request
 
@@ -431,13 +443,15 @@ Take a look at the anonymous maps response format. Here it is the same but wrapp
 curl 'https://docs.cartodb.com/api/v1/named/:template_name/jsonp?auth_token=AUTH_TOKEN&callback=function_name&config=template_params_json'
 ```
 
-This takes the ``callback`` function (required), ``auth_token`` if the template needs auth, and ``config`` which is the variable for the template (in case it has variables). For example config may be created (using javascript).
+This takes the ``callback`` function (required), ``auth_token`` if the template needs auth, and ``config`` which is the variable for the template (in cases where it has variables). 
+
 ```
 url += "config=" + encodeURIComponent(
 JSON.stringify({ color: 'red' });
 ```
 
 The response is in this format:
+
 ```
 jQuery17205720721024554223_1390996319118(
 {
@@ -447,20 +461,23 @@ last_updated: "2014-01-27T17:41:03.021Z"
 )
 ```
 
-
 ### Update an Existing Name
 
 #### Definition
+
 PUT /api/v1/map/:map_name
 
 #### Params
+
 Same params used to create a map
 
 #### Response
+
 Same as updating a map
 
 #### Other Info
-Updating a named map removes all the named map instances so they need to be instantiated again.
+
+Updating a named map removes all the named map instances so they need to be initialized again.
 
 #### Example
 
@@ -472,7 +489,8 @@ curl -X PUT \
    -d @template.json \
    'https://docs.cartodb.com/tiles/template/:template_name?api_key=APIKEY'
 ```
-A template with the same name will be updated, if any.
+
+If any template has the same name, it will be updated.
 
 The response would be like this:
 ```js
@@ -485,31 +503,30 @@ If a template with the same name does NOT exist, a 400 HTTP response is generate
 
 ```js
 {
-   "error":"Some error string here"
+   "error":"error string here"
 }
 ```
 
-Update of a template map implies removal all signatures from previous map instances.
+Updating a template map will also remove all signatures from previously initialized maps. 
 
+### Delete 
 
-### Remove 
-Removes the specified template map from the server.
+Delete the specified template map from the server and disables any previously initialized versions of the map.
 
 #### Definition
+
 DELETE to ``/template/:template_name``:
 
 #### Response
+
 On success, a 204 (No Content) response would be issued.
-Otherwise a 4xx response with this format will be returned:
+Otherwise a 4xx response with with an error will be returned:
 
 ```js
 {
    "error":"Some error string here"
 }
 ```
-
-#### Other Info
-Deletion of a template map will imply removal of all instance signatures.
 
 #### Example
 
@@ -520,20 +537,24 @@ curl -X DELETE 'https://docs.cartodb.com/tiles/template/@template_name?auth_toke
 
 ### Listing Available Templates
 
-This allows you to get a list of available templates. 
+This allows you to get a list of all available templates. 
 
 #### Definition
+
 GET /api/v1/map/named/
 
 #### Params
+
  - api_key is required
 
 #### Example
+
 ```sh
 curl -X GET 'https://docs.cartodb.com/tiles/template?api_key=APIKEY'
 ```
 
 The response would be like this:
+
 ```js
 {
    "template_ids": ["@template_name1","@template_name2"]
@@ -549,12 +570,15 @@ Or, on error:
 ```
 
 ### Getting a Specific Template
+
 This gets the definition of a template
 
 #### Definition
+
 GET ``/api/v1/map/named/:template_name``.
 
 #### Params
+
  - api_key is required
 
 #### Example
