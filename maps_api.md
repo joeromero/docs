@@ -236,12 +236,12 @@ The main two differences compared to anonymous maps are:
 
 Template maps are persistent, can only be created and deleted by the CartoDB user showing a valid API_KEY (see auth section).
 
-### create a new map
+### Create a New Map
 
-#### definition
+#### Definition
 POST /api/v1/map/named
 
-#### params
+#### Params
 JSON payload:
 
 ```js
@@ -291,7 +291,7 @@ JSON payload:
 }
 ```
 
-##### Template format
+##### Template Format
 
 A templated layergroup would allow using placeholders in the "cartocss" and "sql" elements in the "option" field of any "layer" of a layergroup configuration
 
@@ -299,7 +299,7 @@ Valid placeholder names start with a letter and can only contain letters, number
 
 The set of supported placeholders for a template will need to be explicitly defined specifying type and default value for each.
 
-**placeholder types**
+**Placeholder Types**
 
 Placeholder type will determine the kind of escaping for the associated value. Supported types are:
 
@@ -308,11 +308,11 @@ Placeholder type will determine the kind of escaping for the associated value. S
  * number (can only contain numerical representation)
  * css_color (can only contain color names or hex-values)
 
-Placeholder default value will be used when not provided at instantiation time and could be used to test validity of the template by creating a default instance.
+Placeholder default values will be used when not provided at instantiation time and could be used to test validity of the template by creating a default instance.
 
-Be careful selecting the template types and defining the template, some user couldaccess
+Be careful selecting the template types and defining the template, some users could access.
 
-#### response
+#### Response
 
 ```
 {
@@ -321,8 +321,8 @@ Be careful selecting the template types and defining the template, some user cou
 ```
 
 
-#### example request
-this is the request needed to create the named map:
+#### Example Request
+This is the request needed to create the named map:
 
 ```sh
 curl -X POST \
@@ -334,12 +334,12 @@ curl -X POST \
 
 ### Instantiating a template map
 
-Instanciate a map allows to get a temporal map to fetch tiles. That temporal map is actually an anonymous map
+Instantiating a map allows you to get a temporal map to fetch tiles. That temporal map is an anonymous map.
 
-#### definition
+#### Definition
 POST /api/v1/named/:template_name
 
-#### params
+#### Params
 - A JSON with the template parameters in the body
 
 ```json
@@ -349,17 +349,15 @@ POST /api/v1/named/:template_name
  cartodb_id: 3
 }
 ```
-it depends on the variables allowed by the named map. If there are some variable missing it will
-raise an error (HTTP 400)
+These depend on the variables allowed by the named map. If there are some variables missing it will raise an error (HTTP 400)
 
-- auth_token: (optional) it the named map needs auth
+- auth_token: (optional) if the named map needs auth
 
 
-#### example request
-You can instantiate a template map passing all required parameters with
-a POST to ``/api/v1/named/:template_name``.
+#### Example Request
+You can instantiate a template map by passing all required parameters with a POST to ``/api/v1/named/:template_name``.
 
-Valid credentials will be needed, if required by the template.
+Valid credentials will be needed if required by the template.
 
 ```js
 // params.json
@@ -377,7 +375,7 @@ curl -X POST \
 
 ```
 
-The response would be like this:
+The response look like this:
 
 ```js
 {
@@ -386,7 +384,7 @@ The response would be like this:
 }
 ```
 
-or, on error:
+Or, an error woulr return:
 
 ```js
 {
@@ -394,26 +392,24 @@ or, on error:
 }
 ```
 
-You can then use the ``layergroupid`` for fetching tiles and grids as you do
-normally (see anonymous map section).  But you'll still have to show the ``auth_token``, if required by the template
+You can then use the ``layergroupid`` for fetching tiles and grids as you would normally (see anonymous map section).  However, you'll still have to show the ``auth_token``, if required by the template.
 
 
-### using JSONP
+### Using JSONP
 
-There is also a special endpoint to be able to instanciate using JSONP (for old browsers)
+There is also a special endpoint to be able to instantiate using JSONP (for old browsers).
 
-#### definition
+#### Definition
 GET /api/v1/named/:template_name/jsonp
 
-#### params
-- auth_token: (optional) it the named map needs auth
-- config: encoded JSON with the params to creating named maps (the variables defined in the
-  template)
-- lmza: This attribute contains the same than config but LZMA compressed. It can't be used at the same time than ``config``.
+#### Params
+- auth_token: (optional) If the named map needs auth
+- config: Encoded JSON with the params for creating named maps (the variables defined in the template)
+- lmza: This attribute contains the same as config but LZMA compressed. It cannot be used at the same time than ``config``.
 - callback: JSON callback name
 
 
-#### response 
+#### Response 
 ```
 callback(
        "layergroupid":"c01a54877c62831bb51720263f91fb33:0",
