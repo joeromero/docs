@@ -222,21 +222,19 @@ GET /api/v1/map?callback=method
 }
 ```
 
-### remove
-Anonymous maps can't be removed, they expire after some time, usually 5 minutes
-If a map expires and tiles are requested from it, an error will be raised. This could happen is an
-user leave a map open and after some minutes try to zoom. Creating the map again fixes the problem.
+### Remove
+Anonymous maps can't be removed, they expire after some time, usually after five minutes. If a map expires and tiles are requested from it, an error will be raised. This could happen if an user leaves a map open and after some minutes tries to zoom. Creating the map again fixes the problem.
 
 
-## Named maps
-Named maps are basically the same than anonymous maps but the mapconfig is stored in the server behind a name. The other big difference is that they allow to create maps using private maps and users without API Key can see them.
+## Named Maps
+Named maps are basically the same as anonymous maps but the mapconfig is stored in the server behind a name. The other big differences are that they allow you to create maps using private data, and users without an API Key can see them.
 
-The main two differences compared to anonymos maps are:
+The main two differences compared to anonymous maps are:
 
-- auth layer: it allows to control who is able to see the map based on a token auth
-- templates: since the mapconfig is static it can contain some variables so the client con modify the map appearance using those variables.
+- auth layer: This allows you to control who is able to see the map based on a token auth
+- templates: Since the mapconfig is static it can contain some variables so the client con modify the map appearance using those variables.
 
-Template maps are persistent, can only be created and deleted by the CartoDB user showing a valid API_KEY (see auth section)
+Template maps are persistent, can only be created and deleted by the CartoDB user showing a valid API_KEY (see auth section).
 
 ### create a new map
 
