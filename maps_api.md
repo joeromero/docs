@@ -74,13 +74,13 @@ The following API call creates a map of European countries that have a white fil
 }
 ```
 
-The map config needs to be sent to the Map API using an authenticated call. The call would be:
+The map config needs to be sent to CartoDB's Map API using an authenticated call. Here we use a command line tool called ``cURL``. (For more info about this tool see [this blog post](http://quickleft.com/blog/command-line-tutorials-curl) or type ``man curl`` in bash) Using ``cURL`` the call would look like:
 
 ```bash
 curl 'https://{account}.cartodb.com/api/v1/map/named?api_key=APIKEY' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
 
-then to get the url to fetch the tiles you need to instantiate the map
+then to get the ``URL`` to fetch the tiles you need to instantiate the map.
 
 ```bash
 curl 'http://{account}.cartodb.com/api/v1/map/named/test' -H 'Content-Type: application/json'
@@ -97,7 +97,7 @@ Here is an example response:
 }
 ```
 
-You can use the ``layergroupid`` to create a URL template for accessing tiles on the client. Here we use the ```layergroupid``` from the example response above in this URL template:
+You can use the ``layergroupid`` to instantiate a URL template for accessing tiles on the client. Here we use the ```layergroupid``` from the example response above in this URL template:
 
 ```
 http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
@@ -110,7 +110,7 @@ The following concepts are the same for every endpoint in the API except when it
 
 ## Auth
 
-By default, users do not have access to private tables in CartoDB. In order to create a map from private table data an API Key is required. Additionally, to include some endpoints an API Key must be included (e.g. creating a named map).
+By default, users do not have access to private tables in CartoDB. In order to instantiate a map from private table data an API Key is required. Additionally, to include some endpoints an API Key must be included (e.g. creating a named map).
 
 To execute an authorized request, api_key=YOURAPIKEY should be added to the request URL. The param can be also passed as POST param. We **strongly advise** using HTTPS when you are performing requests that include your ```api_key```.
 
@@ -136,9 +136,9 @@ All the endpoints which might be accessed using a web browser add CORS headers a
 
 ## Anonymous Maps
 
-Anonymous maps allows you to create a map given SQL and CartoCSS. It also allows you to add interaction capabilities using [UTF Grid.](https://github.com/mapbox/utfgrid-spec)
+Anonymous maps allows you to instantiate a map given SQL and CartoCSS. It also allows you to add interaction capabilities using [UTF Grid.](https://github.com/mapbox/utfgrid-spec)
 
-### Create
+### Instantiate
 
 #### Definition
 
