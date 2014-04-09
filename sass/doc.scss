@@ -1,7 +1,13 @@
+@import "compass";
+
+
+
 
 /* Media */
 img { display: block; padding: 0; margin: 0; -ms-interpolation-mode: bicubic; }
 img:-moz-broken { line-height: 11px; overflow: hidden; }
+
+
 
 
 /* apply a natural box layout model to all elements 
@@ -9,52 +15,90 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 
-.nav-mobile { float: right; display: none; text-indent: -9000px; margin-top: 10px;  }
-  .nav-mobile a { 
-    display: block; width: 21px; height: 18px;
-    background: image-url('mobile-nav.png');
-  }
 
-.cf:after {
-  content:"";
-  display: block;
-  width: 100%;
-  clear:both; 
+
+
+.container { @include pie-clearfix; }
+
+
+
+
+// header 
+
+.hdr { 
+  background: #397DBA;
+  padding: 20px;
+  @include pie-clearfix;
 }
-.hdr { background: #397DBA; padding: 20px;  }
-.hdr-nav { display: inline-block; margin-right: 20px;}
+.hdr-nav { @include inline-block; margin-right: 20px;}
+
 .hdr-brand {
-  display: inline-block;
+  @include inline-block;
   font: 14px 'Proxima Nova Lt';
   color:#fff;
   margin-right: 34px;
   text-transform:uppercase;
 }
-  .brand { 
-    vertical-align: middle;
-    width: 32px;
-    height: 43px;
-    display: inline-block;
-    margin-right: 12px; 
-  }
-  .brand a { 
+
+.brand { 
+  @include inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 43px;
+  margin-right: 12px; 
+  a { 
     text-indent: -9000px;
-    display: inline-block;
+    @include inline-block;
     width: 32px;
     height: 43px;
     background: image-url('brand.png');
   }
-
-.nav { 
-  float: left;
-  display: inline;
-  width: 225px;
-  padding: 40px 20px;
-  border-right: 1px solid #eee;
-  margin-right: 20px; 
 }
-.inner { display: block; overflow: hidden; padding: 40px 0; position: relative; }
-  .inner:after { 
+
+.nav-principal {
+  > li {
+    @include inline-block;
+    font: 14px 'Proxima Nova Lt';
+  }
+  > li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 12px 16px;
+    -webkit-transition: color .5s;
+    transition: color .5s;
+  }
+  > li a:hover { color: #B0CBE3; }
+  .selected a { background: #3370A7; @include border-radius(4px); }
+  .selected a:hover { color: #fff; }
+}
+
+.hdr-form { 
+  display: inline-block;
+  background: #6197C8;
+  @include border-radius(4px);
+  padding: 9px 16px;
+}
+.hdr input[type="text"] {
+  background: none; border: 0; 
+  font: 14px 'Proxima Nova Lt';
+  color: #B0CBE3;
+}
+.hdr input[type="text"]:focus {
+  outline: none
+}
+
+
+
+
+
+
+.inner { 
+  display: block;
+  overflow: hidden;
+  padding: 40px 0;
+  position: relative; 
+  &:after { 
     content:"";
     width: 45%;
     position: absolute;
@@ -64,18 +108,34 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     background: #F8F8F8;
     border-left: 1px solid #EEEEEE;
   }
-  .inner h2 { margin-bottom: 22px; font: 28px/34px 'Proxima Nova Th'; }
-  .inner h3 { margin-bottom: 22px; font: 22px/28px 'Proxima Nova Th'; }
-  .inner h4 { margin-bottom: 22px; font: 18px/28px 'Proxima Nova Th'; }
-  .inner h1 { margin-bottom: 22px; font: 32px/34px 'Proxima Nova Th'; }
-  .inner a { color: #000; text-decoration: underline; }
-  .inner p { font: 18px/28px 'Proxima Nova Lt'; margin-bottom: 38px; }
-  .inner ol, .inner ul { font: 18px/28px 'Proxima Nova Lt'; }
-  .inner li { margin: 0 40px 40px 0}
-  .inner ul { list-style-type: square; margin-left: 40px; }
-  .inner ol { list-style-type: lower-hexadecimal; margin-left: 40px; }
-  .inner h2, .inner > p, .inner h1, .inner table, .inner ol, .inner ul, .inner h3, .inner h4
-    { float: left; display: inline; width: 50%; clear:left; }
+    h2 { margin-bottom: 22px; font: 28px/34px 'Proxima Nova Th'; }
+    h3 { margin-bottom: 22px; font: 22px/28px 'Proxima Nova Th'; }
+    h4 { margin-bottom: 22px; font: 18px/28px 'Proxima Nova Th'; }
+    h1 { margin-bottom: 22px; font: 32px/34px 'Proxima Nova Th'; }
+    a { color: #000; text-decoration: underline; }
+    p { font: 18px/28px 'Proxima Nova Lt'; margin-bottom: 38px; }
+    ol, ul { font: 18px/28px 'Proxima Nova Lt'; }
+    li { margin: 0 40px 40px 0; }
+    li p { float: none; }
+    ul { list-style-type: square; margin-left: 40px; }
+    ol { list-style-type: lower-hexadecimal; margin-left: 40px; }
+    h2,
+    p,
+    h1,
+    table,
+    ol,
+    ul,
+    h3,
+    h4
+    { 
+      float: left;
+      display: inline;
+      width: 50%;
+      clear:left;
+    }
+}
+
+
   .inner-code { 
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -98,21 +158,34 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     padding: 12px 12px 12px 0; 
   }
 
-.code-info { float: left; display: inline; width: 50%; }
-  .code-info h2, .code-info p { width: 100%;}
-  .code-txt { clear:both; background: #fff; border: 1px solid #eee; padding: 20px;  border-radius: 4px;  }
 
-.code { float:right; width: 41%;   margin-right: 2%;}
+// code 
+.code { float:right; width: 41%; margin-right: 2%; }
+  .code-info {
+    float: left; display: inline; width: 50%
+    h2, p { width: 100%; }
+  }
+  .code-txt { 
+    clear:both;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    @include  border-radius(4px);
+  }
+
+
+
+
+// navigation 
 
 .tabs { 
   border-radius: 4px;
   overflow: hidden;
   background: #e5e5e5;
-  display: inline-block;
+  @include inline-block;
   margin-bottom: 24px;
   width: 80%;
-}
-  .tabs li { 
+  li { 
     border-left: 1px solid #CCCCCC;
     display: inline-block;
     margin-left: -4px;
@@ -122,90 +195,122 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     -webkit-transition: background .5s;
     transition: background .5s;
   }
-  .tabs li:hover { 
+  li:hover { 
     background: #ddd;
   }
-  .tabs li a { 
+  li a { 
     display: block;
     padding: 8px  0;
     text-decoration: none;
     color: #858585;
   }
-    .tabs li.active { background: #ccc; }
-    .tabs li.active a { color: #000; }
-    .tabs li:first-child { border: 0; margin: 0; }
-
-.nav-inner { position: relative; }
-.nav-inner .selected:before {
-  content:"";
-  width: 4px;
-  height: 20px;
-  position: absolute;
-  left: -20px;
-  background: #397DBA;
-  margin-top: -2px;
-}
-.nav-inner a { color:#333; text-decoration: none; }
-.nav-inner > li { margin-bottom: 40px; }
-.nav-inner > li > h2 { font: 16px 'Proxima Nova Rg'; margin-bottom: 25px; font-weight: 700; }
-.nav-inner > li ul { font: 14px 'Proxima Nova Lt'; }
-.nav-inner > li ul li, .nav-inner > li ul h3 { margin-bottom: 18px;  }
-.nav-inner > li ul ul > li { margin-left: 12px;}
-.nav-inner > li ul a {
-      color: #878787;
-      -webkit-transition: color .5s;
-      transition: color .5s;
-}
-.nav-inner > li ul a:hover { color: #000; }
-.hdr-form { 
-  display: inline-block;
-  background: #6197C8;
-  border-radius: 4px;
-  padding: 9px 16px;
-}
-.hdr input[type="text"] {
-  background: none; border: 0; 
-  font: 14px 'Proxima Nova Lt';
-  color: #B0CBE3;
-}
-.hdr input[type="text"]:focus {
-  outline: none
+    li.active { background: #ccc; }
+    li.active a { color: #000; }
+    li:first-child { border: 0; margin: 0; }
 }
 
-.nav-principal > li { display: inline-block; font: 14px 'Proxima Nova Lt'; }
-.nav-principal > li a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    padding: 12px 16px;
+
+
+
+// navigation 
+
+.nav { 
+  float: left;
+  display: inline;
+  width: 225px;
+  padding: 40px 20px;
+  border-right: 1px solid #eee;
+  margin-right: 20px; 
+}
+
+.nav-inner {
+  position: relative; 
+  .selected:before {
+    content:"";
+    width: 4px;
+    height: 20px;
+    position: absolute;
+    left: -20px;
+    background: #397DBA;
+    margin-top: -2px;
+  }
+  a { color:#333; text-decoration: none; }
+  > li { margin-bottom: 40px; }
+  > li > h2 { font: 16px 'Proxima Nova Rg'; margin-bottom: 25px; font-weight: 700; }
+  > li ul { font: 14px 'Proxima Nova Lt'; }
+  > li ul li, > li ul h3 { margin-bottom: 18px;  }
+  > li ul ul > li { margin-left: 12px;}
+  > li ul a {
+    color: #878787;
     -webkit-transition: color .5s;
     transition: color .5s;
+  }
+  > li ul a:hover { color: #000; }
 }
-.nav-principal > li a:hover { color: #B0CBE3; }
-.nav-principal .selected a { background: #3370A7; border-radius: 4px; }
-.nav-principal .selected a:hover { color: #fff; }
+.nav-mobile { 
+  float: right;
+  display: none;
+  text-indent: -9000px;
+  margin-top: 10px;  
+  a { 
+    display: block; width: 21px; height: 18px;
+    background: image-url('mobile-nav.png');
+  }
+}
+
+
+
+//mediaqueries
+
+@media (max-width: 1100px) {
+  .nav-principal > li a {
+    padding: 12px 8px;
+    font-size: 12px; 
+  }
+}
+
+
+
 
 @media (max-width: 1024px) {
   .code-txt { background: #f5f5f5; }
-  .inner { margin-right: 20px; }
-  .inner:after { visibility: hidden; }
-
-  .inner h2, .inner > p, .inner h1, .inner table, .inner ol, .inner ul, .inner h3, .inner h4 { display: block; width: auto; }
+  .inner {
+    margin: 0 20px;  
+    &:after { visibility: hidden; }
+    h2,
+    > p,
+    h1,
+    table,
+    ol,
+    ul,
+    h3,
+    h4 { display: block; width: auto; }
+  }
   .code-info { float: none; display: block; width: 100%; }
-  .code { float:none; width: 100%;  margin-bottom: 32px; clear:both; }
+  .code { 
+    float: none;
+    width: 100%;
+    margin-bottom: 32px;
+    clear:both;
+  }
 }
 
 
-@media (max-width: 760px) {
+
+
+@media (max-width: 900px) {
+  .hdr input[type="text"] { width: 44px; }
+}
+
+
+
+
+@media (max-width: 800px) {
   .nav {
     display: none;
     position: absolute;
   }
   .hdr-brand { float: left; display: inline; }
-  .nav-mobile { display: inline-block; }
+  .nav-mobile { @include inline-block; }
   .hdr-nav, .hdr-form { display: none; }
-  .inner { margin: 0 20px; }
-  .inner:after { visibility: hidden; }
-  .code-info { float: none; display: block; width: 100%;}
-  .code { float:none; width: 100%;   margin-bottom: 32px;}
 }
