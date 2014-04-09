@@ -1,28 +1,5 @@
 @import "compass";
 
-
-
-
-/* Media */
-img { display: block; padding: 0; margin: 0; -ms-interpolation-mode: bicubic; }
-img:-moz-broken { line-height: 11px; overflow: hidden; }
-
-
-
-
-/* apply a natural box layout model to all elements 
-(if supporting <IE8, use a pollyfill: https://github.com/Schepp/box-sizing-polyfill ) */
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-
-
-
-
-
-.container { @include pie-clearfix; }
-
-
-
-
 // header 
 
 .hdr { 
@@ -93,6 +70,8 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
 
 
 
+// content
+
 .inner { 
   display: block;
   overflow: hidden;
@@ -135,7 +114,6 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     }
 }
 
-
   .inner-code { 
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -157,6 +135,8 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     border-bottom: 1px solid #e5e5e5;
     padding: 12px 12px 12px 0; 
   }
+
+
 
 
 // code 
