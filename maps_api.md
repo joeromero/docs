@@ -17,7 +17,7 @@ You can create two types of maps with the Maps API:
 
 ### Anonymous maps
 
-Here is an example of how to create an anonymous map from JavaScript:
+Here is an example of how to create an anonymous map with JavaScript:
 
 ```javascript
 var mapconfig = {
@@ -50,8 +50,8 @@ $.ajax({
 
 ### Named maps
 
-Let's create a map using some private tables in CartoDB account.
-The following call creates a map of European countries filled in the color white:
+Let's create a named map using some private tables in a CartoDB account.
+The following API call creates a map of European countries that have a white fill color:
 
 ```json
 // mapconfig.json
@@ -88,7 +88,7 @@ curl 'http://{account}.cartodb.com/api/v1/map/named/test' -H 'Content-Type: appl
 
 The response will return JSON with properties for the ```layergroupid``` and the timestamp (```last_updated```)  of the last data modification. 
 
-Here is an example:
+Here is an example response:
 
 ```json
 {
@@ -97,7 +97,7 @@ Here is an example:
 }
 ```
 
-You can use the ``layergroupid`` to create a URL template for accessing tiles on the client. We use the ```layergroupid``` from the example response above in this URL template:
+You can use the ``layergroupid`` to create a URL template for accessing tiles on the client. Here we use the ```layergroupid``` from the example response above in this URL template:
 
 ```
 http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
@@ -110,13 +110,13 @@ The following concepts are the same for every endpoint in the API except when it
 
 ## Auth
 
-By default, users do not have access to private tables in CartoDB. In order to create maps where private tables are involved, the user needs to use the API Key. Some of the endpoints also need the API Key to be included (e.g. creating a named map).
+By default, users do not have access to private tables in CartoDB. In order to create a map from private table data an API Key is required. Additionally, to include some endpoints an API Key must be included (e.g. creating a named map).
 
 To execute an authorized request, api_key=YOURAPIKEY should be added to the request URL. The param can be also passed as POST param. We **strongly advise** using HTTPS when you are performing requests that include your ```api_key```.
 
 ## Errors
 
-Errors are reported using standard HTTP codes and also extended information encoded in JSON with this format:
+Errors are reported using standard HTTP codes and extended information encoded in JSON with this format:
 
 ```
 {
@@ -126,7 +126,7 @@ Errors are reported using standard HTTP codes and also extended information enco
 }
 ```
 
-If you use JSONP, 200 HTTP code is always returned so the JavaScript client can receive the error from the JSON object.
+If you use JSONP, the 200 HTTP code is always returned so the JavaScript client can receive errors from the JSON object.
 
 ## CORS support
 
@@ -166,11 +166,13 @@ Should be a [Mapconfig](https://github.com/CartoDB/Windshaft/blob/0.19.1/doc/Map
 
 The response includes:
 
-  - layergroupid: The ID for that map, used to componse the URL for the tiles, so the final URL is:
+  - layergroupid: The ID for that map, used to compose the URL for the tiles. The final URL is:
+    ```
     http://{account}.cartodb.com/api/v1/map/:layergroupid/{z}/{x}/{y}.png
-  - updated_at: The ISO date of the last time the data involved in the query was updated
-  - metadata: (optional) Includes information about the layers. Some layers may not have this metadata
-  - cdn_url: URLs to fetch the data using the best CDN for your zone
+    ```
+  - updated_at: The ISO date of the last time the data involved in the query was updated.
+  - metadata: (optional) Includes information about the layers. Some layers may not have metadata.
+  - cdn_url: URLs to fetch the data using the best CDN for your zone.
 
 
 #### Example Request
@@ -211,17 +213,17 @@ For attributes defined in ``attributes`` section:
 http://documentation.cartodb.com/api/v1/map/c01a54877c62831bb51720263f91fb33:0/:layer/attributes/:feature_id
 ```
 
-Which returns a JSON with the attributes defined, like:
+Which returns JSON with the attributes defined, like:
 
 ```json
     { c: 1, d: 2 }
 ```
 
-Notice UTF Grid and attributes endpoints need an intenger parameter, ``layer``. That number is the 0-base index of the layer inside the mapconfig. So in this case 0 returns the UTF grid tiles/attributes for layer 0 (the only one in that example mapconfig)
+Notice UTF Grid and attributes endpoints need an intenger parameter, ``layer``. That number is the 0-based index of the layer inside the mapconfig. So in this case 0 returns the UTF grid tiles/attributes for layer 0, the only layer in the example mapconfig. If a second layer was available it could be returned with 1, a third layer with 2, etc.
 
 ### Create JSONP
 
-JSONP endpoint is provided in order to allow web browsers which don't support CORS
+The JSONP endpoint is provided in order to allow web browsers access which don't support CORS.
 
 #### Definition
 
@@ -229,10 +231,10 @@ GET /api/v1/map?callback=method
 
 #### Params
 
-  - auth_token: (optional) If the named map needs authorization
-  - config: Encoded JSON with the params for creating named maps (the variables defined in the template)
+  - auth_token: (optional) If the named map needs authorization.
+  - config: Encoded JSON with the params for creating named maps (the variables defined in the template.)
   - lmza: This attribute contains the same as config but LZMA compressed. It cannot be used at the same time as ``config``.
-  - callback: JSON callback name
+  - callback: JSON callback name.
 
 #### Example Request
 
@@ -247,7 +249,7 @@ GET /api/v1/map?callback=method
 
 ### Remove
 
-Anonymous maps cannot be removed by an API call. They will after about five minutes but sometimes longer. If an anonymous map expires and tiles are requested from it, an error will be raised. This could happen if a user leaves a map open and after time returns to the map an attempts to interact with it in a way that requires new tiles (e.g. zoom). The client will need to go through the steps of creating the map again to fix the problem.
+Anonymous maps cannot be removed by an API call. They will expire after about five minutes but sometimes longer. If an anonymous map expires and tiles are requested from it, an error will be raised. This could happen if a user leaves a map open and after time returns to the map an attempts to interact with it in a way that requires new tiles (e.g. zoom). The client will need to go through the steps of creating the map again to fix the problem.
 
 ## Named Maps
 
