@@ -56,25 +56,37 @@ The following call creates a map of European countries filled in the color white
 ```json
 // mapconfig.json
 {
-    "version": "1.0.1",
-    "layers": [{
-        "type": "cartodb",
-        "options": {
-            "cartocss_version": "2.1.1",
-            "cartocss": "#layer { polygon-fill: #FFF; }",
-             "sql": "select * from european_countries_e"
-        }
-    }]
+    "version": "0.0.1"
+    "name": "test",
+    "auth": {
+        "method": "open"
+    },
+    "layergroup": {
+        "layers": [{
+            "type": "cartodb",
+            "options": {
+                "cartocss_version": "2.1.1",
+                "cartocss": "#layer { polygon-fill: #FFF; }",
+                 "sql": "select * from european_countries_e"
+            }
+        }]
+    }
 }
 ```
 
 The map config needs to be sent to the Map API using an authenticated call. The call would be:
 
 ```bash
-curl 'http://{account}.cartodb.com/api/v1/map/named' -H 'Content-Type: application/json' -d @mapconfig.json
+curl 'https://{account}.cartodb.com/api/v1/map/named?api_key=APIKEY' -H 'Content-Type: application/json' -d @mapconfig.json
 ```
 
-The request will return JSON with the ```layergroupid``` and the ```timestamp``` of the last data modification. Here is an example:
+then to get the url to fetch the tiles you need to instanciate the map
+
+```bash
+curl 'http://{account}.cartodb.com/api/v1/map/named/test' -H 'Content-Type: application/json'
+```
+
+The response will return JSON with the ```layergroupid``` and the ```timestamp``` of the last data modification. Here is an example:
 
 ```json
 {
@@ -88,7 +100,6 @@ You can use the ``layergroupid`` to create a URL template for accessing tiles on
 ```
 http://documentation.cartodb.com/tiles/layergroup/c01a54877c62831bb51720263f91fb33:0/{z}/{x}/{y}.png
 ```
-
 
 
 # General Concepts
