@@ -17,7 +17,7 @@ You can create two types of maps with the Maps API:
 
 ### Anonymous maps
 
-Here is an example of how to create an anomymous map from JavaScript:
+Here is an example of how to create an anonymous map from JavaScript:
 
 ```javascript
 var mapconfig = {
