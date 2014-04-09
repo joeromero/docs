@@ -9,7 +9,11 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 
-
+.nav-mobile { float: right; display: none; text-indent: -9000px; margin-top: 10px;  }
+  .nav-mobile a { 
+    display: block; width: 21px; height: 18px;
+    background: image-url('mobile-nav.png');
+  }
 
 .cf:after {
   content:"";
@@ -18,6 +22,29 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   clear:both; 
 }
 .hdr { background: #397DBA; padding: 20px;  }
+.hdr-nav { display: inline-block; margin-right: 20px;}
+.hdr-brand {
+  display: inline-block;
+  font: 14px 'Proxima Nova Lt';
+  color:#fff;
+  margin-right: 34px;
+  text-transform:uppercase;
+}
+  .brand { 
+    vertical-align: middle;
+    width: 32px;
+    height: 43px;
+    display: inline-block;
+    margin-right: 12px; 
+  }
+  .brand a { 
+    text-indent: -9000px;
+    display: inline-block;
+    width: 32px;
+    height: 43px;
+    background: image-url('brand.png');
+  }
+
 .nav { 
   float: left;
   display: inline;
@@ -42,8 +69,8 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   .inner h4 { margin-bottom: 22px; font: 18px/28px 'Proxima Nova Th'; }
   .inner h1 { margin-bottom: 22px; font: 32px/34px 'Proxima Nova Th'; }
   .inner a { color: #000; text-decoration: underline; }
-  .inner p { font: 18px/28px 'Proxima Nova Rg'; margin-bottom: 38px; }
-  .inner ol, .inner ul { font: 18px/28px 'Proxima Nova Rg'; }
+  .inner p { font: 18px/28px 'Proxima Nova Lt'; margin-bottom: 38px; }
+  .inner ol, .inner ul { font: 18px/28px 'Proxima Nova Lt'; }
   .inner li { margin: 0 40px 40px 0}
   .inner ul { list-style-type: square; margin-left: 40px; }
   .inner ol { list-style-type: lower-hexadecimal; margin-left: 40px; }
@@ -64,7 +91,7 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     width: 50%;
     float:left; 
     margin-bottom: 38px; 
-    font: 18px/28px 'Proxima Nova Rg';
+    font: 18px/28px 'Proxima Nova Lt';
   }
   .inner table td {
     border-bottom: 1px solid #e5e5e5;
@@ -130,8 +157,7 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
       transition: color .5s;
 }
 .nav-inner > li ul a:hover { color: #000; }
-.hdr nav { display: inline-block; margin-right: 80px; }
-.hdr form { 
+.hdr-form { 
   display: inline-block;
   background: #6197C8;
   border-radius: 4px;
@@ -175,6 +201,9 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     display: none;
     position: absolute;
   }
+  .hdr-brand { float: left; display: inline; }
+  .nav-mobile { display: inline-block; }
+  .hdr-nav, .hdr-form { display: none; }
   .inner { margin: 0 20px; }
   .inner:after { visibility: hidden; }
   .code-info { float: none; display: block; width: 100%;}
