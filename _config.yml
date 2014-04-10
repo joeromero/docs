@@ -3,3 +3,4 @@ baseurl: ''
 cartodburl: 'http://cartodb.com'
 encoding: utf-8
 markdown: kramdown
+with_toc_data: true

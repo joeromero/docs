@@ -23,26 +23,27 @@
   <script src="{{ site.baseurl }}/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-
-  {% include menu.html %}
+  {% include header.html %}
 
   <section class="container">
     {% include nav.html %}
+
     <article class="inner">
       {{ content }}
-
     </article>
-
   </section>
 
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <script src="{{ site.baseurl }}/js/application.js"></script>
+  <script src="{{ site.baseurl }}/js/docs.js"></script>
+  <script src="{{ site.baseurl }}/js/ui/nav.js"></script>
+
   <script>
-      window.addEventListener("load", function(){
-      var heightHeader = document.querySelector(".hdr").offsetHeight;
-      var canvas = document.body.offsetHeight;
-      document.querySelector(".nav").style.height = canvas - heightHeader +'px';
+    $(function() {
+      cdb.init(function() {
+        window.course = new docs.Views.Home();
+      });
     });
   </script>
-
-
 </body>
 </html>

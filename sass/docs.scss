@@ -246,70 +246,73 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   }
   > li ul a:hover { color: #000; }
 }
-.nav-mobile {
-  float: right;
+
+.nav-button {
   display: none;
-  text-indent: -9000px;
+  float: right;
+  width: 21px;
+  height: 18px;
   margin-top: 10px;
-  a {
-    display: block; width: 21px; height: 18px;
-    background: image-url('mobile-nav.png');
-  }
+  background: image-url('mobile-nav.png');
+  text-indent: -9000px;
 }
 
 
 
-//mediaqueries
+// Media queries
 
-@media (max-width: 1100px) {
+@media (max-width: $max-width) {
   .nav-principal > li a {
     padding: 12px 8px;
     font-size: 12px;
   }
 }
 
-
-
-
-@media (max-width: 1024px) {
+@media (max-width: $big-width) {
   .code-txt { background: #f5f5f5; }
+
   .inner {
     margin: 0 20px;
+
     &:after { visibility: hidden; }
-    h2,
+
     > p,
     h1,
+    h2,
+    h3,
+    h4,
     table,
     ol,
-    ul,
-    h3,
-    h4 { display: block; width: auto; }
+    ul {
+      display: block;
+      width: auto;
+    }
   }
+
   .code-info { float: none; display: block; width: 100%; }
+
   .code {
+    clear: both;
     float: none;
     width: 100%;
     margin-bottom: 32px;
-    clear:both;
   }
 }
 
-
-
-
-@media (max-width: 900px) {
+@media (max-width: $large-width) {
   .hdr input[type="text"] { width: 44px; }
 }
 
+@media (max-width: $medium-width) {
+  .nav { display: none; }
 
-
-
-@media (max-width: 800px) {
-  .nav {
-    display: none;
-    position: absolute;
+  .hdr-brand {
+    float: left;
+    display: inline;
   }
-  .hdr-brand { float: left; display: inline; }
-  .nav-mobile { @include inline-block; }
-  .hdr-nav, .hdr-form { display: none; }
+
+  .nav-button { @include inline-block; }
+
+  .nav-principal,
+  .hdr-form { display: none; }
 }
