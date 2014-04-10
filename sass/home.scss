@@ -1,0 +1,156 @@
+@import "compass";
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// helpers
+.h-left { float: left; }
+.h-right { float: right; }
+.h-tcenter { text-align: center; }
+.h-iblock { display: inline-block; }
+.inb-list {}
+  .inb-list > li { display: inline-block; vertical-align: middle; }
+  .inb-list > li:first-child { margin: 0; }
+
+// titles
+.tit-section { 
+  font: 48px/50px 'Proxima Nova Th';
+  letter-spacing:  -2px;
+}
+  .tit-decoration { display: inline-block; position: relative; }
+    .tit-decoration:after { 
+      content:"";
+      position: absolute;
+      width: 100px;
+      height: 1px;
+      right: -120px;
+      top: 50%;
+    }
+    .tit-decoration:before { 
+      content:"";
+      position: absolute;
+      width: 100px;
+      height: 1px;
+      left: -120px;
+      top: 50%;
+    }
+      .tit-dcr-white:after, .tit-dcr-white:before { 
+        background: #fff;
+        background: rgba(255, 255, 255, .7);
+      }
+      .tit-dcr-dark:after, .tit-dcr-dark:before { 
+        background: #000;
+        background: rgba(0, 0, 0, .7);
+      }
+
+
+  .sub-section { font: 26px/36px 'Proxima Nova Lt'; }
+
+.inner { max-width: 1000px; margin: 0px auto; padding: 0 20px; }
+
+
+.header-background { 
+  padding: 25px 0 50px 0;
+  position: relative;
+  background: image-url('background-header.png');
+
+  &:after {
+    content:"";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0 
+  }
+  &.white:after {
+      @include background-image(linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)));
+  }
+  &.blue:after {
+      @include background-image(linear-gradient(rgba(59, 126, 187, 0), rgba(59, 126, 187, 1)));
+  }
+  &.dark:after {
+      @include background-image(linear-gradient(rgba(57, 64, 71, 0), rgba(57, 64, 71, 1)));
+  }
+  .inner { position: relative; z-index: 2; }
+
+  &.dark, &.blue { color: #fff; }
+  &.white { color: #333; }
+
+}
+
+
+.header-background.white { background-color: #fff; }
+.header-background.blue { background-color: #3B7EBB; }
+.header-background.dark { background-color: #384047; }
+
+.navigation {
+  font: 12px/14px 'Proxima Nova SB';
+  font-weight: 700;
+  @include pie-clearfix;
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+  .nvg-inner { text-transform: uppercase; }
+    .nvg-inner > li { margin-left: 20px; }
+    .nvg-inner a { text-decoration: none; display: block; color: #fff;
+      padding: 14px 24px; 
+    }
+    .white {
+      .nvg-inner a { color: #999999; }
+      .selected a { color: #000; }
+      .nav-login { border: 2px solid #4B80B7;  @include border-radius(50px); }
+      a.nav-login { color: #4B80B7; }
+      .navigation { border-bottom: 1px solid #E7E8E9; border-bottom: 1px solid rgba(0, 0, 0, .12); }
+    }
+
+    a.nav-login { border: 2px solid #fff;  @include border-radius(50px); padding: 12px 24px; }
+    
+    .selected a { @include border-radius(50px); background: rgba(0, 0, 0, .1)}
+
+
+
+
+
+
+.nav-tags {
+  font: 12px/14px 'Proxima Nova SB';
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 25px; 
+}
+  .nav-tags li:after { 
+    content:",";
+    margin-right: 4px;
+  }
+  .nav-tags li:last-child:after {
+    visibility: hidden; 
+  }
+  .nav-tgs-title { margin-right: 4px; }
+  .nav-blue a, .nav-blue li:after { color: #9DBFDD; color: rgba(255, 255, 255, .5);}
+  .nav-dark a, .nav-dark li:after {  color: #888; color: rgba(255, 255, 255, .5);}
+  .nav-white a, .nav-white li:after {  color: #888; color: rgba(0, 0, 0, .5);}
+
+
+.frm-faqs-inner {
+  width: 750px;
+  @include border-radius(4px);
+  border: 4px solid #3370A7;
+  border: 4px solid rgba(0, 0, 0, .10);
+  margin-top: 25px; 
+}
+  .frm-faqs {
+    padding: 20px;
+    background: #fff; 
+  }
+
+
+
