@@ -1,2 +1,5 @@
 name: CartoDB Docs
 baseurl: ''
+cartodburl: 'http://cartodb.com'
+encoding: utf-8
+markdown: kramdown
