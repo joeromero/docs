@@ -33,13 +33,11 @@ To find your API key:
 To use your API key, pass it as a parameter in an URL call to the CartoDB API. For example, to perform an insert into your table, you would use the following URL structure.
 
 
-```sql
-
+{% highlight javascript %}
 QUERY EXAMPLE WITH THE API_KEY PARAMETER
 
 http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&api_key={Your API key}
-
-```
+{% endhighlight %}
 
 ## OAuth
 

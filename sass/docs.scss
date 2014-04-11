@@ -9,17 +9,19 @@
 
 
 * { @include box-sizing(border-box); }
+html { min-width: $small-width; }
 img { display: block; padding: 0; margin: 0; -ms-interpolation-mode: bicubic; }
 img:-moz-broken { line-height: 11px; overflow: hidden; }
 
 .clearfix { @include pie-clearfix; }
 
-
 // header
 
 .hdr {
-  background: #397DBA;
+  position: relative;
+  min-width: $small-width;
   padding: 20px;
+  background: #397DBA;
   @include pie-clearfix;
 }
 
@@ -51,7 +53,14 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   }
 }
 
-.nav-principal {
+.nav-header,
+.nav-menu {
+  float: left;
+}
+
+.nav-menu {
+  margin-right: 20px;
+
   > li {
     @include inline-block;
     font: 14px 'Proxima Nova Lt';
@@ -224,6 +233,12 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
 
 .nav-inner {
   position: relative;
+
+  h2 {
+    margin-bottom: 25px;
+    font: 700 16px 'Proxima Nova Rg';
+  }
+
   .selected:before {
     content:"";
     width: 4px;
@@ -235,7 +250,6 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   }
   a { color:#333; text-decoration: none; }
   > li { margin-bottom: 40px; }
-  > li > h2 { font: 16px 'Proxima Nova Rg'; margin-bottom: 25px; font-weight: 700; }
   > li ul { font: 14px 'Proxima Nova Lt'; }
   > li ul li, > li ul h3 { margin-bottom: 18px;  }
   > li ul ul > li { margin-left: 12px;}
@@ -262,7 +276,7 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
 // Media queries
 
 @media (max-width: $max-width) {
-  .nav-principal > li a {
+  .nav-menu > li a {
     padding: 12px 8px;
     font-size: 12px;
   }
@@ -303,16 +317,56 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   .hdr input[type="text"] { width: 44px; }
 }
 
+@media (min-width: $medium-width) {
+  .nav-collapse {
+    display: block!important;
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible!important;
+  }
+}
+
 @media (max-width: $medium-width) {
+  .nav-header,
+  .nav-menu {
+    float: none;
+  }
+
   .nav { display: none; }
+
+  .nav-header {
+    @include pie-clearfix;
+  }
 
   .hdr-brand {
     float: left;
-    display: inline;
   }
 
-  .nav-button { @include inline-block; }
+  .hdr-nav {
+    @include pie-clearfix;
+    display: block;
+    margin-right: 0;
+  }
 
-  .nav-principal,
+  .nav-button {
+    display: block;
+    position: absolute;
+    top: 21px;
+    right: 20px;
+  }
+
   .hdr-form { display: none; }
+
+  .nav-collapse {
+    overflow: hidden;
+    height: 1px;
+  }
+
+  .nav-menu {
+    margin: 30px 0 0;
+
+    li {
+      display: block;
+    }
+  }
 }
