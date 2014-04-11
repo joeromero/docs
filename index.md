@@ -12,7 +12,7 @@ At its heart, CartoDB is an open source geospatial Mapping Platform. It is a too
 
 Below, we'll split our introduction into those two parts, the Mapping Platform and the Mapping Tool. If you are looking for a scalable geospatial system to build tools or power your applications, jump down to the [Mapping Platform]() section. If you are looking for a drag & drop interface where you can style and customize maps in minutes, head to the [Mapping Tool]() section. If you want both, keep reading, it's all right here waiting for you!
 
-## Mapping Tool
+### Mapping Tool
 
 So we hear you've been out there trying different mapping tools on your computer and on the web. I bet most of them look a bit stuck in 2004, right? That probably concerns you because if a tool looks stuck in 2004 you can only *imagine* what the maps it produces look like. When we started CartoDB a few years ago, this was a major challenge we set out to fix. We built the tool from the ground-up with beautiful design and good user-experience at the top of guiding principles. What you see on the surface though doesn't stop there, we take the same point-of-view about the maps that our tool creates, they are beautiful and easy to use. 
 
@@ -20,7 +20,7 @@ The CartoDB interface allows you to drag & drop geospatial data (e.g. CSVs, ESRI
 
 Some of the best parts of the Mapping Tool are the parts that you might never even notice. One example is scalablility. Use CartoDB to design and publish a map on your website in minutes, great. Today maybe you will have one visitor, but what about tomorrow when your page makes it to #1 on Reddit? CartoDB will scale with you, helping to make sure people get to see the fruit of your labor. Jump in and start using the tool right now, we have free accounts for you to try out and we have lots of great resources, including an awesome [community of users](http://gis.stackexchange.com/questions/tagged/cartodb) out there to help get your questions answered quick!
 
-## Mapping Platform
+### Mapping Platform
 
 Okay, beautiful maps and intuitive interface got you hooked, but now you want to build something a bit more complex? That is where the Mapping Platform comes in. It is what backs the Mapping Tool, so if you've made a map, you've already been using it. CartoDB runs on an open source stack including PostgreSQL, PostGIS, and a host of other powerful and scalable components. The Mapping Platform wraps together your database with Map and SQL APIs that let you interact with data remotely. Using the CartoDB service also means you can take advantage of the most secure and up to date libraries at all times, no more fuss. 
 
