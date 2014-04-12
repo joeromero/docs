@@ -8,9 +8,9 @@ Have you been roaming the internet in search of a tool that will let you make th
 
 ## What is CartoDB?
 
-At its heart, CartoDB is an open source geospatial Mapping Platform. It is a tool we built to make mapping dynamic, scalable, and interesting. Wrapped around its core, CartoDB is a Mapping Tool that gives you a user friendly interface so you can start making maps and visualizing data right away. The combination of the two give you some of the most powerful mapping resources you'll ever experience. It's like Secretariat, Frank Lloyd Wright, and John Lennon had started a cartography club. 
+At its heart, CartoDB is an open source geospatial Mapping Platform. It is a tool we built to make mapping dynamic, scalable, and interesting. At its core, CartoDB is a Mapping Tool that gives you a user friendly interface so you can start making maps and visualizing data right away. It could be one of the most powerful mapping resources you will ever use. It is as if Secretariat, Frank Lloyd Wright, and John Lennon started a cartography club. 
 
-Below, we'll split our introduction into those two parts, the Mapping Platform and the Mapping Tool. If you are looking for a scalable geospatial system to build tools or power your applications, jump down to the [Mapping Platform]() section. If you are looking for a drag & drop interface where you can style and customize maps in minutes, head to the [Mapping Tool]() section. If you want both, keep reading, it's all right here waiting for you!
+Below, we split our introduction into two parts: the Mapping Platform and the Mapping Tool. If you are looking for a scalable geospatial system to build tools or power your applications, jump down to the [Mapping Platform]() section. If you are looking for a drag & drop interface where you can style and customize maps in minutes, head to the [Mapping Tool]() section. If you want both, keep reading; it's all right here waiting for you!
 
 ### Mapping Tool
 
