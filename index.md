@@ -4,7 +4,7 @@ colour: dark
 title: Home
 ---
 
-Have you been roaming the internet in search of a tool that will let you make the wild maps in your imagination? Maybe you have grown weary of all the headaches that can come with geospatial data processing? Or perhaps you are new to mapping and are looking for something easy to learn but unlimited in potential? You're in luck, we are here to team up with you to make those and the many other challenges of online mapping fade into a distant memory. 
+Have you been roaming the internet in search of a tool that will let you make the wild maps in your imagination? Maybe you have grown weary of all the headaches that can come with geospatial data processing? Or perhaps you are new to mapping and are looking for something easy to learn but unlimited in potential? You're in luck, CartoDB is here to team up with you to make these and the many other challenges of online mapping fade into a distant memory. 
 
 ## What is CartoDB?
 
@@ -14,11 +14,13 @@ Below, we'll split our introduction into those two parts, the Mapping Platform a
 
 ### Mapping Tool
 
-So we hear you've been out there trying different mapping tools on your computer and on the web. I bet most of them look a bit stuck in 2004, right? That probably concerns you because if a tool looks stuck in 2004 you can only *imagine* what the maps it produces look like. When we started CartoDB a few years ago this was a major challenge we set out to fix. We built the tool from the ground-up with beautiful design and good user-experience at the top of guiding principles. What you see on the surface doesn't stop there, we make the same effort to ensure that the maps you create are beautiful and easy to use.
+So we hear you've been out there trying different mapping tools on your computer and on the web. I bet most of them look a bit stuck in 2004, right? That probably concerns you because if a tool looks stuck in 2004 you can only *imagine* what the maps it produces look like. When we started CartoDB a few years ago this was a major challenge we set out to fix. We built the tool from the ground-up, with beautiful design and good user-experience at the top of our list of guiding principles. What you see on the surface doesn't stop there, we make the same effort to ensure that the maps themselves are also beautiful and easy to use.
 
-The CartoDB interface allows you to drag & drop geospatial data (e.g. CSVs, ESRI Shapefiles, etc.) onto your browser and have an interactive map in seconds. There is no download or installation needed. With your data and maps in hand, you can quickly filter, customize looks, and publish maps on the web. The tool gives you simple interfaces for publishing maps as public URLs, password protected visualizations for collaborations, embeddable maps, or even API endpoints to build CartoDB delivered maps directly into your own websites. 
+The CartoDB interface allows you to drag and drop geospatial data (e.g. CSVs, ESRI Shapefiles, etc.) into your browser and have an interactive map in seconds. There is no download or installation needed. With your data and maps in hand, you can quickly filter, customize looks, and publish maps on the web. The tool gives you simple interfaces for publishing maps as public URLs, password protected visualizations for collaborations, embeddable maps, or even API endpoints to build CartoDB delivered maps directly into your own websites. 
 
-Some of the best parts of the Mapping Tool are the parts that you might never even notice. One example is scalablility. Use CartoDB to design and publish a map on your website in minutes, great. Today maybe you will have one visitor, but what about tomorrow when your page makes it to #1 on Reddit? CartoDB will scale with you, helping to make sure get to enjoy the fruit of your labor. Jump in and start using the tool right now, we have free accounts for you to try out and we have lots of great resources, including an awesome [community of users](http://gis.stackexchange.com/questions/tagged/cartodb) out there to help get your questions answered quick!
+Some of the best parts of the Mapping Tool are the parts that you might never even notice, like scalablility. Our platform can supports maps that are viewed by a few close friends or colleagues, and those that fly to the top of Twitter feeds, Reddit, or other sources where they are viewed by thousands, even millions! CartoDB scales with you, making sure that your maps are enjoyed by all of your viewers.
+
+Jump in and start using the tool right now, we have free accounts for you to try out, and we have lots of great resources including an awesome [community of users](http://gis.stackexchange.com/questions/tagged/cartodb) out there to help get your questions answered quick!
 
 ### Mapping Platform
 
