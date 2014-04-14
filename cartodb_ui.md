@@ -191,11 +191,11 @@ Apart from the default basemaps offered in CartoDB, you can integrate third-part
 
 ### About map projections
 
-The earth has an ellipsoid shape but maps are representations of the earth on a flat surface. This means that some distortion must be applied in order to visualize the earth on a two dimensional plane. During this process several types of distortions may occur and this impacts how map features are represented. This distortion is what is referred to as a [map projection](http://en.wikipedia.org/wiki/Map_projection). There are many types of projections used to represent the earth at various scales from depicting the whole world, a continent, country, region or state / province. Each type of distortion attempts to preserve certain properties at the expense of others such as area, direction, shape and distance.
+The earth has an ellipsoid shape, but maps are representations of the earth on a flat surface. This means that some distortion must be applied in order to visualize the earth on a two-dimensional plane. During this process several types of distortions may occur and this impacts how map features are represented. The rules and methods used to distort the three-dimensional form of the earth into a two-dimensional representation is referred to as a [map projection](http://en.wikipedia.org/wiki/Map_projection). There are many types of projections used to represent the earth at various scales. Some depict the whole world, others a continent or country, and still others a region or state / province. Each type of projection attempts to preserve certain properties at the expense of others such as area, direction, shape and distance.
 
 The majority of maps used in the web are using a variant of the [Mercator Projection](https://en.wikipedia.org/wiki/Mercator_projection), commonly referred to as the Web-Mercator. That is the projection you will be using when you create your visualizations in CartoDB. Changing the map projection is currently not feasible, as it would imply changing all the basemaps and all the information of how your data is stored in CartoDB.
 
-You can learn more about map projections in Wikipedia, and know all the details about how internally CartoDB [handles projections](http://developers.cartodb.com/tutorials/projections.html).
+You can learn more about map projections in Wikipedia, and read up on all the details about how CartoDB handles [projections internally](http://developers.cartodb.com/tutorials/projections.html).
 
 
 ## CartoDB Sidebar
