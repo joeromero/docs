@@ -20,7 +20,7 @@ CartoDB is a geospatial database on the cloud that allows for the storage and vi
 <!-- invite to visit use cases and industries -->
 
 
-# 1 minute introduction
+# One-minute introduction
 
 Your dashboard has two main sections: **tables** and **visualizations**. The steps to create a visualization of your data are simple:
 
@@ -30,7 +30,7 @@ Your dashboard has two main sections: **tables** and **visualizations**. The ste
 
 (You may even stop at step two as sharing is not mandatory. You may create a visualization to better understand your own data and keep it private.)
 
-CartoDB lets you easily import your data from many different formats (Excel, CSV, XML, SHP, GeoJSON...) and from different sources (your hard disk, Google Drive, Dropbox...). and makes it easy to show your data on a map using our visual wizards. With our wizards you can select what type of visualization you want to create, define legends and infowindows (contextual modal windows associated with a data point or area) and select which information from your database you want to show.
+CartoDB lets you easily import your data from many different formats (Excel, CSV, XML, SHP, GeoJSON, etc.) and from different sources (your hard disk, Google Drive, Dropbox). It makes it easy to show your data on a map using our visual wizards. Our wizards enable you to select what type of visualization you want to create, define legends and infowindows (which are contextual pop-up windows associated with a data point or area) and select which information from your database you want to show.
 
 After you have created your visualization with our web interface, you can keep it private, share it with your colleagues, or publish it to the web either by sharing its URL or embedding it in your blog or CMS.
 
@@ -40,19 +40,21 @@ In this guide we'll show you all the features and possibilities available to you
 # Tables
 
 ## Import your data
+## Importing your data
 
-CartoDB features a geospatial database which is a database capable of storing geospatial information such as geometry. When you import data into CartoDB, you are importing data into a standard database. Under the hood PostgreSQL is running with the geospatial extension PostGIS. If you've never heard of these open-source tools don't worry. Just remember (or tell your technical people) that CartoDB if fully compatible with these technologies.
+CartoDB features a geospatial database which is a database capable of storing geospatial information such as geometry. When you import data into CartoDB, you are importing data into a standard database. Under the hood PostgreSQL is running with the geospatial extension PostGIS. If you've never heard of these open-source tools don't worry. Just remember (or tell your technical people) that CartoDB is fully compatible with these technologies.
 
 (Oh, and by the way learning SQL is easy, fun, and lets you do some amazing things. But while you learn, you may still use our visualization tools, which doesn't make it necessary for you to have any prior technical knowledge.)
 
 [SCREENSHOT TO DO: New Table modal window]
 
-Importing your data is dead easy, and you have several ways of doing it. Pick your favorite!
+Importing your data is easy, and you have several ways of doing it. Pick your favorite!
 
-1. **Local file or URL**
-2. **Google Drive**
-3. **Dropbox**
+1. **Upload a local file or URL**
+2. **Sync using Google Drive**
+3. **Sync using Dropbox**
 
+The easiset of these is uploding your local file or pulling in a table from a specific URL. To upload a file, navigate to your Dashboard and click "New Table." In the window that pops up, just click on Select a File and find the data you want to work with. You can also paste a URL in this field, and CartoDB will upload that data.
 
 ### Sync tables ###
 
