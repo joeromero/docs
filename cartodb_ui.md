@@ -119,8 +119,10 @@ We encourage you to compress all your files before importing them, supported com
 
 
 ## Manage your tables
+You can look at the list of tables you have uploaded on your dashboard's landing page. You can search, order them by date modified or created, or tag them to organize them in a way that suits you! Each table has its own privacy settings, which you can change individually.
 
 ### Tables privacy settings
+To change the privacy setting of a table, click the colored label right next to the table's name. There, you can choose "Private," "Anyone with a link," or "Public on the web." If it's Private, no one but you will be able to see the table. If it requires a link, only those who have the link will be able to find it. If it's public on the web, anyone can find it on your Public Page or roaming around the internet!
 
 ### Importer error codes
 
