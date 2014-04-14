@@ -127,10 +127,10 @@ To change the privacy setting of a table, click the colored label right next to 
 
 
 ## Inside a table
-Once you're inside your table, there are two ways for you two view your data: Table and Map View. You can toggle between the two on the top right.
+Once you're inside your table, there are two ways for you two view your data: Table and Map View. You can toggle between the two views on the top right.
 
 ### Table
-Table view is a view where you can see, filter, and query your raw data. The pull out pane on the right allows you to write your own SQL queries, apply basic filters, merge two uploaded tables, and add rows and columns. 
+Table view is a view where you can see, filter, and query your raw data and see the results in a table format. The pull out pane on the right of your screen allows you to write your own SQL queries, apply basic filters, merge two uploaded tables, and add rows and columns. 
 
 ### Map view
 In the map view, you can see what your data looks like spatially. You can apply SQL queries or filters on the view, style it using our wizards or your own CartoCSS, and create infowindows. 
