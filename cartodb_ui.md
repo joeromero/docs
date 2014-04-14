@@ -39,7 +39,6 @@ In this guide we'll show you all the features and possibilities available to you
 
 # Tables
 
-## Import your data
 ## Importing your data
 
 CartoDB features a geospatial database which is a database capable of storing geospatial information such as geometry. When you import data into CartoDB, you are importing data into a standard database. Under the hood PostgreSQL is running with the geospatial extension PostGIS. If you've never heard of these open-source tools don't worry. Just remember (or tell your technical people) that CartoDB is fully compatible with these technologies.
@@ -56,9 +55,13 @@ Importing your data is easy, and you have several ways of doing it. Pick your fa
 
 The easiset of these is uploding your local file or pulling in a table from a specific URL. To upload a file, navigate to your Dashboard and click "New Table." In the window that pops up, just click on Select a File and find the data you want to work with. You can also paste a URL in this field, and CartoDB will upload that data.
 
-### Sync tables ###
 
+### Syncing tables ###
+In order to sync your tables via Google Drive or Dropbox, you start much the same way as when you're uploading your own file. Click "New Table" from your Dashboard, and then click on the tab for Google Drive data or Dropbox, depending on which one you want to use. 
 
+From there, you will need to allow CartoDB to access your data so that we can display it for you. Once you select the file that you want to work with, you can choose how often CartoDB should sync the table. You can ask CartoDB to sync it every hour, day, week or month!
+
+Once you pick your data, click "Create Table" and our importer will start building your CartoDB table. This should be a speedy import, but if you have tons of data, give it a few minutes to load. 
 
 
 ### Supported data formats
