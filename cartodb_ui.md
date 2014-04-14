@@ -39,11 +39,9 @@ In this guide we'll show you all the features and possibilities available to you
 
 # Tables
 
-## Importing your data
-
 CartoDB features a geospatial database which is a database capable of storing geospatial information such as geometry. When you import data into CartoDB, you are importing data into a standard database. Under the hood PostgreSQL is running with the geospatial extension PostGIS. If you've never heard of these open-source tools don't worry. Just remember (or tell your technical people) that CartoDB is fully compatible with these technologies.
 
-(Oh, and by the way learning SQL is easy, fun, and lets you do some amazing things. But while you learn, you may still use our visualization tools, which doesn't make it necessary for you to have any prior technical knowledge.)
+## Importing your data
 
 [SCREENSHOT TO DO: New Table modal window]
 
@@ -53,18 +51,21 @@ Importing your data is easy, and you have several ways of doing it. Pick your fa
 2. **Sync using Google Drive**
 3. **Sync using Dropbox**
 
-The easiset of these is uploding your local file or pulling in a table from a specific URL. To upload a file, navigate to your Dashboard and click "New Table." In the window that pops up, just click on Select a File and find the data you want to work with. You can also paste a URL in this field, and CartoDB will upload that data.
+The easiset of these is uploding your local file or pulling in a table from a specific URL. To upload a file, navigate to your Dashboard and click "New Table." In the window that pops up, just click on Select a File and find the data you want to work with. You can also paste a URL in this field, and CartoDB will upload that data. You can also import data from Dropbox or Google Drive.
 
 
-### Syncing tables ###
-In order to sync your tables via Google Drive or Dropbox, you start much the same way as when you're uploading your own file. Click "New Table" from your Dashboard, and then click on the tab for Google Drive data or Dropbox, depending on which one you want to use. 
+## Syncing tables
+
+[SCREENSHOT TO DO: New Table modal window with the sync tables option open]
+
+Users under the John Snow plan, or under a bigger one can benefit from the Sync tables feature. In order to sync your tables via Google Drive or Dropbox, you start much the same way as when you're uploading your own file. Click "New Table" from your Dashboard, and then click on the tab for Google Drive data or Dropbox, depending on which one you want to use.
 
 From there, you will need to allow CartoDB to access your data so that we can display it for you. Once you select the file that you want to work with, you can choose how often CartoDB should sync the table. You can ask CartoDB to sync it every hour, day, week or month!
 
 Once you pick your data, click "Create Table" and our importer will start building your CartoDB table. This should be a speedy import, but if you have tons of data, give it a few minutes to load. 
 
 
-### Supported data formats
+## Supported data formats
 
 CartoDB supports a growing number of data-types and file formats.
 
@@ -112,19 +113,22 @@ We encourage you to compress all your files before importing them, supported com
   </tbody>
 </table>
 
-For tables, our preferred format is using a comma as separator and including column headers. We will only import first Sheet and the structure must be tabular, with first row being the column headers.
+\* For tables, our preferred format is using a comma as separator and including column headers. We will only import first Sheet and the structure must be tabular, with first row being the column headers.
 
-For shapefiles, we require the whole .zip file containing the .SHP, .DBF, .SHX and .PRJ all with same name.
+** For Shapefiles, we require the whole .zip file containing the .SHP, .DBF, .SHX and .PRJ all with same name.
+
+*** XLS and XSLX may take longer than normal .csv files. We highly recommend you to export your files to .csv before importing in CartoDB.
 
 
 ## Manage your tables
-You can look at the list of tables you have uploaded on your dashboard's landing page. You can search, order them by date modified or created, or tag them to organize them in a way that suits you! Each table has its own privacy settings, which you can change individually.
+You can look at the list of tables you have uploaded on your dashboard's landing page. You can search, order them by date modified or created, or tag them to organize them in a way that suits you. Each table has its own privacy settings, which you can change individually.
 
 ### Tables privacy settings
 To change the privacy setting of a table, click the colored label right next to the table's name. There, you can choose "Private," "Anyone with a link," or "Public on the web." If it's Private, no one but you will be able to see the table. If it requires a link, only those who have the link will be able to find it. If it's public on the web, anyone can find it on your Public Page or roaming around the internet!
 
 ### Importer error codes
 
+[TO DO: FILL THIS]
 
 ## Inside a table
 Once you're inside your table, there are two ways for you two view your data: Table and Map View. You can toggle between the two views on the top right.
@@ -141,6 +145,7 @@ In the Map View, you can style and filter your data to where you want it for you
 
 ## What is a visualization?
 
+<<<<<<< HEAD
 Vizualizations are the method CartoDB uses for publishing maps to the web. They may be created after you have imported at least one data table. You can create a new visualization by navigating to the "Visualizations" section of your CartoDB dashboard and then selecting on one or more layers to add to the visualization. 
 
 Every visualization has at least two layers: a basemap layer (more on basemaps later) and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
