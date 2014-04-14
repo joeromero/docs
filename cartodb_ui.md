@@ -218,27 +218,32 @@ In this window you will be shown which query is currently being applied and you 
 
 ### Wizards
 
-TODO Merge info @ http://developers.cartodb.com/documentation/using-cartodb.html#sec-4
+CartoDB gives you full control of the style and presentation of your data. Some of the basic controls include coloring and line-width controls. You can access these by clicking on the "wizards" section of the CartoDB sidebar.
 
-The wizards window lets you choose how your data is styled. Before we go further, we'd like to give a little introduction to each type of visualization, as well as when, why and how you should use each type.
+The wizards window lets you choose how your data is styled. Before we go further, we'd like to give a little introduction to each type of visualization.
 
 * **Simple**:
-  * What
-  * When to use it
-  * Type of data
+  * The Simple visualization is exaclty what it sounds like, a basic display of your data. You can add lables, adjust the size and color of your points, and change the color and outline of your polygons, but there will be no conditional formatting. This is good for displaying basic data or for exploring your data. 
 * **Cluster**:
-* **Choropleth **:
+	* The Cluster visualization works with point files to display "clusters" of points that are close in proximity. This is useful if you have a lot of points that are close to each other, and you want to simplify the way they display on the map. When you use this visualization, you will get a point with a number that represents how many points are in that area.
+* **Choropleth**:
+	* This changes the color of each feature based on a secondary numeric value from a column in your table that you choose. Parameters you can change include the color ramp and number of bins your data will be fit into. This is often most useful with polygon data, and you can use it to compare characteristics of regions, and areas. For example, choropleth mapping is often used to display things like income data by neighborhood or other area in a city.
 * **Category**:
-* **Bubble **:
+	* Category visualizations display your data points and polygons in different colors based on a secondary characteristic (not numeric value) in your table. For example, if your data is showing multiple kinds of a certain characteristic (*i.e.* residential areas, versus commercial or manufacturing), you would use the category wizard to change the color or style of each category you're interested in showing. When you first select Category, CartoDB will pick a column to display. You can change this if it doesn't pick the one you're most interested in showing! You can also change the colors and line strokes/colors in this visualization.  
+* **Bubble**:
+	* The Bubble visualization scales the radius of points in your data based on a secondary numeric value from a column in your table that you choose. Parameters you can change include the maximum and minimum size of your bubbles and the color schemes. This is good if you want to compare numerical values associated with a certain point, like population size of cities. Remember that it is not a useful visualization type if your data is in polygon form.
 * **Intensity**:
+	* The Intensity visualization approximates the density of your points by making areas where there are many points, or points overlap darker in color than areas with fewer points. This is useful when you have a point dataset with a large number of points, and when you want to show areas of higher "intensity" as opposed to those with lower intensity. One of the main advantages of this versus a heatmap is that if you start zooming, you can click on your points and get details in your infowindows.
 * **Density**:
+	* The Density visualization aggregates your data in hexagons and colors them based on the amount of data you have within each unit. Areas with more data points will be darker than those with fewer points. Note that when using a Density map, your infowindows will be disabled. If you want to show an approximation of density, but maintain infowindows, check out the Intensity visualization above.
 * **Torque**:
+	* Torque is the newest addition to the family, and it displays data with a temporal characteristic associated with it. Torque will take your points, and visualize them through time based on a column containing the time stamp. The full standard format of the date column is YYYY-DD-MMThh:mm:ssZ, but you can still visualize data that has just year, year/month, or year/month/day characteristics using Torque.
 
 <!-- TODO when we have the corresponding lessons link to:
   In the Map Academy we have a lesson devoted to the theory of data visualizations
 -->
 
-When using the UI beware that different types of data enables or disables certain wizards. To start, let's assume that you are working with data that is represented as points (the simplest type). Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization change.
+When using the UI beware that different types of data enables or disables certain wizards. Play around a little bit and check how your data displays for each type of visualization, and how the tools to customize each visualization change.
 
 Let's dig a little deeper in each of the available visualization wizards:
 
