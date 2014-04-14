@@ -112,10 +112,9 @@ We encourage you to compress all your files before importing them, supported com
   </tbody>
 </table>
 
-* Preferred format is using "," as separator and including column headers.
-** We require the ZIP to come with .SHP, .DBF, .SHX and .PRJ all with same name.
-*** We will only import first Sheet and the structure must be tabular, with first row being the column headers.
+For tables, our preferred format is using a comma as separator and including column headers. We will only import first Sheet and the structure must be tabular, with first row being the column headers.
 
+For shapefiles, we require the whole .zip file containing the .SHP, .DBF, .SHX and .PRJ all with same name.
 
 
 ## Manage your tables
