@@ -135,7 +135,7 @@ Table view is a view where you can see, filter, and query your raw data and see 
 ### Map view
 In the map view, you can see what your data looks like spatially. You can apply SQL queries or filters on the view, style it using our wizards or your own CartoCSS, and create infowindows. 
 
-In the Map View, you can style and filter your data to where you want it for your visualization, **but** the Map View is not the same as a visualization. In order to create your visualization, click "Visualize" in the top right. Keep on reading for what you can do from there!
+In the Map View, you can style and filter your data to where you want it for your visualization, **but** the Map View is not the same as a shareable visualization. In order to create your visualization, click "Visualize" in the top right. Keep on reading for what you can do from there!
 
 # Visualizations
 
