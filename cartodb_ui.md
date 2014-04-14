@@ -202,7 +202,7 @@ You can learn more about map projections in Wikipedia, and read up on all the de
 
 [SCREENSHOT TODO: Sidebar]
 
-The CartoDB sidebar is where are all the action is. From here you can access all the tools that will let you customize the way your data is displayed on your maps. The CartoDB sidebar minimizes to the right, so you have the maximum space to view your map and data. If you want to use any tool in the sidebar simply click on the sidebar to expand it.
+The CartoDB sidebar is where are all the action is. From here you can access all the tools that will let you customize the way your data is displayed on your maps and in your tables. The CartoDB sidebar minimizes to the right, so you have the maximum space to view your map and data. If you want to use any tool in the sidebar simply click on the sidebar to expand it.
 
 In the sidebar you will see all the layers that you have created for a visualization. By default you will have one layer and you may add layers to accomodate more data. For each layer, you will have the same tools to customize how your data will be displayed.
 
