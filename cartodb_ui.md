@@ -211,7 +211,7 @@ Next each feature in the sidebar will be explained:
 
 ### Custom SQL
 
-[SQL](https://en.wikipedia.org/wiki/SQL) (structured query language) is the way that applications ask for data from a database. They can ask simple queries (ie: "give me all records from this table"), queries that matches certain conditions (ie: "give me all records in which this field equals a certain value"), or more complex queries that combine data from two or more tables. As mentioned earlier, when you create a visualization and link a table to it by default all data will be displayed. You can write a custom SQL query or use our filters to only show certain parts of the data.
+[SQL](https://en.wikipedia.org/wiki/SQL) (structured query language) is the way that applications ask for data from a database. They can ask simple queries (*i.e.* "give me all records from this table"), queries that matches certain conditions (*i.e.*  "give me all records in which this field equals a certain value"), or more complex queries that combine data from two or more tables. As mentioned earlier, when you create a visualization and link a table to it by default all data will be displayed. You can write a custom SQL query or use our filters to only show certain parts of the data.
 
 In this window you will be shown which query is currently being applied and you have the ability to modify it. When using our filters you will be able to see the query that has been produced from the applied filter (a fun way to learn SQL!).
 
