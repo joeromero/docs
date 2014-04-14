@@ -141,21 +141,16 @@ In the Map View, you can style and filter your data to where you want it for you
 
 ## What is a visualization?
 
-Vizualizations are the method CartoDB uses for publishing maps to the web. They may be created after you have imported at least one data table. You create a visualization by navigating to the "visualizations" view in the CartoDB dashboard and then selecting on one or more layers to add to the visualization. Every visualization has at least two layers: a basemap layer and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
+Vizualizations are the method CartoDB uses for publishing maps to the web. They may be created after you have imported at least one data table. You can create a new visualization by navigating to the "Visualizations" section of your CartoDB dashboard and then selecting on one or more layers to add to the visualization. 
 
-
-
-A visualization is the combination of a basemap (more on basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will be rendered on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, animating your data over a timeline with Torque...
-
+Every visualization has at least two layers: a basemap layer (more on basemaps later) and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
 
 
 [SCREENSHOT TODO: Sidebar: Layers]
 
-CartoDB uses layers to represent data over a basemap. Each visualization is composed of a basemap plus a layer or several layers of data. You can customize what and how data is shown in each layer - that is, you can customize each layer independently. You can decide which layers are visible in a certain visualization.
+CartoDB uses layers to represent data over a basemap. Each visualization is composed of a basemap plus one or several layers of data. You can customize what and how data is shown in each layer - that is, you can customize each layer independently. You can also decide which layers are visible in a certain visualization.
 
-When you import data into CartoDB you are creating a table (or updating an existing one). Then, in each layer you have data linked from a table. When you create a new layer you select the table that will be linked. By default, all data from that table will be shown in the visualization. With our visual tools you may filter what data will be shown (either using the SQL window or the filters - more on that later TODO link sections). You may use two or more tables to create the representation of the data that you want to show.
-
-
+So, to review: When you import data into CartoDB you are creating a table (or updating an existing one). You can turn this table in to a visualization. Inn each layer of the visualization, you have data linked from different tables. When you create a new layer in a visualization, you select the table that will be linked. By default, all data from that table will be shown in the visualization. With our visual tools you may filter what data will be shown (either using the SQL window or the filters - more on that later TODO link sections). You can also style the visualization however you like, using our wizards or your own CartoCSS.
 
 
 ## Visualization metadata
