@@ -5,7 +5,9 @@ title: Tips and tricks
 
 # Tips and tricks
 
+## Charts & Graphs
 
+It is definitely possible to create charts and graphs using CartoDB. For the timebeing, you'll need to use a combination of CartoDB.js and a third-party JavaScript library. If you are a fan of D3, you can definitely take advantage of the SQL API to query and format data to make graphs pretty easily. Another libary that we like is [Chart.js](http://www.chartjs.org/). Using Chart.js with the SQL API is as straight-forward as it gets. [Take a look](http://bl.ocks.org/andrewxhill/9134155).
 
 ## SQL
 
