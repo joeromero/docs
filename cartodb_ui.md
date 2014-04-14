@@ -60,7 +60,7 @@ The easiset of these is uploding your local file or pulling in a table from a sp
 
 Users under the John Snow plan, or under a bigger one can benefit from the Sync tables feature. In order to sync your tables via Google Drive or Dropbox, you start much the same way as when you're uploading your own file. Click "New Table" from your Dashboard, and then click on the tab for Google Drive data or Dropbox, depending on which one you want to use.
 
-From there, you will need to allow CartoDB to access your data so that we can display it for you. Once you select the file that you want to work with, you can choose how often CartoDB should sync the table. You can ask CartoDB to sync it every hour, day, week or month!
+From there, you will need to allow CartoDB to access your data so that we can display it for you. Once you select the file that you want to work with, you can choose how often CartoDB should sync the table. You can ask CartoDB to sync it every hour, day, week or month. If you would rather it never sync, you can also select that option.
 
 Once you pick your data, click "Create Table" and our importer will start building your CartoDB table. This should be a speedy import, but if you have tons of data, give it a few minutes to load. 
 
@@ -113,11 +113,11 @@ We encourage you to compress all your files before importing them, supported com
   </tbody>
 </table>
 
-\* For tables, our preferred format is using a comma as separator and including column headers. We will only import first Sheet and the structure must be tabular, with first row being the column headers.
+For tables, our preferred format is using a comma as separator and including column headers. We will only import first Sheet and the structure must be tabular, with first row being the column headers.
 
-** For Shapefiles, we require the whole .zip file containing the .SHP, .DBF, .SHX and .PRJ all with same name.
+XLS and XSLX may take longer than normal .csv files. We highly recommend you to export your files to .csv before importing in CartoDB.
 
-*** XLS and XSLX may take longer than normal .csv files. We highly recommend you to export your files to .csv before importing in CartoDB.
+For Shapefiles, we require the whole .zip file containing the .SHP, .DBF, .SHX and .PRJ all with same name.
 
 
 ## Manage your tables
@@ -149,7 +149,7 @@ Vizualizations are the method CartoDB uses for publishing maps to the web. They 
 
 Every visualization has at least two layers: a basemap layer (more on basemaps later) and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
 
-A visualization is the combination of a basemap (more on basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will be rendered on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, animating your data over a timeline with Torque...
+A visualization is the combination of a basemap (more on basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will be rendered on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, or animating your data over a timeline with Torque.
 
 [SCREENSHOT TODO: Sidebar: Layers]
 
@@ -309,7 +309,6 @@ Let's dig a little deeper in each of the available visualization wizards:
 ### Sharing options
 ### Legends
 ### Brand removal
-
 
 
 
