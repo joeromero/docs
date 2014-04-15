@@ -183,7 +183,7 @@ A basemap is typically a graphical representation of the world showing natural a
 
 [SCREENSHOT TODO: Basemap selection]
 
-When you first creatie a visualization, it will be given a default "Nokia Day" base map. To change the look of your basemap simply click on "Basemap" in the upper left of the dashboard and select an available style from the dropdown. You may add your own custom basemap in the "Add yours" option and then by linking to the URL for that basemap from MapBox, XYZ, or WMS. Finally, there are options for adding a solid color or a repeating image pattern instead of a basemap. All of these features give you a high level of customization when creating a map visualization.
+When you first creatie a visualization, it will be given a default "Nokia Day" basemap. To change the look of your basemap simply click on "Basemap" in the upper left of the dashboard and select an available style from the dropdown. You may add your own custom basemap in the "Add yours" option and then by linking to the URL for that basemap from MapBox, XYZ, or WMS. Finally, there are options for adding a solid color or a repeating image pattern instead of a basemap. All of these features give you a high level of customization when creating a map visualization.
 
 CartoDB offers you a selection of basemaps you can use in your visualization. You may select any one of them, and your change will be applied immediately. You can change your basemap anytime and the rest of your layers will remain unchanged. Take some time to explore our different available basemaps. You'll be able to see that some of them have more detail (borders, roads, mountains) and other are more minimalistic. Choose the best one for the purpose of your visualization.
 
