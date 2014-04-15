@@ -30,7 +30,7 @@ Your dashboard has two main sections: **tables** and **visualizations**. The ste
 
 _You can stop at step two if you don't need to share your visualization. Keeping visualizations private can be useful for internal data analysis and gaining data insights._
 
-CartoDB lets you easily import your data in many different formats (Excel, CSV, XML, SHP, GeoJSON, [see all](data formats)) and from different sources (your own computer, a public URL, Google Drive, Dropbox). CartoDB includes interactive wizards taht make it easy to show your data on a map. Our wizards enable you to select what type of visualization you want to create, define legends and infowindows ([What is an infowindow?]) and select which information from your database you want to show.
+CartoDB lets you easily import your data in many different formats (Excel, CSV, XML, SHP, GeoJSON, [see all](data formats)) and from different sources (see all possibilities in [Importing data]). CartoDB includes interactive wizards taht make it easy to show your data on a map. Our wizards enable you to select what type of visualization you want to create, define legends and infowindows ([What is an infowindow?]) and select which information from your database you want to show.
 
 After you have created your visualization with our web interface, you can keep it private, share it with your colleagues, or publish it to the web either by sharing its URL or embedding it in your blog or CMS.
 
@@ -41,17 +41,18 @@ In this guide we'll walk through many of the features available in the CartoDB w
 
 CartoDB features a geospatial database which is a database capable of storing geospatial information such as geometry. When you import data into CartoDB, you are importing data into a standard database. Under the hood PostgreSQL is running with the geospatial extension PostGIS. If you've never heard of these open-source tools don't worry. Just remember (or tell your technical people) that CartoDB is fully compatible with these technologies.
 
-## Importing your data
+## Importing data
 
 [SCREENSHOT TO DO: New Table modal window]
 
 Importing your data is easy, and you have several ways of doing it. Pick your favorite!
 
-1. **Upload a local file or URL**
-2. **Sync using Google Drive**
-3. **Sync using Dropbox**
+1. **Upload a local file** 
+2. **Import directly from a public URL**
+3. **Sync using Google Drive**
+4. **Sync using Dropbox**
 
-The easiset of these is uploding your local file or pulling in a table from a specific URL. To upload a file, navigate to your Dashboard and click "New Table." In the window that pops up, just click on Select a File and find the data you want to work with. You can also paste a URL in this field, and CartoDB will upload that data. You can also import data from Dropbox or Google Drive.
+The most common method is to upload a local file or to pull data from a public URL. To upload a file, navigate to your Dashboard and click **New Table**. In the window that pops up, click on **Select a File** and navigate to the data you want to upload. You can also paste a URL in this field, and CartoDB will upload that data. On larger paid accounts, the interface will give you an option to Sync here. You can also import data from Dropbox or Google Drive.
 
 
 ## Syncing tables
@@ -121,9 +122,11 @@ For Shapefiles, we require the whole .zip file containing the .SHP, .DBF, .SHX a
 
 
 ## Manage your tables
+
 You can look at the list of tables you have uploaded on your dashboard's landing page. You can search, order them by date modified or created, or tag them to organize them in a way that suits you. Each table has its own privacy settings, which you can change individually.
 
 ### Tables privacy settings
+
 To change the privacy setting of a table, click the colored label right next to the table's name. There, you can choose "Private," "Anyone with a link," or "Public on the web." If it's Private, no one but you will be able to see the table. If it requires a link, only those who have the link will be able to find it. If it's public on the web, anyone can find it on your Public Page or roaming around the internet!
 
 ### Importer error codes
@@ -134,9 +137,11 @@ To change the privacy setting of a table, click the colored label right next to 
 Once you're inside your table, there are two ways for you two view your data: Table and Map View. You can toggle between the two views on the top right.
 
 ### Table
+
 Table view is a view where you can see, filter, and query your raw data and see the results in a table format. The pull out pane on the right of your screen allows you to write your own SQL queries, apply basic filters, merge two uploaded tables, and add rows and columns. 
 
 ### Map view
+
 In the map view, you can see what your data looks like spatially. You can apply SQL queries or filters on the view, style it using our wizards or your own CartoCSS, and create infowindows. 
 
 In the Map View, you can style and filter your data to where you want it for your visualization, **but** the Map View is not the same as a shareable visualization. In order to create your visualization, click "Visualize" in the top right. Keep on reading for what you can do from there!
@@ -145,9 +150,9 @@ In the Map View, you can style and filter your data to where you want it for you
 
 ## What is a visualization?
 
-Vizualizations are the method CartoDB uses for publishing maps to the web. They may be created after you have imported at least one data table. You can create a new visualization by navigating to the "Visualizations" section of your CartoDB dashboard and then selecting on one or more layers to add to the visualization. 
+Vizualizations are the method CartoDB uses for publishing maps to the web. They are the combination of one or many tables as layers in a single map. Visualizations can be created after you have imported at least one data table. You can create a new visualization by navigating to the "Visualizations" section of your CartoDB dashboard and then selecting on one or more layers to add to the visualization. 
 
-Every visualization has at least two layers: a basemap layer (more on basemaps later) and the data you are overlaying on top of the base map. The data being overlayed in your visualization is directly linked to the data's table in the "tables" view. Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
+Every visualization has at least two layers: a basemap layer or a solid (more on basemaps later) and the data you are overlaying on top of the basemap. The data being overlayed in your visualization is directly linked to one of your tables (see [Table view]). Any changes you make to your data's attribute information will be reflected in either view. All stylistic customizations made to a visualization are automatically saved (hey, we are on the cloud!), so you don't have to worry about losing your work. If you ever want to save a given visualization and keep working in a new version, you can duplicate it.
 
 A visualization is the combination of a basemap (more on basemaps later) and your data. Once you have your data imported (the data you want to visualize) it will be rendered on a map, and there you have your first visualization! This visualization will simply represent your points or polygons over the default map, with no customization whatsoever. From this point on, you can start customizing how your visualization will look: changing the basemap, layer colors, creating infowindows, or animating your data over a timeline with Torque.
 
