@@ -176,7 +176,7 @@ For each visualization you can edit the name, add a description, and add some ta
 
 ### What is a basemap?
 
-The basemap is the first layer of your visualization. Its is typically a graphical representation of the world showing natural and cultural features such as water bodies, topography, park areas, points of interest, geopolitical borders, roads, streets and sometimes buildings. With CartoDB you can choose between various basemap styles so you can focus on the best possible way of visualizing your data. You can import a custom base map through MapBox, XYZ, or WMS. If you want, you could also forgo a basemap and use either a solid background color or repeated image.
+A basemap is typically a graphical representation of the world showing natural and cultural features such as water bodies, topography, park areas, points of interest, geopolitical borders, roads, streets and sometimes buildings. CartoDB provides you with a gallery of basemap options or you can import your own or use a solid color. With the easy-to-use basemap selector, you can focus on the best possible way of visualizing your data. Custom basemaps can be added from MapBox, an XYZ tileset (e.g. Stamen maps), or WMS. Solid color backgrounds or repeated image can be selected in the interface. 
 
 
 ### Selecting your basemap
