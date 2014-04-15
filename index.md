@@ -18,7 +18,7 @@ So we hear you've been out there trying different mapping tools on your computer
 
 The CartoDB interface allows you to drag and drop geospatial data (e.g. CSVs, ESRI Shapefiles, etc.) into your browser and have an interactive map in seconds. There is no download or installation needed. With your data and maps in hand, you can quickly filter, customize looks, and publish maps on the web. The tool gives you simple interfaces for publishing maps as public URLs, password protected visualizations for collaborations, embeddable maps, or even API endpoints to build CartoDB delivered maps directly into your own websites. 
 
-Some of the best parts of the Mapping Tool are the parts that you might never even notice, like scalablility. Our platform can supports maps that are viewed by a few close friends or colleagues, and those that fly to the top of Twitter feeds, Reddit, or other sources where they are viewed by thousands, even millions! CartoDB scales with you, making sure that your maps are enjoyed by all of your viewers.
+Some of the best parts of the Mapping Tool are the parts that you might never even notice, like scalablility. Our platform supports maps that are viewed by a few close friends or colleagues, and those that fly to the top of Twitter feeds, Reddit, or other sources where they are viewed by thousands, even millions! CartoDB scales with you, making sure that your maps are enjoyed by all of your viewers.
 
 Jump in and start using the tool right now, we have free accounts for you to try out, and we have lots of great resources including an awesome [community of users](http://gis.stackexchange.com/questions/tagged/cartodb) out there to help get your questions answered quick!
 
