@@ -24,8 +24,8 @@ CartoDB is a geospatial database on the cloud that allows for the storage and vi
 
 Your dashboard has two main sections: **tables** and **visualizations**. The steps to create a visualization of your data are simple:
 
-1. Import your data
-2. Visualize it
+1. Create a new **table*** by importing data
+2. Create a new **visualization** from your table
 3. Share it (public or privately)
 
 (You may even stop at step two as sharing is not mandatory. You may create a visualization to better understand your own data and keep it private.)
