@@ -28,13 +28,13 @@ Your dashboard has two main sections: **tables** and **visualizations**. The ste
 2. Create a new **visualization** from your table
 3. Share it (public or privately)
 
-(You may even stop at step two as sharing is not mandatory. You may create a visualization to better understand your own data and keep it private.)
+_You can stop at step two if you don't need to share your visualization. Keeping visualizations private can be useful for internal data analysis and gaining data insights._
 
-CartoDB lets you easily import your data from many different formats (Excel, CSV, XML, SHP, GeoJSON, etc.) and from different sources (your hard disk, Google Drive, Dropbox). It makes it easy to show your data on a map using our visual wizards. Our wizards enable you to select what type of visualization you want to create, define legends and infowindows (which are contextual pop-up windows associated with a data point or area) and select which information from your database you want to show.
+CartoDB lets you easily import your data in many different formats (Excel, CSV, XML, SHP, GeoJSON, [see all](data formats)) and from different sources (your own computer, a public URL, Google Drive, Dropbox). CartoDB includes interactive wizards taht make it easy to show your data on a map. Our wizards enable you to select what type of visualization you want to create, define legends and infowindows ([What is an infowindow?]) and select which information from your database you want to show.
 
 After you have created your visualization with our web interface, you can keep it private, share it with your colleagues, or publish it to the web either by sharing its URL or embedding it in your blog or CMS.
 
-In this guide we'll show you all the features and possibilities available to you from the CartoDB web interface. If you are ready to experiment with our powerful APIs then go to [CartoDB.js][cartodb_js] and [SQL API][sql_api].
+In this guide we'll walk through many of the features available in the CartoDB web interface. If you are ready to experiment with our powerful APIs then go to [CartoDB.js][cartodb_js] and [SQL API][sql_api].
 
 
 # Tables
