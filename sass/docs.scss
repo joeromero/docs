@@ -105,6 +105,7 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   overflow: hidden;
   padding: 40px 0;
   position: relative;
+  color: #333;
   &:after {
     content:"";
     width: 45%;
@@ -115,17 +116,17 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
     background: #F8F8F8;
     border-left: 1px solid #EEEEEE;
   }
-    h2 { margin-bottom: 22px; font: 28px/34px 'Proxima Nova Th'; }
-    h3 { margin-bottom: 22px; font: 22px/28px 'Proxima Nova Th'; }
-    h4 { margin-bottom: 22px; font: 18px/28px 'Proxima Nova Th'; }
-    h1 { margin-bottom: 22px; font: 32px/34px 'Proxima Nova Th'; }
-    a { color: #000; text-decoration: underline; }
-    p { font: 18px/28px 'Proxima Nova Lt'; margin-bottom: 38px; }
+    h2 { margin: 16px 0 22px 0; font: 24px/30px 'Proxima Nova Th'; }
+    h3 { margin: 16px 0 22px 0; font: 20px/24px 'Proxima Nova Th'; }
+    h4 { margin: 16px 0 22px 0; font: 16px/20px 'Proxima Nova Th'; }
+    h1 { margin: 22px 0 22px 0; font: 32px/34px 'Proxima Nova Th'; }
+    a { color: #3B7EBB; text-decoration: none; &:hover{text-decoration:underline;}}
+    p { font: 18px/28px 'Proxima Nova Lt'; margin-bottom: 24px; }
     ol, ul { font: 18px/28px 'Proxima Nova Lt'; }
-    li { margin: 0 40px 40px 0; }
+    li { margin: 0 40px 12px 0; }
     li p { float: none; }
-    ul { list-style-type: square; margin-left: 40px; }
-    ol { list-style-type: lower-hexadecimal; margin-left: 40px; }
+    ul { list-style-type: square; margin: 0 0 20px 30px; }
+    ol { list-style-type: lower-hexadecimal; margin: 0 0 20px 30px; }
     h2,
     p,
     h1,
@@ -228,7 +229,7 @@ img:-moz-broken { line-height: 11px; overflow: hidden; }
   width: 225px;
   padding: 40px 20px;
   border-right: 1px solid #eee;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .nav-inner {
