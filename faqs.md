@@ -146,7 +146,7 @@ It is possible with the property 'line-dasharray', example:
 }
 </pre>
 
-Documentation: https://www.mapbox.com/carto/api/2.3.0/#line-dasha...
+Documentation: https://www.mapbox.com/carto/api/2.3.0/#line-dasharray
 
 ### How can I get rid of the white border of the points in the map?
 
