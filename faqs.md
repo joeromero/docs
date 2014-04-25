@@ -172,3 +172,5 @@ Just go to the CartoCSS tag and look for this line:
 ### I'm a student/researcher, do you offer discounts for education?
 
 In CartoDB we have a special pricing for academic purposes. We offer a FREE Academy plan that allows you to have , as well as a discount of 20% in the rest of our plans. Pricing page for education can be found here: http://cartodb.com/academic
+
+### Which are the special plans for journalism of CartoDB?
