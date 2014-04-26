@@ -63,7 +63,7 @@ CartoDB is also based on PostGIS, so take a look at the [official PostGIS refere
 
 ## URL endpoints
 
-All SQL API requests to your CaroDB account should follow this general pattern:
+All SQL API requests to your CartoDB account should follow this general pattern:
 
 ```sql
 
