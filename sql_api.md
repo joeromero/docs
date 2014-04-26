@@ -43,7 +43,7 @@ http://{account}.cartodb.com/api/v2/sql?q={SQL statement}&api_key={Your API key}
 
 ## OAuth
 
-OAuth is an authentication protocol that allows users to allow an application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
+OAuth is an authentication protocol that enables users to give permission to an application to act on their behalf without sharing their password. More information can be found at the [OAuth website](http://oauth.net/) or in the [Beginner’s Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
 For an easier route, check out the CartoDB clients [below](#libraries-in-different-languages).
 
